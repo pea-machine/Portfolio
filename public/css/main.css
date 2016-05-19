@@ -390,8 +390,8 @@ nav {
       height: 30px; }
       nav .twitter-icon svg path {
         fill: #EEEEEE; }
-  nav :hover svg path {
-    fill: #4099FF; }
+        nav .twitter-icon svg path:hover {
+          fill: #4099FF; }
 
 header {
   -webkit-filter: hue-rotate(180deg);
@@ -418,15 +418,10 @@ header {
     margin: 0 0 0 -10%; }
     header .logo path {
       fill: #FFFFFF;
-      fill-rule: evenodd;
       -webkit-filter: url(#filter);
               filter: url(#filter); }
       header .logo path.zebra {
         fill: url(#pattern-zebra); }
-      header .logo path.sea {
-        fill: url(#pattern-sea); }
-      header .logo path.sand {
-        fill: url(#pattern-sand); }
       header .logo path.blackwhite {
         fill: url(#pattern-80s-blackwhite); }
       header .logo path.mosaic {
@@ -479,6 +474,8 @@ header {
         margin: 0 0 20px 0; }
       .content .inner .block-text p {
         font-size: 20px; }
+      .content .inner .block-text a {
+        color: #FFFFFF; }
       .content .inner .block-text .valign {
         position: absolute;
         top: 50%;
@@ -534,5 +531,39 @@ header {
   display: none; }
 .firefox .content {
   display: none; }
+
+/* Phones and smartphones in portrait */
+@media all and (min-width: 0) and (max-width: 480px) {
+  /* Smallest */
+  header .logo {
+    width: 60%;
+    top: 70px;
+    margin: 0 0 0 -27%; } }
+/* Small smartphones in landscape (iPhone in landscape) */
+@media all and (min-width: 481px) and (max-width: 600px) {
+  /* Smaller */
+  header .logo {
+    width: 60%;
+    top: 70px;
+    margin: 0 0 0 -27%; } }
+/* Small tablets and large phones in landscape (Nexus 7) */
+@media all and (min-width: 601px) and (max-width: 767px) {
+  /* Small */
+  header .logo {
+    width: 40%;
+    top: 70px;
+    margin: 0 0 0 -17%; } }
+/* Large tablets and Facebook iframe (iPad in portrait, Facebook on desktop) */
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  /* Medium */
+  header .logo {
+    width: 30%;
+    margin: 0 0 0 -12%; } }
+/* Large tablets (iPad in landscape) */
+@media all and (min-width: 1024px) and (max-width: 1199px) {
+  /* Large */ }
+/* Laptops and desktops */
+@media all and (min-width: 1200px) {
+  /* Larger */ }
 
 /*# sourceMappingURL=maps/main.css.map */

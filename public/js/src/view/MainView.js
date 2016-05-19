@@ -11,7 +11,7 @@ define(
         'bowser'
     ],
     function(Backbone, $, _, Main, tweenlite, tweenmax, easepack, modernizr, bowser) {
-        var defaultView = 'home';
+        var defaultView = '';
         var MainView = Backbone.View.extend({
             el: 'body',
             pageEvents: {},
@@ -31,7 +31,7 @@ define(
                 return false;
             },
             _closeView: function() {
-                router.navigate('home', true);
+                router.navigate('', true);
             },
             render: function(currentPageName) {
                 var nextPage = Backbone.history.getFragment();
@@ -197,7 +197,7 @@ define(
             }
         });
         var router = new MainRouter();
-        Backbone.history.start();
+        Backbone.history.start({pushState: true})
         router.navigate(defaultView, true);
     }
 );

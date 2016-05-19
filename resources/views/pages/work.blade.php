@@ -41,7 +41,7 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-text pre-lay">
+		<div class="block-text">
 			<p>The UX and design is a product of months of analysis and user feedback to make sure donors are getting through the process and paying as quickly as possible.</p>
 
 			<p>Since its launch I lead the development of a custom version for the UK's largest cancer charity and a smaller anti-bullying charity.</p>
@@ -49,7 +49,7 @@
 	</div>
 
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-text pre-lay">
+		<div class="block-text">
 		<h2>Sky Fortitude</h2>
 
 		<p>We were briefed to create something cool and different on Tumblr for the new TV series Fortitude. Our design was a flow of scattered content which was seemingly random in position. The posts follow a spine which runs down the page and the position of content is slightly randomised.</p>
@@ -67,7 +67,7 @@
     	</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-text pre-lay">
+		<div class="block-text">
 
 			<p>Tumblr's template engine was limiting in that it couldn't generate HTML for each of appearances that we needed, so the varying post styles all used the same HTML and modified only with CSS and JavaScript.</p>
 
@@ -75,7 +75,7 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-text pre-lay">
+		<div class="block-text">
 		<h2>Techmog</h2>
 		<p>The maker movement and all things related have been pretty underreported in London. We created a London tech blog to cover everything from product conceptualisation through to the product design and finally production.</p>
 		<p>We ask the tech community to contribute ad hoc. Quality stays high because contributors only write when they've got something amazing to share. Costs stay low because we don't need to house writers. And the combined following of our contributors matches that of larger publications.</p>
@@ -92,12 +92,12 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-text pre-lay">
+		<div class="block-text">
 		<p>The site itself is the most analysed I've made. It tracks everything the user does to find the UX that doesn't work. Every article suggestion on the website is carefully chosen for the user to make sure they're always moving on instead of leaving. All UX on the site has either been proven to be advantageous or is in testing.</p>
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-text pre-lay">
+		<div class="block-text">
 		<h2>Adorer</h2>
 		<p>Tasks to encourage users to follow accounts on social media can be repetitive, so are perfect for automating. I discovered that a good percentage of people follow you when you favourite their tweet, however the tactic is prone to error and favouriting the same person more than once can lead to their irritation.</p>
 		</div>
@@ -113,7 +113,7 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-text pre-lay">
+		<div class="block-text">
 		<p>I coded a simple program which allowed me to search and favourite tweets, but not more than once for each person. The program became Adorer and has helped grow hundreds of accounts to thousands of followers. The service has also been extended to Instagram and further automation features are being added.</p>
 		</div>
 	</div>
