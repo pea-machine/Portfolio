@@ -3,7 +3,7 @@ define(
         'backbone',
         'jquery',
         'underscore',
-        'src/Model/Main',
+        'src/model/Main',
         'tweenlite',
         'tweenmax',
         'easepack',
