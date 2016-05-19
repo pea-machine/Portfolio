@@ -12,7 +12,7 @@
       <image xlink:href="/public/img/80s-mosaic.jpg" x="0" y="0" width="600" height="300"></image>
     </pattern>
 
-    <pattern id="pattern-whirl" x="0" y="0" width="600" height="400" patternUnits="userSpaceOnUse">
+    <pattern id="pattern-80s-whirl" x="0" y="0" width="600" height="400" patternUnits="userSpaceOnUse">
       <image xlink:href="/public/img/80s-whirl.jpg" x="0" y="0" width="600" height="300"></image>
     </pattern>
 
