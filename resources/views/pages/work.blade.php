@@ -16,7 +16,7 @@
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
 		<div class="block-text">
 			<div>
-				<p>I'm a full stack developer by trade but passionate about making as a whole. My journey in code has let me work with some amazing companies like Sky, ASOS, Vue Cinemas and Macmillan.</p>
+				<p>I'm a full stack developer by trade and passionate about making as a whole. My journey in code has let me work on some amazing brand accounts like Sky, ASOS, Vue Cinemas and Macmillan.</p>
 
 				<p>But I've also had the pleasure to work with Belkin on a crazy contraption to showbase WeMo Maker, DIAGEO, managing their global social media activity for World Class and event management for GAP.</p>
 			</div>

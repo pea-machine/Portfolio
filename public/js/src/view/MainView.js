@@ -152,6 +152,11 @@ define(
 
                 arr2.ease = RoughEase.ease.config({ template: Power0.easeNone, strength: 3, points: 150, taper: "in", randomize: true, clamp: true});
                 arr2.onUpdate = setPoints;
+                arr2.onComplete = function(){
+                    $('header, header .inner').css({
+                        '-webkit-filter': 'none'
+                    });
+                };
 
                 TweenMax.to(arr1, 4, arr2);
 

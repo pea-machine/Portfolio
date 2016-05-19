@@ -85,7 +85,6 @@ header {
         margin: 0 0 0 -10%;
         path {
             fill: #FFFFFF;
-            fill-rule: evenodd;
             filter: url(#filter);
             &.zebra {
                 fill: url(#pattern-zebra);
