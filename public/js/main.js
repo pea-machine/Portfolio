@@ -2,7 +2,7 @@ require(['config'], function () {
     require(
         [
             'backbone',
-            'src/View/MainView'
+            'src/view/MainView'
         ],
         function (Backbone, MainView) {
            
