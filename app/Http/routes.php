@@ -15,6 +15,18 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/about', function () {
+    return view('home');
+});
+
+Route::get('/work', function () {
+    return view('home');
+});
+
+Route::get('/contact', function () {
+    return view('home');
+});
+
 Route::get('pages/{id}', function ($page) {
     return view('pages/' . $page);
 });

@@ -11,7 +11,8 @@ define(
         'bowser'
     ],
     function(Backbone, $, _, Main, tweenlite, tweenmax, easepack, modernizr, bowser) {
-        var defaultView = '';
+        var path = window.location.pathname;
+        var defaultView = path.split("/").pop();
         var MainView = Backbone.View.extend({
             el: 'body',
             pageEvents: {},
