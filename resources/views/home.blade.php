@@ -11,13 +11,12 @@
             <a href="/#work" class="page">Work</a>
             <a href="/#contact" class="page">Contact</a>
             <a href="http://twitter.com/peabay" class="twitter-icon" target="_blank">
-                {!! file_get_contents(asset('public/img/twitter-icon.svg')) !!}
+                <div class="svgImg" data-url="public/img/twitter-icon.svg" data-fallback-url="public/img/twitter-icon.png"></div>
             </a>
         </nav>
         <header id="header">
             <div class="inner">
-                {!! file_get_contents(asset('public/img/peabay-logo.svg')) !!}
-                <img src="/public/img/peabay-logo.png" class="logo">
+                <div class="svgImg" data-url="public/img/peabay-logo.svg" data-fallback-url="public/img/peabay-logo.png" data-classes="logo"></div>
             </div>
         </header>
         <div class="content" id="content" data-toggle="up">

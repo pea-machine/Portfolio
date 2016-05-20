@@ -21,6 +21,7 @@ define(
                 'click .close': '_closeView'
             },
             initialize: function() {
+                this._loadSvgs();
                 _.extend(this.pageEvents, Backbone.Events);
                 this._loadBody();
             },
@@ -159,13 +160,29 @@ define(
                     });
                 };
 
-                TweenMax.to(arr1, 4, arr2);
+                TweenMax.to(arr1, 2, arr2);
 
                 function setPoints() {
                     TweenMax.set('header .inner', {
                     webkitClipPath:
                         'polygon('+arr1[0]+'%'+arr1[1]+'%,+'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)'});
                 }
+            },
+            _loadSvgs: function() {
+                $.each($('.svgImg'), function( index, el ) {
+                    if($('html.firefox').length > 0) {
+                        $(el).replaceWith($('<img src="' + $(el).attr('data-fallback-url') + '">').addClass($(el).attr('data-classes')));
+                    } else {
+                        $.ajax({
+                          method: 'GET',
+                          url: $(el).attr('data-url'),
+                          dataType: 'html',
+                          cache: true,
+                        }).done(function( data ) {
+                            $(el).replaceWith($(data).addClass($(el).attr('data-classes')));
+                        });
+                    }
+                });
             }
 
         });

@@ -392,6 +392,9 @@ nav {
         fill: #EEEEEE; }
         nav .twitter-icon svg path:hover {
           fill: #4099FF; }
+    nav .twitter-icon img {
+      width: 30px;
+      height: 30px; }
 
 header {
   -webkit-filter: hue-rotate(180deg);
@@ -432,8 +435,6 @@ header {
         fill: url(#pattern-80s-teal); }
       header .logo path.whirl {
         fill: url(#pattern-80s-whirl); }
-  header img.logo {
-    display: none; }
 
 .content {
   clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
@@ -525,10 +526,6 @@ header {
         -webkit-transform: perspective(1000) rotateX(20deg) translate(0, 100px);
         opacity: 0; }
 
-.firefox img.logo {
-  display: block; }
-.firefox svg.logo {
-  display: none; }
 .firefox .content {
   display: none; }
 
