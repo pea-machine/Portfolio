@@ -1,26 +1,25 @@
-<div class="grid">
-	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-text">
-			<p>
-				My name is Peter Bailey. When you put my names together you get Petiley. So instead I use peabay.
-			</p>
-			<p>
-				Like most London creatives I grew up in one of the home counties; Kent. In Kent I studied electronics because "there's no jobs in web design". Later, I landed my first job in web design. I made ecommerse sites and it was horrible, but soon I was packing my bags and heading eastward to begin a new life in Old Street.
-			</p>
-			<p>
-				Lots has happened since then. I grew a beard. I went on holiday. And now I've settled in I've realised that there's way too much to learn, do and see and I'm never going to fit it all in. So every inch of my days are spent doing my favourite things.
-			</p>
-			<p>
-				One of those things is running London's most loved, and only, blog about hardware startups. Joined by some passion-filled friends we consume all of the hardware-related happenings in London and spill it out into words on the internet.
-			</p>
-			<p>
-				Techmog lets me combine my other favourite things - making, coding, photography, writing, design, marketing, <a href="https://www.instagram.com/p/BDvbYpyuP5D" target="_blank">3D printed unicorns that fart bubbles</a>. And I pull everything I learn together into my work as a web developer.
-			</p>
+<div class="page-about">
+	<div class="grid">
+		<div class="col perc25 smallest-to-100 smaller-to-100 small-to-100">
+			<div class="block-image">
+				<img src="/public/img/me.png" class="display-picture">
+			</div>
 		</div>
-	</div>
-	<div class="col perc50">
-		<div class="block-image" style="background-image: url('http://peterbailey.eu/www/img/tiles/daretodonate.png')">
-
+		<div class="col perc75 smallest-to-100 smaller-to-100 small-to-100">
+			<div class="block-text">
+				<p>
+					Like most London creatives I grew up in one of the home counties; Kent. I studied electronics because "there's no jobs in web design". I later landed my first job in web design and unglamorously made ecommerce sites. But I was soon packing my bags and heading eastward to begin a new life in Old Street.
+				</p>
+				<p>
+					Tucked away in the back streets our small studio was busily overhauling the Witch? website. It allowed me to experiment with some early responsive-design principles, and I developed a Javascript WYSIWYG editor to output articles that adapted to the screen size.
+				</p>
+				<p>
+					I then joined the then marketing agency Independents United where I was responsible for developing a range of digital campaigns for brands such as ASOS, Sky and Diageo. I also developed the internal venture Dare to Donate; a fundraising platform which has since raised thousands for charity. Over time the company changed and so did my role. It gave me the opportunity to learn about producing and I managed social for Diageo World Class. My day-to-day would include content creation and communicating it to the 30 global markets.
+				</p>
+				<p>
+					Concurrent to this I founded the hardware blog Techmog.com which covers product design and the maker movement in London. Today we are a team of writers who do an amazing job at showing what London is making.
+				</p>
+			</div>
 		</div>
 	</div>
 </div>

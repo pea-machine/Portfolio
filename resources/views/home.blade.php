@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html class="no-js <?php echo strtolower(BrowserDetect::detect()['browserFamily']); ?>">
     <head>
-        <title>Laravel</title>
+        <title>Peter Bailey / London Web Developer</title>
         <link href="{{ URL::asset('public/css/main.css') }}" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable = 0">
     </head>
     <body>
         <nav>
             <a href="/#about" class="page">About</a>
             <a href="/#work" class="page">Work</a>
-            <a href="/#contact" class="page">Contact</a>
+            <a href="mailto:hello@peterbailey.eu">Contact</a>
             <a href="http://twitter.com/peabay" class="twitter-icon" target="_blank">
                 <div class="svgImg" data-url="public/img/twitter-icon.svg" data-fallback-url="public/img/twitter-icon.png"></div>
             </a>

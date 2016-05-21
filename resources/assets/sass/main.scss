@@ -1,0 +1,373 @@
+@import 'adaptivegrid';
+@import 'mixins';
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: "Open Sans";
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: calc(100% - 70px);
+    overflow: hidden;
+}
+
+nav {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 40px 30px;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 102px;
+    z-index: 1;
+    a {
+        text-decoration: none;
+        margin: 0 0 0 30px;
+        color: #639466;
+        :hover {
+            color: red;
+        }
+    }
+    .twitter-icon {
+        float: left;
+        margin: -5px 0 0 0;
+        svg {
+            width: 30px;
+            height: 30px;
+            path {
+                fill: #EEEEEE;
+                &:hover {
+                    fill: #4099FF;
+                }
+            }
+        }
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+
+header {
+    .inner {
+        background-image: url('/public/img/palms.jpg');
+        background-size: cover;
+        clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
+        filter: hue-rotate(180deg);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    filter: hue-rotate(180deg);
+    background-image: url('/public/img/palms.jpg');
+    background-size: cover;
+    height: 100%;
+    margin: 70px 0 0 0;
+    position: relative;
+    z-index: 0;
+    .logo {
+        width: 30%;
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        margin: 0 0 0 -13%;
+        path {
+            fill: #FFFFFF;
+            filter: url(#filter);
+            &.zebra {
+                fill: url(#pattern-zebra);
+            }
+            &.blackwhite {
+                fill: url(#pattern-80s-blackwhite);
+            }
+            &.mosaic {
+                fill: url(#pattern-80s-mosaic);
+            }
+            &.swan {
+                fill: url(#pattern-80s-swan);
+            }
+            &.teal {
+                fill: url(#pattern-80s-teal);
+            }
+            &.whirl {
+                fill: url(#pattern-80s-whirl);
+            }
+        }            
+    }
+}
+
+.content {        
+    clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #352842;
+    overflow: hidden;
+    z-index: 2;
+    img {
+        max-width: 100%
+    }
+    .close {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 1;
+        path {
+            fill: #FFFFFF;
+            fill-rule: evenodd;
+            opacity: 0.5;
+        }
+    }
+    .inner {
+        overflow: auto;
+        height: 100%;
+        color: #857794;
+        padding: 40px 0 0 0;
+        overflow-x: hidden;
+        .block-text {
+            padding: 40px;
+            position: relative; /* For virtival alignment */
+            h2 {
+                font-size: 30px;
+                margin: 0 0 20px 0;
+            }
+            p {
+                font-size: 20px;
+            }
+            .valign {
+                @include valign(absolute);  
+                padding: 0 40px 0 0;
+            }
+        }
+        .block-image {
+            max-width: 100%;
+            padding: 40px;
+        }
+        .block-background-image {
+            min-height: 500px;
+            background-size: cover;
+            background-position: center;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            margin: 0 auto 10px auto;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .contact {
+            @include valign();  
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: 30px;
+        }
+        .brand-logos {
+            text-align: center;
+            svg {
+                height: 50px;
+                width: auto;
+                margin: 0 30px 30px 0;
+            }
+            path {
+                fill: #BEAAD2;
+                fill-opacity: 0.3;
+            }
+        }
+        a {
+            color: #FFFFFF;
+        }
+        p {
+            margin: 0 0 2em 0
+        }
+        p:last-child {
+            margin: 0;
+        }
+        .video-wrapper, .block-text, .block-image, .block-background-image {
+            transition: transform 2s, opacity 2s;
+            transform-origin: 50% 0%;
+            opacity: 1;
+            &.pre-lay {
+                transform: perspective(1000) rotateX(20deg) translate(0, 100px);
+                opacity: 0;
+            }
+        }
+        .page {
+            &-about {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+.firefox {
+    .content {
+        display: none
+    }
+}
+
+/* Phones and smartphones in portrait */
+@media all and (min-width: 0) and (max-width: 480px){ /* Smallest */
+
+    header .logo {
+        width: 60%;
+        top: 70px;
+        margin: 0 0 0 -27%;
+    }
+
+    .content {
+        .inner {
+            .brand-logos {
+                svg {
+                    height: 30px;
+                    margin: 0 30px 30px 0;
+                    text-align: left;
+                }
+            }
+            .block-text {
+                padding: 0 20px;
+            }
+            .block-background-image {
+                min-height: 300px;
+            }
+            .page {
+                &-about {
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    .display-picture {
+                        width: 50%;
+                        display: block;
+                        margin: 0 auto
+                    }
+                }
+            }
+        }
+    }
+  
+}
+ 
+/* Small smartphones in landscape (iPhone in landscape) */
+@media all and (min-width: 481px) and (max-width: 600px){ /* Smaller */
+
+    header .logo {
+        width: 60%;
+        top: 70px;
+        margin: 0 0 0 -27%;
+    }
+
+    .content {
+        .inner {
+            .brand-logos {
+                svg {
+                    height: 30px;
+                    margin: 0 30px 30px 0;
+                    text-align: left;
+                }
+            }
+            .block-text {
+                padding: 0 20px;
+            }
+            .block-background-image {
+                min-height: 300px;
+            }
+            .page {
+                &-about {
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    .display-picture {
+                        width: 50%;
+                        display: block;
+                        margin: 0 auto
+                    }
+                }
+            }
+        }
+    }
+    
+}
+ 
+/* Small tablets and large phones in landscape (Nexus 7) */
+@media all and (min-width: 601px) and (max-width: 767px) { /* Small */
+
+    header .logo {
+        width: 40%;
+        top: 70px;
+        margin: 0 0 0 -17%;
+    }
+
+    .content {
+        .inner {
+            .brand-logos {
+                svg {
+                    height: 30px;
+                    margin: 0 30px 30px 0;
+                    text-align: left;
+                }
+            }
+            .block-text {
+                padding: 0 20px;
+            }
+            .block-background-image {
+                min-height: 300px;
+            }
+            .page {
+                &-about {
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    .display-picture {
+                        width: 50%;
+                        display: block;
+                        margin: 0 auto
+                    }
+                }
+            }
+        }
+    }
+  
+}
+ 
+/* Large tablets and Facebook iframe (iPad in portrait, Facebook on desktop) */
+@media all and (min-width: 768px) and (max-width: 1023px){ /* Medium */
+
+    header .logo {
+        width: 30%;
+        margin: 0 0 0 -12%;
+    }
+ 
+}
+
+/* Large tablets (iPad in landscape) */
+@media all and (min-width: 1024px) and (max-width: 1199px){ /* Large */
+
+
+    
+}
+ 
+/* Laptops and desktops */
+@media all and (min-width: 1200px){ /* Larger */
+
+
+    
+}

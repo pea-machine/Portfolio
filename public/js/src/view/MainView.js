@@ -6,11 +6,10 @@ define(
         'src/model/Main',
         'tweenlite',
         'tweenmax',
-        'easepack',
         'modernizr',
         'bowser'
     ],
-    function(Backbone, $, _, Main, tweenlite, tweenmax, easepack, modernizr, bowser) {
+    function(Backbone, $, _, Main, tweenlite, tweenmax, modernizr, bowser) {
         var path = window.location.pathname;
         var defaultView = path.split("/").pop();
         var MainView = Backbone.View.extend({
@@ -140,8 +139,13 @@ define(
 
                 function setPoints() {
                     TweenMax.set('.content', {
-                    webkitClipPath:
-                        'polygon('+arr1[0]+'%'+arr1[1]+'%,+'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)'});
+                        css: {
+                            '-webkit-clip-path':
+                            'polygon('+arr1[0]+'%'+arr1[1]+'%,+'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)',
+                            'clip-path':
+                            'polygon('+arr1[0]+'%'+arr1[1]+'%,+'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)'
+                        }
+                    }); 
                 }
 
             },
@@ -164,8 +168,13 @@ define(
 
                 function setPoints() {
                     TweenMax.set('header .inner', {
-                    webkitClipPath:
-                        'polygon('+arr1[0]+'%'+arr1[1]+'%,+'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)'});
+                        css: {
+                            '-webkit-clip-path':
+                            'polygon('+arr1[0]+'%'+arr1[1]+'%,+'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)',
+                            'clip-path':
+                            'polygon('+arr1[0]+'%'+arr1[1]+'%,+'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)'
+                        }
+                    }); 
                 }
             },
             _loadSvgs: function() {
