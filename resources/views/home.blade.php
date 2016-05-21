@@ -6,6 +6,7 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
         <meta name="HandheldFriendly" content="True">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable = 0">
+        <link rel="icon" type="image/png" href="/public/img/palmemoji.png">
     </head>
     <body>
         <nav>
