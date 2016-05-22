@@ -7,6 +7,13 @@
         <meta name="HandheldFriendly" content="True">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable = 0">
         <link rel="icon" type="image/png" href="/public/img/palmemoji.png">
+        <meta property="og:url" content="http://techmog.com/6855/biohacking-mini-lab-signals-a-growing-interest-in-diy-biology/"/>
+        <meta property="og:title" content="Peter Bailey / Web Developer"/>
+        <meta property="og:site_name" content="Peter Bailey"/>
+        <meta property="og:description" content="London web developer."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="{{ URL::asset('public/img/og-image.png') }}"/>
+        <meta property="og:locale" content="en_gb"/>
     </head>
     <body>
         <nav>
