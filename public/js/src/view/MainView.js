@@ -99,9 +99,7 @@ define(
                 if (toggle == $('.content').attr('data-toggle')){
                     return;
                 }
-                // Firefox can't handle clip-path polygons 
-                // so just show/hide .content 🙃
-                if (bowser.firefox) {
+                if (!bowser.webkit) {
                     switch (toggle) {
                         case 'up':
                             $('.content').hide();
