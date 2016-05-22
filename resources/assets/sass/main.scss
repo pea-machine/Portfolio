@@ -34,10 +34,14 @@ nav {
     a {
         text-decoration: none;
         margin: 0 0 0 30px;
-        color: #639466;
-        :hover {
-            color: red;
-        }
+        background-image: url("/public/img/palms.jpg");
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        font-size: 13px;
+        background-attachment: fixed;
+        background-position: -136px 0;
+        background-size: 20%;
     }
     .twitter-icon {
         float: left;

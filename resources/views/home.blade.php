@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js <?php echo strtolower(BrowserDetect::detect()['browserFamily']); ?>">
+<html class="no-js <?php echo str_slug(strtolower(BrowserDetect::detect()['browserFamily']), '-'); ?>">
     <head>
         <title>Peter Bailey / London Web Developer</title>
         <link href="{{ URL::asset('public/css/main.css') }}" rel="stylesheet">

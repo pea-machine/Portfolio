@@ -117,12 +117,20 @@ define(
                         toPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0 };
                     break;
                     default:
+                        $('.content').show();
                         fromPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0 };
                         toPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120 };
                     break;
                 }
                 $('.content').attr('data-toggle', toggle);
                 toPath.ease = Expo.easeOut;
+                // Safari leaves a transparent container there 
+                // stopping the user clicking anything 🙃
+                toPath.onComplete = function() {
+                    if(toggle == 'up') {
+                        $('.content').hide();
+                    }
+                }
                 toPath.onUpdate = setPoints;
                 TweenMax.to(fromPath, 3, toPath);
                 function setPoints() {
