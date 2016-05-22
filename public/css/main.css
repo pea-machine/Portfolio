@@ -397,6 +397,7 @@ nav {
   z-index: 1; }
   nav a {
     text-decoration: none;
+    color: #2A5D2A;
     margin: 0 0 0 30px;
     background-image: url("/public/img/palms.jpg");
     -webkit-background-clip: text;
@@ -567,8 +568,13 @@ header {
       max-width: 1000px;
       margin: 0 auto; }
 
-.firefox .content {
+html.firefox .content,
+html.internet-explorer .content {
   display: none; }
+
+html.firefox nav a,
+html.internet-explorer nav a {
+  background-image: none; }
 
 /* Phones and smartphones in portrait */
 @media all and (min-width: 0) and (max-width: 480px) {

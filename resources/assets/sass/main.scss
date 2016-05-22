@@ -33,6 +33,7 @@ nav {
     z-index: 1;
     a {
         text-decoration: none;
+        color: #2A5D2A;
         margin: 0 0 0 30px;
         background-image: url("/public/img/palms.jpg");
         -webkit-background-clip: text;
@@ -226,7 +227,8 @@ header {
     }
 }
 
-html.firefox, html.internet-explorer {
+html.firefox, 
+html.internet-explorer {
     .content {
         display: none
     }    

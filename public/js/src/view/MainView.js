@@ -128,7 +128,7 @@ define(
                 // Safari leaves a transparent container there 
                 // stopping the user clicking anything 🙃
                 toPath.onComplete = function() {
-                    if(toggle == 'up') {
+                    if($('html.safari').length > 0 && toggle == 'up') {
                         $('.content').hide();
                     }
                 }
