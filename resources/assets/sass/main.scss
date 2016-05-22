@@ -226,9 +226,14 @@ header {
     }
 }
 
-.firefox {
+html.firefox, html.internet-explorer {
     .content {
         display: none
+    }    
+    nav {
+        a {
+            background-image: none
+        }
     }
 }
 
