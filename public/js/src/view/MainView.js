@@ -21,11 +21,6 @@ define(
                 'click .close': '_closeView'
             },
             initialize: function() {
-                // Too much to fix for IE so will need to
-                // create a new set of views for it. Maybe.
-                if($('html.internet-explorer').length > 0) {
-                    //window.location = 'https://app.yunojuno.com/p/peabay';
-                }
                 this._loadSvgs();
                 _.extend(this.pageEvents, Backbone.Events);
                 this._loadBody();
