@@ -10,8 +10,9 @@ define(
         'bowser'
     ],
     function(Backbone, $, _, Main, tweenlite, tweenmax, modernizr, bowser) {
-        var path = window.location.pathname;
-        var defaultView = path.split("/").pop();
+        var path = window.location.pathname,
+        defaultView = path.split("/").pop();
+
         var MainView = Backbone.View.extend({
             el: 'body',
             pageEvents: {},
@@ -35,9 +36,9 @@ define(
                 router.navigate('', true);
             },
             render: function(currentPageName) {
-                var nextPage = Backbone.history.getFragment();
-                var view = this;
-                if(nextPage == 'home' || nextPage == '') {
+                var nextPage = Backbone.history.getFragment(),
+                view = this;
+                if (nextPage == 'home' || nextPage == '') {
                     this._toggleContent('up');
                     return;
                 }
@@ -54,42 +55,37 @@ define(
             _populatePage: function(page) {
                 var view = this;
                 $('.content .inner').load('/pages/' + page, function() {
-                    setTimeout(function(){
-                        view._toggleContent('down');
-                        view.pageEvents.trigger('pagePopulated', true);
-
-                
-                $('.content .inner').on('scroll', function() {
-
-                    $.each($('.pre-lay'), function( index, el ) {
-
-                        var hT = $(el).offset().top,
-                           hH = $(el).outerHeight(),
-                           wH = $('.content .inner').height(),
-                               wS = $(this).scrollTop();
-                           if (wS > (hT+hH-(wH+400))) {
-                               $(el).removeClass('pre-lay');
-                           }
+                    view.pageEvents.trigger('pagePopulated', true);
+                    view._toggleContent('down');
+                    $('.content .inner').on('scroll', function() {
+                        $.each($('.pre-lay'), function( index, el ) {
+                            var hT = $(el).offset().top,
+                            hH = $(el).outerHeight(),
+                            wH = $('.content .inner').height(),
+                            wS = $(this).scrollTop();
+                            if (wS > (hT + hH - (wH + 400 ))) {
+                                $(el).removeClass('pre-lay');
+                            }
                         });
-
                     });
-
-                    }, 1000);
                 });
             },
-            _cycleLogo: function(){
-                TweenMax.staggerFromTo($('.logo'), 1, 
-                { scale: 1 }, 
-                { scale: 0.9, ease: Back.easeOut }, 
-                0.5);
-                var tl = new TimelineMax({repeat: 300});
+            _cycleLogo: function() {
+                TweenMax.staggerFromTo(
+                    $('.logo'), 
+                    1, 
+                    { scale: 1 }, 
+                    { scale: 0.9, ease: Back.easeOut }, 
+                    0.5
+                );
+                var tl = new TimelineMax({ repeat: 300 });
                 tl.timeScale(15)
-                .to($('.logo path'), 0, {css:{className: 'zebra'}}, 0)
-                .to($('.logo path'), 0, {css:{className: 'blackwhite'}}, 1)
-                .to($('.logo path'), 0, {css:{className: 'whirl'}}, 2)
-                .to($('.logo path'), 0, {css:{className: 'mosaic'}}, 2)
-                .to($('.logo path'), 0, {css:{className: 'swan'}}, 3)
-                .to($('.logo path'), 0, {css:{className: 'teal'}}, 4);
+                .to($('.logo path'), 0, { css:{ className: 'zebra' } }, 0)
+                .to($('.logo path'), 0, { css:{ className: 'blackwhite' } }, 1)
+                .to($('.logo path'), 0, { css:{ className: 'whirl' } }, 2)
+                .to($('.logo path'), 0, { css:{ className: 'mosaic' } }, 3)
+                .to($('.logo path'), 0, { css:{ className: 'swan' } }, 4)
+                .to($('.logo path'), 0, { css:{ className: 'teal' } }, 5);
                 this.pageEvents.on('pagePopulated', function(msg) {
                     tl.stop();
                     $('.logo path').attr('class', '');
@@ -100,14 +96,13 @@ define(
                 });
             },
             _toggleContent: function(toggle) {
-
-                if(toggle == $('.content').attr('data-toggle')){
+                if (toggle == $('.content').attr('data-toggle')){
                     return;
                 }
-
-                // Firefox can't handle clip-path polygons so just show/hide .content
-                if(bowser.firefox) {
-                    switch(toggle) {
+                // Firefox can't handle clip-path polygons 
+                // so just show/hide .content 🙃
+                if (bowser.firefox) {
+                    switch (toggle) {
                         case 'up':
                             $('.content').hide();
                         break;
@@ -116,70 +111,79 @@ define(
                         break;
                     }
                 }
-
-                switch(toggle) {
+                switch (toggle) {
                     case 'up':
-                        fromPath = {0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120};
-                        toPath = {0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0};
+                        fromPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120 };
+                        toPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0 };
                     break;
                     default:
-                        fromPath = {0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0};
-                        toPath = {0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120};
+                        fromPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0 };
+                        toPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120 };
                     break;
                 }
                 $('.content').attr('data-toggle', toggle);
-
-                var arr1 = fromPath;
-                var arr2 = toPath;
-
-                arr2.ease = Expo.easeOut;
-                arr2.onUpdate = setPoints;
-
-                TweenMax.to(arr1, 3, arr2);
-
+                toPath.ease = Expo.easeOut;
+                toPath.onUpdate = setPoints;
+                TweenMax.to(fromPath, 3, toPath);
                 function setPoints() {
+                    var tweens = fromPath[0] + '%'
+                        +fromPath[1] + '%,'
+                        +fromPath[2] + '%'
+                        +fromPath[3] + '%,'
+                        +fromPath[4] + '%'
+                        +fromPath[5] + '%,'
+                        +fromPath[6] + '%'
+                        +fromPath[7] + '%';
                     TweenMax.set('.content', {
                         css: {
                             '-webkit-clip-path':
-                            'polygon('+arr1[0]+'%'+arr1[1]+'%,+'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)',
+                            'polygon(' + tweens + ')',
                             'clip-path':
-                            'polygon('+arr1[0]+'%'+arr1[1]+'%,+'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)'
+                            'polygon(' + tweens + ')'
                         }
                     }); 
                 }
-
             },
             _loadBody: function() {
-                fromPath = {0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0};
-                toPath = {0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120};
-
-                var arr1 = fromPath;
-                var arr2 = toPath;
-
-                arr2.ease = RoughEase.ease.config({ template: Power0.easeNone, strength: 3, points: 150, taper: "in", randomize: true, clamp: true});
-                arr2.onUpdate = setPoints;
-                arr2.onComplete = function(){
+                fromPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0 };
+                toPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120 };
+                toPath.ease = RoughEase.ease.config({
+                    template: Power0.easeNone,
+                    strength: 3,
+                    points: 150,
+                    taper: "in",
+                    randomize: true,
+                    clamp: true
+                });
+                toPath.onUpdate = setPoints;
+                toPath.onComplete = function() {
                     $('header, header .inner').css({
                         '-webkit-filter': 'none'
                     });
                 };
-
-                TweenMax.to(arr1, 2, arr2);
-
+                TweenMax.to(fromPath, 2, toPath);
                 function setPoints() {
+                    var tweens = fromPath[0] + '%'
+                        +fromPath[1] + '%,'
+                        +fromPath[2] + '%'
+                        +fromPath[3] + '%,'
+                        +fromPath[4] + '%'
+                        +fromPath[5] + '%,'
+                        +fromPath[6] + '%'
+                        +fromPath[7] + '%';
                     TweenMax.set('header .inner', {
                         css: {
                             '-webkit-clip-path':
-                            'polygon('+arr1[0]+'%'+arr1[1]+'%,+'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)',
+                            'polygon(' + tweens + ')',
                             'clip-path':
-                            'polygon('+arr1[0]+'%'+arr1[1]+'%,+'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)'
+                            'polygon(' + tweens + ')'
                         }
                     }); 
                 }
             },
             _loadSvgs: function() {
                 $.each($('.svgImg'), function( index, el ) {
-                    if($('html.firefox').length > 0) {
+                    if ($('html.firefox').length > 0) {
                         $(el).replaceWith($('<img src="' + $(el).attr('data-fallback-url') + '">').addClass($(el).attr('data-classes')));
                     } else {
                         $.ajax({
@@ -193,7 +197,6 @@ define(
                     }
                 });
             }
-
         });
 
         var MainRouter = Backbone.Router.extend({
@@ -224,7 +227,7 @@ define(
             }
         });
         var router = new MainRouter();
-        Backbone.history.start({pushState: true})
+        Backbone.history.start({ pushState: true })
         router.navigate(defaultView, true);
     }
 );
