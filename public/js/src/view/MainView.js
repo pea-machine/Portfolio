@@ -21,8 +21,10 @@ define(
                 'click .close': '_closeView'
             },
             initialize: function() {
+                // Too much to fix for IE so will need to
+                // create a new set of views for it. Maybe.
                 if($('html.internet-explorer').length > 0) {
-                    window.location = 'https://app.yunojuno.com/p/peabay';
+                    //window.location = 'https://app.yunojuno.com/p/peabay';
                 }
                 this._loadSvgs();
                 _.extend(this.pageEvents, Backbone.Events);
@@ -102,7 +104,10 @@ define(
                 if (toggle == $('.content').attr('data-toggle')){
                     return;
                 }
-                if (!bowser.webkit) {
+
+                // Browser support for clip-path isn't great so
+                // do a show/hide for non-webkit and blink browsers
+                if (!bowser.webkit && !bowser.blink) {
                     switch (toggle) {
                         case 'up':
                             $('.content').hide();
@@ -112,6 +117,14 @@ define(
                         break;
                     }
                 }
+
+                // Safari leaves a transparent container there 
+                // stopping the user clicking anything so we'll
+                // just hide the content on close instead 🙃
+                if($('html.safari').length > 0 && toggle == 'up') {
+                    $('.content').fadeOut(200);
+                }
+
                 switch (toggle) {
                     case 'up':
                         fromPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120 };
@@ -125,13 +138,6 @@ define(
                 }
                 $('.content').attr('data-toggle', toggle);
                 toPath.ease = Expo.easeOut;
-                // Safari leaves a transparent container there 
-                // stopping the user clicking anything 🙃
-                toPath.onComplete = function() {
-                    if($('html.safari').length > 0 && toggle == 'up') {
-                        $('.content').hide();
-                    }
-                }
                 toPath.onUpdate = setPoints;
                 TweenMax.to(fromPath, 3, toPath);
                 function setPoints() {
@@ -165,11 +171,16 @@ define(
                     clamp: true
                 });
                 toPath.onUpdate = setPoints;
+
+                // Filter is still a bit buggy so reset it
+                // when we're done so the logo has the
+                // correct colouring
                 toPath.onComplete = function() {
                     $('header, header .inner').css({
                         '-webkit-filter': 'none'
                     });
                 };
+
                 TweenMax.to(fromPath, 2, toPath);
                 function setPoints() {
                     var tweens = fromPath[0] + '%'
@@ -192,7 +203,7 @@ define(
             },
             _loadSvgs: function() {
                 $.each($('.svgImg'), function( index, el ) {
-                    if ($('html.firefox').length > 0) {
+                    if ($('html.firefox').length > 0 || $('html.internet-explorer').length > 0) {
                         $(el).replaceWith($('<img src="' + $(el).attr('data-fallback-url') + '">').addClass($(el).attr('data-classes')));
                     } else {
                         $.ajax({
