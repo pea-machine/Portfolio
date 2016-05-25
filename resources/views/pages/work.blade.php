@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image" style="background-image: url('http://peterbailey.eu/www/img/tiles/daretodonate.png')">
+		<div class="block-background-image" style="background-image: url('/public/img/daretodonate.png')">
 
 		</div>
 	</div>
@@ -61,7 +61,7 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image pre-lay" style="background-image: url('http://peterbailey.eu/www/img/tiles/fortitude.jpg')">
+		<div class="block-background-image pre-lay" style="background-image: url('/public/img/fortitude.jpg')">
 
 		</div>
 	</div>
@@ -85,12 +85,12 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image pre-lay" style="background-image: url('http://peterbailey.eu/www/img/project/IMG_0962.jpg')">
+		<div class="block-background-image pre-lay" style="background-image: url('/public/img/IMG_0962.jpg')">
 
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image pre-lay" style="background-image: url('http://peterbailey.eu/www/img/project/IMG_99992.jpg')">
+		<div class="block-background-image pre-lay" style="background-image: url('/public/img/IMG_99992.jpg')">
 
 		</div>
 	</div>
@@ -107,12 +107,12 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image pre-lay" style="background-image: url('http://peterbailey.eu/www/img/tiles/adorer.png')">
+		<div class="block-background-image pre-lay" style="background-image: url('/public/img/adorer.png')">
 
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image pre-lay" style="background-image: url('http://peterbailey.eu/www/img/project/adorer1.jpg')">
+		<div class="block-background-image pre-lay" style="background-image: url('/public/img/adorer1.jpg')">
 
 		</div>
 	</div>
