@@ -7,6 +7,7 @@ define(
         var MainModel = Backbone.Model.extend({
            
         });
+
         return MainModel;
     }
 );

@@ -7,6 +7,7 @@ define(
         var MainCollection = Backbone.Collection.extend({
             model: Main
         });
+
         return MainCollection;
     }
 );
