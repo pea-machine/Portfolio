@@ -10,9 +10,6 @@ define(
         'bowser'
     ],
     function(Backbone, $, _, Main, tweenlite, tweenmax, modernizr, bowser) {
-        var path = window.location.pathname,
-        defaultView = path.split("/").pop();
-
         var MainView = Backbone.View.extend({
             el: 'body',
             pageEvents: {},
@@ -20,43 +17,43 @@ define(
                 'click a.page': '_changeView',
                 'click .close': '_closeView'
             },
-            initialize: function() {
+            initialize: function () {
+                var view = this;
+                this.render();
                 this._loadSvgs();
                 _.extend(this.pageEvents, Backbone.Events);
                 this._loadBody();
+                Backbone.history.on("all", function (MainRouter) {
+                    view.render(Backbone.history.getFragment());
+                });
             },
-            _changeView: function(event) {
+            _changeView: function (event) {
                 event.preventDefault();
                 this._cycleLogo();
                 newView = $(event.target).attr('href');
-                router.navigate(newView.substr(1), true);
-                return false;
+                Backbone.history.navigate(newView.substr(1), true);
             },
-            _closeView: function() {
-                router.navigate('', true);
+            _closeView: function () {
+                Backbone.history.navigate('', true);
             },
-            render: function(currentPageName) {
+            render: function () {
                 var nextPage = Backbone.history.getFragment(),
                 view = this;
                 if (nextPage == 'home' || nextPage == '') {
                     this._toggleContent('up');
                     return;
                 }
-                if (currentPageName != 'home') {
-                    this._toggleContent('up');
-                    setTimeout(function() {
-                        $('.view').hide();
-                        view._populatePage(nextPage);
-                    }, 500);
-                } else {
-                     view._populatePage(nextPage);
-                }
+                this._toggleContent('up');
+                setTimeout(function () {
+                    $('.view').hide();
+                    view._populatePage(nextPage);
+                }, 500);
             },
-            _populatePage: function(page) {
+            _populatePage: function (page) {
                 var view = this;
                 $('.content .inner').load('/pages/' + page, function() {
                     view.pageEvents.trigger('pagePopulated', true);
-                    setTimeout(function(){
+                    setTimeout(function (){
                         // Cache images to take the load off scroll()
                         var layingImages = [];
                         var windowHeight = $('.content .inner').height();
@@ -68,22 +65,22 @@ define(
                             layingImages.push(layingImage);
                         });
                         // Use requestAnimationFrame() to only do animation before next repaint
-                        var scrollHandler = function(){
-                            $.each(layingImages, function(index, layingImage) {
+                        var scrollHandler = function (){
+                            $.each(layingImages, function (index, layingImage) {
                                 var windowScroll = $('.content .inner').scrollTop();
                                 if (windowScroll > (layingImage.top + layingImage.height - (windowHeight + 200 ))) {
                                     layingImage.element.removeClass('pre-lay');
                                 }
                             });
                         }
-                        $('.content .inner').on('scroll', function() {
+                        $('.content .inner').on('scroll', function () {
                             requestAnimationFrame(scrollHandler);
                         });
                         view._toggleContent('down');
                     }, 500);
                 });
             },
-            _cycleLogo: function() {
+            _cycleLogo: function () {
                 TweenMax.staggerFromTo(
                     $('.logo'), 
                     1, 
@@ -108,7 +105,8 @@ define(
                     0.5);
                 });
             },
-            _toggleContent: function(toggle) {
+            _toggleContent: function (toggle) {
+
                 if (toggle == $('.content').attr('data-toggle')){
                     return;
                 }
@@ -148,7 +146,7 @@ define(
                 toPath.ease = Expo.easeOut;
                 toPath.onUpdate = setPoints;
                 TweenMax.to(fromPath, 3, toPath);
-                function setPoints() {
+                function setPoints () {
                     var tweens = fromPath[0] + '%'
                         +fromPath[1] + '%,'
                         +fromPath[2] + '%'
@@ -167,7 +165,7 @@ define(
                     }); 
                 }
             },
-            _loadBody: function() {
+            _loadBody: function () {
                 fromPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0 };
                 toPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120 };
                 toPath.ease = RoughEase.ease.config({
@@ -183,14 +181,14 @@ define(
                 // Filter is still a bit buggy so reset it
                 // when we're done so the logo has the
                 // correct colouring
-                toPath.onComplete = function() {
+                toPath.onComplete = function () {
                     $('header, header .inner').css({
                         '-webkit-filter': 'none'
                     });
                 };
 
                 TweenMax.to(fromPath, 2, toPath);
-                function setPoints() {
+                function setPoints () {
                     var tweens = fromPath[0] + '%'
                         +fromPath[1] + '%,'
                         +fromPath[2] + '%'
@@ -209,7 +207,7 @@ define(
                     }); 
                 }
             },
-            _loadSvgs: function() {
+            _loadSvgs: function () {
                 $.each($('.svgImg'), function( index, el ) {
                     if ($('html.firefox').length > 0 || $('html.internet-explorer').length > 0) {
                         $(el).replaceWith($('<img src="' + $(el).attr('data-fallback-url') + '">').addClass($(el).attr('data-classes')));
@@ -226,36 +224,6 @@ define(
                 });
             }
         });
-
-        var MainRouter = Backbone.Router.extend({
-            routes: {
-                '': 'home',
-                'home': 'home',
-                'about': 'about',
-                'contact': 'contact',
-                'work': 'work'
-            },
-            initialize: function() {
-                this.home = new MainView({});
-                this.about = new MainView();
-                this.contact = new MainView();
-                this.work = new MainView();
-            },
-            home: function() {
-                this.home.render('home');
-            },
-            about: function() {
-                this.about.render('about');
-            },
-            contact: function() {
-                this.contact.render('contact');
-            },
-            work: function() {
-                this.work.render('work');
-            }
-        });
-        var router = new MainRouter();
-        Backbone.history.start({ pushState: true })
-        router.navigate(defaultView, true);
+        return MainView;
     }
 );
