@@ -55,30 +55,30 @@ define(
             _populatePage: function(page) {
                 var view = this;
                 $('.content .inner').load('/pages/' + page, function() {
-                    // Cache images to take the load off scroll()
-                    var layingImages = [];
-                    var windowHeight = $('.content .inner').height();
-                    $.each($('.content .inner .pre-lay'), function( index, el ) {
-                        var layingImage = {};
-                        layingImage.element = $(el);
-                        layingImage.top = $(el).offset().top;
-                        layingImage.height = $(el).outerHeight();
-                        layingImages.push(layingImage);
-                    });
-                    // Use requestAnimationFrame() to only do animation before next repaint
-                    var scrollHandler = function(){
-                        $.each(layingImages, function(index, layingImage) {
-                            var windowScroll = $('.content .inner').scrollTop();
-                            if (windowScroll > (layingImage.top + layingImage.height - (windowHeight + 200 ))) {
-                                layingImage.element.removeClass('pre-lay');
-                            }
-                        });
-                    }
-                    $('.content .inner').on('scroll', function() {
-                        requestAnimationFrame(scrollHandler);
-                    });
+                    view.pageEvents.trigger('pagePopulated', true);
                     setTimeout(function(){
-                        view.pageEvents.trigger('pagePopulated', true);
+                        // Cache images to take the load off scroll()
+                        var layingImages = [];
+                        var windowHeight = $('.content .inner').height();
+                        $.each($('.content .inner .pre-lay'), function( index, el ) {
+                            var layingImage = {};
+                            layingImage.element = $(el);
+                            layingImage.top = $(el).offset().top;
+                            layingImage.height = $(el).outerHeight();
+                            layingImages.push(layingImage);
+                        });
+                        // Use requestAnimationFrame() to only do animation before next repaint
+                        var scrollHandler = function(){
+                            $.each(layingImages, function(index, layingImage) {
+                                var windowScroll = $('.content .inner').scrollTop();
+                                if (windowScroll > (layingImage.top + layingImage.height - (windowHeight + 200 ))) {
+                                    layingImage.element.removeClass('pre-lay');
+                                }
+                            });
+                        }
+                        $('.content .inner').on('scroll', function() {
+                            requestAnimationFrame(scrollHandler);
+                        });
                         view._toggleContent('down');
                     }, 1000);
                 });
