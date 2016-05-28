@@ -1,7 +1,7 @@
 define(
     [
         'backbone',
-        'src/Model/Main'
+        'src/model/Main'
     ],
     function (Backbone, Main) {
         var MainCollection = Backbone.Collection.extend({
