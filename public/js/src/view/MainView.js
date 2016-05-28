@@ -55,19 +55,32 @@ define(
             _populatePage: function(page) {
                 var view = this;
                 $('.content .inner').load('/pages/' + page, function() {
-                    view.pageEvents.trigger('pagePopulated', true);
-                    view._toggleContent('down');
-                    $('.content .inner').on('scroll', function() {
-                        $.each($('.pre-lay'), function( index, el ) {
-                            var hT = $(el).offset().top,
-                            hH = $(el).outerHeight(),
-                            wH = $('.content .inner').height(),
-                            wS = $(this).scrollTop();
-                            if (wS > (hT + hH - (wH + 400 ))) {
-                                $(el).removeClass('pre-lay');
+                    // Cache images to take the load off scroll()
+                    var layingImages = [];
+                    var windowHeight = $('.content .inner').height();
+                    $.each($('.content .inner .pre-lay'), function( index, el ) {
+                        var layingImage = {};
+                        layingImage.element = $(el);
+                        layingImage.top = $(el).offset().top;
+                        layingImage.height = $(el).outerHeight();
+                        layingImages.push(layingImage);
+                    });
+                    // Use requestAnimationFrame() to only do animation before next repaint
+                    var scrollHandler = function(){
+                        $.each(layingImages, function(index, layingImage) {
+                            var windowScroll = $('.content .inner').scrollTop();
+                            if (windowScroll > (layingImage.top + layingImage.height - (windowHeight + 200 ))) {
+                                layingImage.element.removeClass('pre-lay');
                             }
                         });
+                    }
+                    $('.content .inner').on('scroll', function() {
+                        requestAnimationFrame(scrollHandler);
                     });
+                    setTimeout(function(){
+                        view.pageEvents.trigger('pagePopulated', true);
+                        view._toggleContent('down');
+                    }, 1000);
                 });
             },
             _cycleLogo: function() {

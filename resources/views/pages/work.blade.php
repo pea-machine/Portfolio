@@ -35,8 +35,8 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image" style="background-image: url('/public/img/daretodonate.png')">
-
+		<div class="block-image">
+			<img src="/public/img/daretodonate.png">
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
@@ -61,8 +61,8 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image pre-lay" style="background-image: url('/public/img/fortitude.jpg')">
-
+		<div class="block-image pre-lay">
+			<img src="/public/img/fortitude.jpg">
 		</div>
 	</div>
  	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
@@ -85,13 +85,13 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image pre-lay" style="background-image: url('/public/img/IMG_0962.jpg')">
-
+		<div class="block-image pre-lay">
+			<img src="/public/img/IMG_0962.jpg">
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image pre-lay" style="background-image: url('/public/img/IMG_99992.jpg')">
-
+		<div class="block-image pre-lay">
+			<img src="/public/img/IMG_99992.jpg">
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
@@ -107,13 +107,13 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image pre-lay" style="background-image: url('/public/img/adorer.png')">
-
+		<div class="block-image pre-lay">
+			<img src="/public/img/adorer.png">
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-background-image pre-lay" style="background-image: url('/public/img/adorer1.jpg')">
-
+		<div class="block-image pre-lay">
+			<img src="/public/img/adorer1.jpg">
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">

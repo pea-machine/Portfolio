@@ -166,8 +166,6 @@ header {
         }
         .block-background-image {
             min-height: 500px;
-            background-size: cover;
-            background-position: center;
         }
         .video-wrapper {
             position: relative;
@@ -210,7 +208,7 @@ header {
             margin: 0;
         }
         .video-wrapper, .block-text, .block-image, .block-background-image {
-            transition: transform 0.5s, opacity 0.5s;
+            transition: transform 1s, opacity 1s;
             transform-origin: 50% 0%;
             opacity: 1;
             &.pre-lay {
