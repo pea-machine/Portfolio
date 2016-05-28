@@ -80,7 +80,7 @@ define(
                             requestAnimationFrame(scrollHandler);
                         });
                         view._toggleContent('down');
-                    }, 1000);
+                    }, 500);
                 });
             },
             _cycleLogo: function() {
