@@ -18,19 +18,18 @@ define(
                 'click .close': '_closeView'
             },
             initialize: function () {
-                var view = this;
+                _.extend(this.pageEvents, Backbone.Events);
+                Backbone.history.on("all", function (MainRouter) {
+                    this.render(Backbone.history.getFragment());
+                }, this);
                 this.render();
                 this._loadSvgs();
-                _.extend(this.pageEvents, Backbone.Events);
                 this._loadBody();
-                Backbone.history.on("all", function (MainRouter) {
-                    view.render(Backbone.history.getFragment());
-                });
             },
             _changeView: function (event) {
                 event.preventDefault();
                 this._cycleLogo();
-                newView = $(event.target).attr('href');
+                var newView = $(event.target).attr('href');
                 Backbone.history.navigate(newView.substr(1), true);
             },
             _closeView: function () {
@@ -38,7 +37,7 @@ define(
             },
             render: function () {
                 var nextPage = Backbone.history.getFragment(),
-                view = this;
+                that = this;
                 if (nextPage == 'home' || nextPage == '') {
                     this._toggleContent('up');
                     return;
@@ -46,13 +45,13 @@ define(
                 this._toggleContent('up');
                 setTimeout(function () {
                     $('.view').hide();
-                    view._populatePage(nextPage);
+                    that._populatePage(nextPage);
                 }, 500);
             },
             _populatePage: function (page) {
-                var view = this;
+                var that = this;
                 $('.content .inner').load('/pages/' + page, function() {
-                    view.pageEvents.trigger('pagePopulated', true);
+                    that.pageEvents.trigger('pagePopulated', true);
                     setTimeout(function (){
                         // Cache images to take the load off scroll()
                         var layingImages = [];
@@ -68,7 +67,13 @@ define(
                         var scrollHandler = function (){
                             $.each(layingImages, function (index, layingImage) {
                                 var windowScroll = $('.content .inner').scrollTop();
-                                if (windowScroll > (layingImage.top + layingImage.height - (windowHeight + 200 ))) {
+                                if (windowScroll > 
+                                    (
+                                        layingImage.top 
+                                        + layingImage.height 
+                                        - (windowHeight + 200 )
+                                    )
+                                ) {
                                     layingImage.element.removeClass('pre-lay');
                                 }
                             });
@@ -76,7 +81,7 @@ define(
                         $('.content .inner').on('scroll', function () {
                             requestAnimationFrame(scrollHandler);
                         });
-                        view._toggleContent('down');
+                        that._toggleContent('down');
                     }, 500);
                 });
             },
@@ -106,11 +111,9 @@ define(
                 });
             },
             _toggleContent: function (toggle) {
-
                 if (toggle == $('.content').attr('data-toggle')){
                     return;
                 }
-
                 // Browser support for clip-path isn't great so
                 // do a show/hide for non-webkit and blink browsers
                 if (!bowser.webkit && !bowser.blink) {
@@ -123,14 +126,12 @@ define(
                         break;
                     }
                 }
-
                 // Safari leaves a transparent container there 
                 // stopping the user clicking anything so we'll
                 // just hide the content on close instead 🙃
                 if($('html.safari').length > 0 && toggle == 'up') {
                     $('.content').fadeOut(200);
                 }
-
                 switch (toggle) {
                     case 'up':
                         fromPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120 };
@@ -177,7 +178,6 @@ define(
                     clamp: true
                 });
                 toPath.onUpdate = setPoints;
-
                 // Filter is still a bit buggy so reset it
                 // when we're done so the logo has the
                 // correct colouring
@@ -186,7 +186,6 @@ define(
                         '-webkit-filter': 'none'
                     });
                 };
-
                 TweenMax.to(fromPath, 2, toPath);
                 function setPoints () {
                     var tweens = fromPath[0] + '%'
@@ -209,8 +208,12 @@ define(
             },
             _loadSvgs: function () {
                 $.each($('.svgImg'), function( index, el ) {
-                    if ($('html.firefox').length > 0 || $('html.internet-explorer').length > 0) {
-                        $(el).replaceWith($('<img src="' + $(el).attr('data-fallback-url') + '">').addClass($(el).attr('data-classes')));
+                    if ($('html.firefox').length > 0 
+                        || $('html.internet-explorer').length > 0) {
+                        $(el).replaceWith(
+                            $('<img src="' + $(el).attr('data-fallback-url') + '">')
+                            .addClass($(el).attr('data-classes'))
+                        );
                     } else {
                         $.ajax({
                           method: 'GET',
@@ -218,7 +221,8 @@ define(
                           dataType: 'html',
                           cache: true,
                         }).done(function( data ) {
-                            $(el).replaceWith($(data).addClass($(el).attr('data-classes')));
+                            $(el).replaceWith($(data)
+                                .addClass($(el).attr('data-classes')));
                         });
                     }
                 });
