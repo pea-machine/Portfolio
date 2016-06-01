@@ -108,7 +108,7 @@ define(
                                 if (windowScroll > 
                                     (lazyIframe.top + 
                                         lazyIframe.height - 
-                                        windowHeight + 200) ) {
+                                        windowHeight - 400) ) {
                                     lazyIframe.element.replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
                             });
