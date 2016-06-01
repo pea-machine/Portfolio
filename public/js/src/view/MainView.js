@@ -107,7 +107,7 @@ define(
                                     var iframeDiv = $('.iframeLazyLoad');
                                     iframeDiv.url = iframeDiv.attr('data-url');
                                     iframeDiv.classes = iframeDiv.attr('data-classes');
-                                    $('.iframeLazyLoad').replace($('<iframe src="' + + '" class="' + iframeDiv.classes + '" frameborder="0"></iframe>'));
+                                    $('.iframeLazyLoad').replaceWith($('<iframe src="' + + '" class="' + iframeDiv.classes + '" frameborder="0"></iframe>'));
                                 }
                             });
                         };
