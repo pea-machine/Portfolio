@@ -106,7 +106,7 @@ define(
                                     (lazyIframe.top + 
                                         lazyIframe.height - 
                                         (windowHeight) ) ) {
-                                    $('.iframeLazyLoad').replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
+                                    lazyIframe.element.replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
                             });
                         };
