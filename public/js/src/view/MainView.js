@@ -96,7 +96,7 @@ define(
                                 if (windowScroll > 
                                     (layingImage.top + 
                                         layingImage.height - 
-                                        (windowHeight - 200) ) ) {
+                                        (windowHeight + 200) ) ) {
                                     layingImage.element.removeClass('pre-lay');
                                 }
                             });
@@ -104,8 +104,8 @@ define(
                                 var windowScroll = $('.content .inner').scrollTop();
                                 if (windowScroll > 
                                     (lazyIframe.top + 
-                                        lazyIframe.height - 
-                                        (windowHeight) ) ) {
+                                        lazyIframe.height + 
+                                        windowHeight ) ) {
                                     lazyIframe.element.replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
                             });
