@@ -7,9 +7,10 @@ define(
         'tweenlite',
         'tweenmax',
         'modernizr',
-        'bowser'
+        'bowser',
+        'glitch'
     ],
-    function(Backbone, $, _, Main, tweenlite, tweenmax, modernizr, bowser) {
+    function(Backbone, $, _, Main, tweenlite, tweenmax, modernizr, bowser, glitch) {
         var MainView = Backbone.View.extend({
             el: 'body',
             pageEvents: {},
@@ -18,6 +19,7 @@ define(
                 'click .close': '_closeView'
             },
             initialize: function () {
+                var that = this;
                 _.extend(this.pageEvents, Backbone.Events);
                 Backbone.history.on("all", function (MainRouter) {
                     this.render(Backbone.history.getFragment());
@@ -25,6 +27,47 @@ define(
                 this.render();
                 this._loadSvgs();
                 this._loadBody();
+            },
+            _glitchBackground: function() {
+                var imagePath = '/public/img/palms.jpg';
+                var imgContainerEl = document.getElementById( 'img-container' );
+                var canvasContainerEl = document.getElementById( 'canvas-container' );
+                
+                var params = {
+                    amount: Math.floor(Math.random() * 20) + 1,
+                    iterations: Math.floor(Math.random() * 30) + 1,
+                    quality: 40,
+                    seed: Math.floor(Math.random() * 10) + 1
+                };
+                loadImage( imagePath, function ( img ) {
+                    glitch( params ).
+                        fromImage( img ).
+                        toDataURL().
+                        then( function( dataURL ) {
+                            $('header').css({
+                                'background-image': 'url(' + dataURL + ')'
+                            });
+                        } );
+                    glitch( params ).
+                        fromImage( img ).
+                        toImageData().
+                        then( function( imageData ) {
+                            var canvasEl = document.createElement( 'canvas' );
+                            canvasEl.width = imageData.width;
+                            canvasEl.height = imageData.height;
+                            canvasEl.style.width = imageData.width + 'px';
+                            var ctx = canvasEl.getContext( '2d' );
+                            canvasContainerEl.appendChild( canvasEl );
+                            ctx.putImageData( imageData, 0, 0 );
+                        } );
+                } );
+                function loadImage ( src, callback ) {
+                    var imageEl = new Image();
+                    imageEl.onload = function () {
+                        callback( imageEl );
+                    };
+                    imageEl.src = src;
+                }
             },
             _changeView: function (event) {
                 event.preventDefault();
@@ -167,16 +210,39 @@ define(
                 }
             },
             _loadBody: function () {
+                var that = this;
+
+                that._glitchBackground();
+
+                // Glitch background
+                TweenLite.delayedCall(0.5, function(){
+                    $('header').css({
+                        'background-image': 'url(/public/img/palms.jpg)'
+                    });
+                } ); 
+                TweenLite.delayedCall(1.3, function(){
+                    window.glitchTimer = setInterval(function(){
+                        that._glitchBackground();
+                    }, 480);
+                } ); 
+                TweenLite.delayedCall(5000, function(){ clearInterval(window.glitchTimer) } ); 
+
+                // Cycle logo
+                TweenLite.delayedCall(2.8, function() { that._cycleLogo(); } ); 
+                TweenLite.delayedCall(4.5, function() { that.pageEvents.trigger('pagePopulated', true); } ); 
+
+                // Pull down overlay
                 fromPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0 };
                 toPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120 };
                 toPath.ease = RoughEase.ease.config({
                     template: Power0.easeNone,
                     strength: 3,
-                    points: 150,
+                    points: 300,
                     taper: "in",
                     randomize: true,
                     clamp: true
                 });
+                toPath.delay = 2.3;
                 toPath.onUpdate = setPoints;
                 // Filter is still a bit buggy so reset it
                 // when we're done so the logo has the
@@ -186,7 +252,7 @@ define(
                         '-webkit-filter': 'none'
                     });
                 };
-                TweenMax.to(fromPath, 2, toPath);
+                TweenMax.to(fromPath, 1, toPath);
                 function setPoints () {
                     var tweens = fromPath[0] + '%'
                         +fromPath[1] + '%,'

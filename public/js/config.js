@@ -12,7 +12,8 @@ require.config({
         'tweenmax': 'vendor/gsap/src/minified/TweenMax.min',
         'easepack': 'vendor/gsap/src/minified/easing/EasePack.min',
         'modernizr': 'vendor/modernizr/modernizr-custom',
-        'bowser': 'vendor/bowser/src/bowser'
+        'bowser': 'vendor/bowser/src/bowser',
+        'glitch': 'vendor/glitch-canvas/dist/glitch-canvas'
     },
     shim: {
         

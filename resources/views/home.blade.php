@@ -16,6 +16,8 @@
         <meta property="og:locale" content="en_gb"/>
     </head>
     <body>
+        <div id="img-container" style="display: none"></div>
+        <div id="canvas-container" style="display: none"></div>
         <nav>
             <a href="/#about" class="page">About</a>
             <a href="/#work" class="page">Work</a>
