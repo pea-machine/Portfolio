@@ -2,7 +2,6 @@
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
 		<div class="block-text">
 			<div class="brand-logos">
-			<?php /*
 				{!! file_get_contents(asset('/public/img/logos/sky.svg')) !!}
 				{!! file_get_contents(asset('/public/img/logos/asos.svg')) !!}
 				{!! file_get_contents(asset('/public/img/logos/vue.svg')) !!}
@@ -14,8 +13,6 @@
 				{!! file_get_contents(asset('/public/img/logos/saatchi.svg')) !!}
 
 				<div class="svgImg" data-url="/public/img/logos/sky.svg" data-fallback-url="/public/img/logos/sky.png"></div>
-
-				*/ ?>
 
 			</div>
 		</div>
@@ -43,7 +40,7 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="video-wrapper pre-lay">
+		<div class="video-wrapper">
 			<iframe src="https://player.vimeo.com/video/143464387?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="dtd_title"></iframe>
 		</div>
 	</div>
@@ -64,12 +61,12 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-image pre-lay">
+		<div class="block-image">
 			<img src="/public/img/fortitude.jpg">
 		</div>
 	</div>
  	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="video-wrapper pre-lay">
+		<div class="video-wrapper">
     		<iframe src="https://player.vimeo.com/video/143469072?color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="fortitude"></iframe>
     	</div>
 	</div>
@@ -88,12 +85,12 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-image pre-lay">
+		<div class="block-image">
 			<img src="/public/img/IMG_0962.jpg">
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-image pre-lay">
+		<div class="block-image">
 			<img src="/public/img/IMG_99992.jpg">
 		</div>
 	</div>
@@ -110,12 +107,12 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-image pre-lay">
+		<div class="block-image">
 			<img src="/public/img/adorer.png">
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-image pre-lay">
+		<div class="block-image">
 			<img src="/public/img/adorer1.jpg">
 		</div>
 	</div>
