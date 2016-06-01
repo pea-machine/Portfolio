@@ -85,6 +85,8 @@ define(
                             lazyIframe.element = $(el);
                             lazyIframe.top = $(el).offset().top;
                             lazyIframe.height = $(el).outerHeight();
+                            lazyIframe.url = $(el).attr('data-url');
+                            lazyIframe.classes = $(el).attr('data-classes');
                             lazyIframes.push(lazyIframe);
                         });
                         // Use requestAnimationFrame() to only do animation before next repaint
@@ -104,10 +106,7 @@ define(
                                     (lazyIframe.top + 
                                         lazyIframe.height - 
                                         (windowHeight) ) ) {
-                                    var iframeDiv = $('.iframeLazyLoad');
-                                    iframeDiv.url = iframeDiv.attr('data-url');
-                                    iframeDiv.classes = iframeDiv.attr('data-classes');
-                                    $('.iframeLazyLoad').replaceWith($('<iframe src="' + + '" class="' + iframeDiv.classes + '" frameborder="0"></iframe>'));
+                                    $('.iframeLazyLoad').replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
                             });
                         };
