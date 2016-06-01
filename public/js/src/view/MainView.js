@@ -28,15 +28,6 @@ define(
                 this._loadSvgs();
                 this._loadBody();
             },
-            _changeView: function (event) {
-                event.preventDefault();
-                this._cycleLogo();
-                var newView = $(event.target).attr('href');
-                Backbone.history.navigate(newView.substr(1), true);
-            },
-            _closeView: function () {
-                Backbone.history.navigate('', true);
-            },
             render: function () {
                 var nextPage = Backbone.history.getFragment(),
                 that = this;
@@ -50,6 +41,29 @@ define(
                     that._populatePage(nextPage);
                 }, 500);
             },
+            /**
+             * Load a new page
+             * @param object event Event object
+             * @return Void
+             */
+            _changeView: function (event) {
+                event.preventDefault();
+                this._cycleLogo();
+                var newView = $(event.target).attr('href');
+                Backbone.history.navigate(newView.substr(1), true);
+            },
+            /**
+             * Close overlay and navigate back to the homepage.
+             * @return Void
+             */
+            _closeView: function () {
+                Backbone.history.navigate('', true);
+            },
+            /**
+             * Fetches page and inserts it into .content .inner.
+             * @param string page Name of page to fetch template of
+             * @return Void
+             */
             _populatePage: function (page) {
                 var that = this;
                 $('.content .inner').load('/pages/' + page, function() {
@@ -84,6 +98,10 @@ define(
                     }, 500);
                 });
             },
+            /**
+             * Runs Peabay logo loading animation.
+             * @return Void
+             */
             _cycleLogo: function () {
                 TweenMax.staggerFromTo($('.logo'), 
                     1, 
@@ -107,6 +125,11 @@ define(
                     0.5);
                 });
             },
+            /**
+             * Pulls up or down overlay.
+             * @param  string toggle 'up' or 'down'
+             * @return Void
+             */
             _toggleContent: function (toggle) {
                 var fromPath, toPath;
                 if (toggle == $('.content').attr('data-toggle')){
@@ -164,6 +187,10 @@ define(
                     }); 
                 }
             },
+            /**
+             * Runs first-load animation.
+             * @return Void
+             */
             _loadBody: function () {
                 var fromPath, toPath;
                 fromPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0 };
@@ -205,6 +232,12 @@ define(
                     }); 
                 }
             },
+            /**
+             * Fetches SVG if supported, otherwise PNG/ JPG image.
+             * Replaces elements with class .svgImg which require attributes 
+             * data-url, data-fallback-url and data-classes.
+             * @return Void
+             */
             _loadSvgs: function () {
                 $.each($('.svgImg'), function( index, el ) {
                     if ($('html.firefox').length > 0 || 
