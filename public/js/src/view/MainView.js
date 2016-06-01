@@ -96,7 +96,7 @@ define(
                                 if (windowScroll > 
                                     (layingImage.top + 
                                         layingImage.height - 
-                                        (windowHeight + 200) ) ) {
+                                        (windowHeight - 200) ) ) {
                                     layingImage.element.removeClass('pre-lay');
                                 }
                             });
