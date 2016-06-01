@@ -41,7 +41,9 @@
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
 		<div class="video-wrapper pre-lay">
-			
+			<div style="display: none">
+				<iframe src="https://player.vimeo.com/video/143464387?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</div>
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
@@ -67,7 +69,9 @@
 	</div>
  	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
 		<div class="video-wrapper pre-lay">
-    		
+			<div style="display: none">
+    			<iframe src="https://player.vimeo.com/video/143469072?color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="fortitude"></iframe>
+    		</div>
     	</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
