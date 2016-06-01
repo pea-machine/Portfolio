@@ -2,6 +2,7 @@
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
 		<div class="block-text">
 			<div class="brand-logos">
+			<?php /*
 				{!! file_get_contents(asset('/public/img/logos/sky.svg')) !!}
 				{!! file_get_contents(asset('/public/img/logos/asos.svg')) !!}
 				{!! file_get_contents(asset('/public/img/logos/vue.svg')) !!}
@@ -13,6 +14,8 @@
 				{!! file_get_contents(asset('/public/img/logos/saatchi.svg')) !!}
 
 				<div class="svgImg" data-url="/public/img/logos/sky.svg" data-fallback-url="/public/img/logos/sky.png"></div>
+
+				*/ ?>
 
 			</div>
 		</div>
