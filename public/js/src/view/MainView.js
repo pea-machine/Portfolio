@@ -71,6 +71,7 @@ define(
                     setTimeout(function (){
                         // Cache images to take the load off scroll()
                         var layingImages = [];
+                        var lazyIframes = [];
                         var windowHeight = $('.content .inner').height();
                         $.each($('.content .inner .pre-lay'), function( index, el ) {
                             var layingImage = {};
@@ -80,7 +81,7 @@ define(
                             layingImages.push(layingImage);
                         });
                         $.each($('.content .inner .iframeLazyLoad'), function( index, el ) {
-                            var lazyIframes = {};
+                            var lazyIframe = {};
                             lazyIframe.element = $(el);
                             lazyIframe.top = $(el).offset().top;
                             lazyIframe.height = $(el).outerHeight();
