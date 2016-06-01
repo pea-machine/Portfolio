@@ -108,6 +108,7 @@ define(
                 });
             },
             _toggleContent: function (toggle) {
+                var fromPath, toPath;
                 if (toggle == $('.content').attr('data-toggle')){
                     return;
                 }
@@ -164,6 +165,7 @@ define(
                 }
             },
             _loadBody: function () {
+                var fromPath, toPath;
                 fromPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:-20, 6:0, 7:0 };
                 toPath = { 0:0, 1:0, 2:100, 3:0, 4:100, 5:100, 6:0, 7:120 };
                 toPath.ease = RoughEase.ease.config({
