@@ -27,13 +27,6 @@ define(
                 this.render();
                 this._loadSvgs();
                 this._loadBody();
-
-                setTimeout(function(){
-                    var iframeDiv = $('.iframeLazyLoad');
-                    iframeDiv.url = iframeDiv.attr('data-url');
-                    $('.iframeLazyLoad').replace($('<iframe src="' + iframeDiv.url + '" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'));
-                }, 3000);
-
             },
             render: function () {
                 var nextPage = Backbone.history.getFragment(),
@@ -58,6 +51,12 @@ define(
                 this._cycleLogo();
                 var newView = $(event.target).attr('href');
                 Backbone.history.navigate(newView.substr(1), true);
+
+                setTimeout(function(){
+                    var iframeDiv = $('.iframeLazyLoad');
+                    iframeDiv.url = iframeDiv.attr('data-url');
+                    $('.iframeLazyLoad').replaceWith($('<iframe src="' + iframeDiv.url + '" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'));
+                }, 3000);
             },
             /**
              * Close overlay and navigate back to the homepage.
