@@ -40,8 +40,8 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="video-wrapper">
-			<iframe src="https://player.vimeo.com/video/143464387?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="dtd_title"></iframe>
+		<div class="video-wrapper pre-lay">
+			
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
@@ -61,13 +61,13 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-image">
+		<div class="block-image pre-lay">
 			<img src="/public/img/fortitude.jpg">
 		</div>
 	</div>
  	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="video-wrapper">
-    		<iframe src="https://player.vimeo.com/video/143469072?color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="fortitude"></iframe>
+		<div class="video-wrapper pre-lay">
+    		
     	</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
@@ -85,12 +85,12 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-image">
+		<div class="block-image pre-lay">
 			<img src="/public/img/IMG_0962.jpg">
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-image">
+		<div class="block-image pre-lay">
 			<img src="/public/img/IMG_99992.jpg">
 		</div>
 	</div>
@@ -107,12 +107,12 @@
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-image">
+		<div class="block-image pre-lay">
 			<img src="/public/img/adorer.png">
 		</div>
 	</div>
 	<div class="col perc50 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
-		<div class="block-image">
+		<div class="block-image pre-lay">
 			<img src="/public/img/adorer1.jpg">
 		</div>
 	</div>
