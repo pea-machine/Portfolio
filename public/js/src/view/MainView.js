@@ -1,3 +1,5 @@
+"use strict";
+
 define(
     [
         'backbone',
@@ -38,7 +40,7 @@ define(
             render: function () {
                 var nextPage = Backbone.history.getFragment(),
                 that = this;
-                if (nextPage == 'home' || nextPage == '') {
+                if (nextPage == 'home' || nextPage === '') {
                     this._toggleContent('up');
                     return;
                 }
@@ -68,16 +70,13 @@ define(
                             $.each(layingImages, function (index, layingImage) {
                                 var windowScroll = $('.content .inner').scrollTop();
                                 if (windowScroll > 
-                                    (
-                                        layingImage.top 
-                                        + layingImage.height 
-                                        - (windowHeight + 200 )
-                                    )
-                                ) {
+                                    (layingImage.top + 
+                                        layingImage.height - 
+                                        (windowHeight + 200) ) ) {
                                     layingImage.element.removeClass('pre-lay');
                                 }
                             });
-                        }
+                        };
                         $('.content .inner').on('scroll', function () {
                             requestAnimationFrame(scrollHandler);
                         });
@@ -86,21 +85,19 @@ define(
                 });
             },
             _cycleLogo: function () {
-                TweenMax.staggerFromTo(
-                    $('.logo'), 
+                TweenMax.staggerFromTo($('.logo'), 
                     1, 
                     { scale: 1 }, 
                     { scale: 0.9, ease: Back.easeOut }, 
-                    0.5
-                );
+                    0.5);
                 var tl = new TimelineMax({ repeat: 300 });
-                tl.timeScale(15)
-                .to($('.logo path'), 0, { css:{ className: 'zebra' } }, 0)
-                .to($('.logo path'), 0, { css:{ className: 'blackwhite' } }, 1)
-                .to($('.logo path'), 0, { css:{ className: 'whirl' } }, 2)
-                .to($('.logo path'), 0, { css:{ className: 'mosaic' } }, 3)
-                .to($('.logo path'), 0, { css:{ className: 'swan' } }, 4)
-                .to($('.logo path'), 0, { css:{ className: 'teal' } }, 5);
+                tl.timeScale(15).
+                to($('.logo path'), 0, { css:{ className: 'zebra' } }, 0).
+                to($('.logo path'), 0, { css:{ className: 'blackwhite' } }, 1).
+                to($('.logo path'), 0, { css:{ className: 'whirl' } }, 2).
+                to($('.logo path'), 0, { css:{ className: 'mosaic' } }, 3).
+                to($('.logo path'), 0, { css:{ className: 'swan' } }, 4).
+                to($('.logo path'), 0, { css:{ className: 'teal' } }, 5);
                 this.pageEvents.on('pagePopulated', function(msg) {
                     tl.stop();
                     $('.logo path').attr('class', '');
@@ -148,14 +145,14 @@ define(
                 toPath.onUpdate = setPoints;
                 TweenMax.to(fromPath, 3, toPath);
                 function setPoints () {
-                    var tweens = fromPath[0] + '%'
-                        +fromPath[1] + '%,'
-                        +fromPath[2] + '%'
-                        +fromPath[3] + '%,'
-                        +fromPath[4] + '%'
-                        +fromPath[5] + '%,'
-                        +fromPath[6] + '%'
-                        +fromPath[7] + '%';
+                    var tweens = fromPath[0] + '%' +
+                        fromPath[1] + '%,' +
+                        fromPath[2] + '%' +
+                        fromPath[3] + '%,' +
+                        fromPath[4] + '%' +
+                        fromPath[5] + '%,' +
+                        fromPath[6] + '%' +
+                        fromPath[7] + '%';
                     TweenMax.set('.content', {
                         css: {
                             '-webkit-clip-path':
@@ -188,14 +185,14 @@ define(
                 };
                 TweenMax.to(fromPath, 2, toPath);
                 function setPoints () {
-                    var tweens = fromPath[0] + '%'
-                        +fromPath[1] + '%,'
-                        +fromPath[2] + '%'
-                        +fromPath[3] + '%,'
-                        +fromPath[4] + '%'
-                        +fromPath[5] + '%,'
-                        +fromPath[6] + '%'
-                        +fromPath[7] + '%';
+                    var tweens = fromPath[0] + '%' +
+                        fromPath[1] + '%,' +
+                        fromPath[2] + '%' +
+                        fromPath[3] + '%,' +
+                        fromPath[4] + '%' +
+                        fromPath[5] + '%,' +
+                        fromPath[6] + '%' +
+                        fromPath[7] + '%';
                     TweenMax.set('header .inner', {
                         css: {
                             '-webkit-clip-path':
@@ -208,21 +205,20 @@ define(
             },
             _loadSvgs: function () {
                 $.each($('.svgImg'), function( index, el ) {
-                    if ($('html.firefox').length > 0 
-                        || $('html.internet-explorer').length > 0) {
+                    if ($('html.firefox').length > 0 || 
+                        $('html.internet-explorer').length > 0) {
                         $(el).replaceWith(
-                            $('<img src="' + $(el).attr('data-fallback-url') + '">')
-                            .addClass($(el).attr('data-classes'))
-                        );
+                            $('<img src="' + $(el).attr('data-fallback-url') + '">').
+                            addClass($(el).attr('data-classes')));
                     } else {
                         $.ajax({
                           method: 'GET',
                           url: $(el).attr('data-url'),
                           dataType: 'html',
-                          cache: true,
+                          cache: true
                         }).done(function( data ) {
-                            $(el).replaceWith($(data)
-                                .addClass($(el).attr('data-classes')));
+                            $(el).replaceWith($(data).
+                                addClass($(el).attr('data-classes')));
                         });
                     }
                 });

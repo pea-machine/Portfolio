@@ -5,44 +5,45 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    font-family: "Open Sans";
+html,
+body {
+    font-family: 'Open Sans';
     font-weight: 400;
-    letter-spacing: 0.03em;
     -webkit-font-smoothing: antialiased;
+    height: 100%;
+    letter-spacing: .03em;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    overflow: hidden;
     width: 100%;
     height: calc(100% - 70px);
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 nav {
-    width: 100%;
-    background-color: #FFFFFF;
-    padding: 40px 30px;
-    text-align: right;
     position: absolute;
+    z-index: 1;
     top: 0;
     left: 0;
+    width: 100%;
     height: 102px;
-    z-index: 1;
+    padding: 40px 30px;
+    text-align: right;
+    background-color: #FFFFFF;
     a {
-        text-decoration: none;
-        color: #2A5D2A;
-        margin: 0 0 0 30px;
-        background-image: url("/public/img/palms.jpg");
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-transform: uppercase;
         font-size: 13px;
+        margin: 0 0 0 30px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #2A5D2A;
+        background-image: url('/public/img/palms.jpg');
         background-attachment: fixed;
         background-position: -136px 0;
+        -webkit-background-clip: text;
         background-size: 20%;
+        -webkit-text-fill-color: transparent;
     }
     .twitter-icon {
         float: left;
@@ -65,31 +66,32 @@ nav {
 }
 
 header {
-    .inner {
-        background-image: url('/public/img/palms.jpg');
-        background-size: cover;
-        clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
-        filter: hue-rotate(180deg);
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    }
+    position: relative;
+    z-index: 0;
+    height: 100%;
+    margin: 70px 0 0 0;
     filter: hue-rotate(180deg);
     background-image: url('/public/img/palms.jpg');
     background-size: cover;
-    height: 100%;
-    margin: 70px 0 0 0;
-    position: relative;
-    z-index: 0;
+    .inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        filter: hue-rotate(180deg);
+        background-image: url('/public/img/palms.jpg');
+        background-size: cover;
+        clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
+    }
     .logo {
-        width: 30%;
         position: absolute;
         top: 200px;
         left: 50%;
+        width: 30%;
         margin: 0 0 0 -13%;
         path {
-            fill: #FFFFFF;
             filter: url(#filter);
+
+            fill: #FFFFFF;
             &.zebra {
                 fill: url(#pattern-zebra);
             }
@@ -108,46 +110,47 @@ header {
             &.whirl {
                 fill: url(#pattern-80s-whirl);
             }
-        }            
+        }
     }
 }
 
-.content {        
-    clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
+.content {
     position: absolute;
+    z-index: 2;
     top: 0;
     left: 0;
+    overflow: hidden;
     width: 100%;
     height: 100%;
     background-color: #352842;
-    overflow: hidden;
-    z-index: 2;
+    clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
     img {
-        max-width: 100%
+        max-width: 100%;
     }
     .close {
-        width: 40px;
-        height: 40px;
         position: absolute;
+        z-index: 1;
         top: 20px;
         right: 20px;
+        width: 40px;
+        height: 40px;
         cursor: pointer;
-        z-index: 1;
         path {
+            opacity: .5;
+
             fill: #FFFFFF;
             fill-rule: evenodd;
-            opacity: 0.5;
         }
     }
     .inner {
         overflow: auto;
-        height: 100%;
-        color: #857794;
-        padding: 40px 0 0 0;
         overflow-x: hidden;
+        height: 100%;
+        padding: 40px 0 0 0;
+        color: #857794;
         .block-text {
-            padding: 40px;
             position: relative; /* For virtival alignment */
+            padding: 40px;
             h2 {
                 font-size: 30px;
                 margin: 0 0 20px 0;
@@ -156,8 +159,9 @@ header {
                 font-size: 20px;
             }
             .valign {
-                @include valign(absolute);  
                 padding: 0 40px 0 0;
+
+                @include valign(absolute);
             }
         }
         .block-image {
@@ -169,9 +173,9 @@ header {
         }
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             margin: 0 auto 10px auto;
+            padding-bottom: 56.25%; /* 16:9 */
         }
         .video-wrapper iframe {
             position: absolute;
@@ -181,35 +185,39 @@ header {
             height: 100%;
         }
         .contact {
-            @include valign();  
+            font-size: 30px;
             max-width: 1000px;
             margin: 0 auto;
-            font-size: 30px;
+
+            @include valign();
         }
         .brand-logos {
             text-align: center;
             svg {
-                height: 50px;
                 width: auto;
+                height: 50px;
                 margin: 0 30px 30px 0;
             }
             path {
                 fill: #BEAAD2;
-                fill-opacity: 0.3;
+                fill-opacity: .3;
             }
         }
         a {
             color: #FFFFFF;
         }
         p {
-            margin: 0 0 2em 0
+            margin: 0 0 2em 0;
         }
         p:last-child {
             margin: 0;
         }
-        .video-wrapper, .block-text, .block-image, .block-background-image {
+        .video-wrapper,
+        .block-text,
+        .block-image,
+        .block-background-image {
             transition: transform 1s, opacity 1s;
-            transform-origin: 50% 0%;
+            transform-origin: 50% 0;
             opacity: 1;
             &.pre-lay {
                 transform: perspective(1000) rotateX(20deg) translate(0, 100px);
@@ -225,24 +233,25 @@ header {
     }
 }
 
-html.firefox, 
+html.firefox,
 html.internet-explorer {
     .content {
-        display: none
-    }    
+        display: none;
+    }
     nav {
         a {
-            background-image: none
+            background-image: none;
         }
     }
 }
 
 /* Phones and smartphones in portrait */
-@media all and (min-width: 0) and (max-width: 480px){ /* Smallest */
+@media all and (min-width: 0) and (max-width: 480px) {
+    /* Smallest */
 
     header .logo {
-        width: 60%;
         top: 70px;
+        width: 60%;
         margin: 0 0 0 -27%;
     }
 
@@ -266,23 +275,23 @@ html.internet-explorer {
                     max-width: 1000px;
                     margin: 0 auto;
                     .display-picture {
-                        width: 50%;
                         display: block;
-                        margin: 0 auto
+                        width: 50%;
+                        margin: 0 auto;
                     }
                 }
             }
         }
     }
-  
 }
- 
+
 /* Small smartphones in landscape (iPhone in landscape) */
-@media all and (min-width: 481px) and (max-width: 600px){ /* Smaller */
+@media all and (min-width: 481px) and (max-width: 600px) {
+    /* Smaller */
 
     header .logo {
-        width: 60%;
         top: 70px;
+        width: 60%;
         margin: 0 0 0 -27%;
     }
 
@@ -306,23 +315,23 @@ html.internet-explorer {
                     max-width: 1000px;
                     margin: 0 auto;
                     .display-picture {
-                        width: 50%;
                         display: block;
-                        margin: 0 auto
+                        width: 50%;
+                        margin: 0 auto;
                     }
                 }
             }
         }
     }
-    
 }
- 
+
 /* Small tablets and large phones in landscape (Nexus 7) */
-@media all and (min-width: 601px) and (max-width: 767px) { /* Small */
+@media all and (min-width: 601px) and (max-width: 767px) {
+    /* Small */
 
     header .logo {
-        width: 40%;
         top: 70px;
+        width: 40%;
         margin: 0 0 0 -17%;
     }
 
@@ -346,37 +355,32 @@ html.internet-explorer {
                     max-width: 1000px;
                     margin: 0 auto;
                     .display-picture {
-                        width: 50%;
                         display: block;
-                        margin: 0 auto
+                        width: 50%;
+                        margin: 0 auto;
                     }
                 }
             }
         }
     }
-  
 }
- 
+
 /* Large tablets and Facebook iframe (iPad in portrait, Facebook on desktop) */
-@media all and (min-width: 768px) and (max-width: 1023px){ /* Medium */
+@media all and (min-width: 768px) and (max-width: 1023px) {
+    /* Medium */
 
     header .logo {
         width: 30%;
         margin: 0 0 0 -12%;
     }
- 
 }
 
 /* Large tablets (iPad in landscape) */
-@media all and (min-width: 1024px) and (max-width: 1199px){ /* Large */
-
-
-    
+@media all and (min-width: 1024px) and (max-width: 1199px) {
+    /* Large */
 }
- 
+
 /* Laptops and desktops */
-@media all and (min-width: 1200px){ /* Larger */
-
-
-    
+@media all and (min-width: 1200px) {
+    /* Larger */
 }
