@@ -51,12 +51,6 @@ define(
                 this._cycleLogo();
                 var newView = $(event.target).attr('href');
                 Backbone.history.navigate(newView.substr(1), true);
-
-                setTimeout(function(){
-                    var iframeDiv = $('.iframeLazyLoad');
-                    iframeDiv.url = iframeDiv.attr('data-url');
-                    $('.iframeLazyLoad').replaceWith($('<iframe src="' + iframeDiv.url + '" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'));
-                }, 3000);
             },
             /**
              * Close overlay and navigate back to the homepage.
@@ -85,6 +79,13 @@ define(
                             layingImage.height = $(el).outerHeight();
                             layingImages.push(layingImage);
                         });
+                        $.each($('.content .inner .iframeLazyLoad'), function( index, el ) {
+                            var lazyIframes = {};
+                            lazyIframe.element = $(el);
+                            lazyIframe.top = $(el).offset().top;
+                            lazyIframe.height = $(el).outerHeight();
+                            lazyIframes.push(lazyIframe);
+                        });
                         // Use requestAnimationFrame() to only do animation before next repaint
                         var scrollHandler = function (){
                             $.each(layingImages, function (index, layingImage) {
@@ -94,6 +95,18 @@ define(
                                         layingImage.height - 
                                         (windowHeight + 200) ) ) {
                                     layingImage.element.removeClass('pre-lay');
+                                }
+                            });
+                            $.each(lazyIframes, function (index, lazyIframe) {
+                                var windowScroll = $('.content .inner').scrollTop();
+                                if (windowScroll > 
+                                    (layingImage.top + 
+                                        layingImage.height - 
+                                        (windowHeight) ) ) {
+                                    var iframeDiv = $('.iframeLazyLoad');
+                                    iframeDiv.url = iframeDiv.attr('data-url');
+                                    iframeDiv.classes = iframeDiv.attr('data-classes');
+                                    $('.iframeLazyLoad').replace($('<iframe src="' + + '" class="' + iframeDiv.classes + '" frameborder="0"></iframe>'));
                                 }
                             });
                         };
