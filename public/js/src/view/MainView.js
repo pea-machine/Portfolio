@@ -27,6 +27,13 @@ define(
                 this.render();
                 this._loadSvgs();
                 this._loadBody();
+
+                setTimeout(function(){
+                    var iframeDiv = $('.iframeLazyLoad');
+                    iframeDiv.url = iframeDiv.attr('data-url');
+                    $('.iframeLazyLoad').replace($('<iframe src="' + iframeDiv.url + '" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'));
+                }, 3000);
+
             },
             render: function () {
                 var nextPage = Backbone.history.getFragment(),
