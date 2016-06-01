@@ -41,6 +41,7 @@ define(
                     that._populatePage(nextPage);
                 }, 500);
             },
+
             /**
              * Load a new page
              * @param object event Event object
@@ -52,6 +53,7 @@ define(
                 var newView = $(event.target).attr('href');
                 Backbone.history.navigate(newView.substr(1), true);
             },
+
             /**
              * Close overlay and navigate back to the homepage.
              * @return Void
@@ -59,6 +61,7 @@ define(
             _closeView: function () {
                 Backbone.history.navigate('', true);
             },
+
             /**
              * Fetches page and inserts it into .content .inner.
              * @param string page Name of page to fetch template of
@@ -69,7 +72,7 @@ define(
                 $('.content .inner').load('/pages/' + page, function() {
                     that.pageEvents.trigger('pagePopulated', true);
                     setTimeout(function (){
-                        // Cache images to take the load off scroll()
+                        // Cache elements in array and loop over those arrays
                         var layingImages = [];
                         var lazyIframes = [];
                         var windowHeight = $('.content .inner').height();
@@ -89,7 +92,7 @@ define(
                             lazyIframe.classes = $(el).attr('data-classes');
                             lazyIframes.push(lazyIframe);
                         });
-                        // Use requestAnimationFrame() to only do animation before next repaint
+                        // Use requestAnimationFrame() for better performance
                         var scrollHandler = function (){
                             $.each(layingImages, function (index, layingImage) {
                                 var windowScroll = $('.content .inner').scrollTop();
@@ -104,8 +107,8 @@ define(
                                 var windowScroll = $('.content .inner').scrollTop();
                                 if (windowScroll > 
                                     (lazyIframe.top + 
-                                        lazyIframe.height + 
-                                        windowHeight ) ) {
+                                        lazyIframe.height - 
+                                        windowHeight + 200) ) {
                                     lazyIframe.element.replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
                             });
@@ -117,6 +120,7 @@ define(
                     }, 500);
                 });
             },
+
             /**
              * Runs Peabay logo loading animation.
              * @return Void
@@ -144,6 +148,7 @@ define(
                     0.5);
                 });
             },
+
             /**
              * Pulls up or down overlay.
              * @param  string toggle 'up' or 'down'
@@ -154,6 +159,7 @@ define(
                 if (toggle == $('.content').attr('data-toggle')){
                     return;
                 }
+
                 // Browser support for clip-path isn't great so
                 // do a show/hide for non-webkit and blink browsers
                 if (!bowser.webkit && !bowser.blink) {
@@ -166,6 +172,7 @@ define(
                         break;
                     }
                 }
+
                 // Safari leaves a transparent container there 
                 // stopping the user clicking anything so we'll
                 // just hide the content on close instead 🙃
@@ -206,6 +213,7 @@ define(
                     }); 
                 }
             },
+
             /**
              * Runs first-load animation.
              * @return Void
@@ -223,6 +231,7 @@ define(
                     clamp: true
                 });
                 toPath.onUpdate = setPoints;
+
                 // Filter is still a bit buggy so reset it
                 // when we're done so the logo has the
                 // correct colouring
@@ -251,6 +260,7 @@ define(
                     }); 
                 }
             },
+
             /**
              * Fetches SVG if supported, otherwise PNG/ JPG image.
              * Replaces elements with class .svgImg which require attributes 
