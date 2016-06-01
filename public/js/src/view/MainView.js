@@ -101,8 +101,8 @@ define(
                             $.each(lazyIframes, function (index, lazyIframe) {
                                 var windowScroll = $('.content .inner').scrollTop();
                                 if (windowScroll > 
-                                    (layingImage.top + 
-                                        layingImage.height - 
+                                    (lazyIframe.top + 
+                                        lazyIframe.height - 
                                         (windowHeight) ) ) {
                                     var iframeDiv = $('.iframeLazyLoad');
                                     iframeDiv.url = iframeDiv.attr('data-url');
