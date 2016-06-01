@@ -106,9 +106,7 @@ define(
                             $.each(lazyIframes, function (index, lazyIframe) {
                                 var windowScroll = $('.content .inner').scrollTop();
                                 if (windowScroll > 
-                                    (lazyIframe.top + 
-                                        lazyIframe.height - 
-                                        windowHeight - 400) ) {
+                                    (lazyIframe.top - windowHeight) ) {
                                     lazyIframe.element.replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
                             });
