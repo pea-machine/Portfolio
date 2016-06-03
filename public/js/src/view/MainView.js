@@ -20,6 +20,7 @@ define(
                 'click a.page': '_changeView',
                 'click .close': '_closeView'
             },
+
             initialize: function () {
                 var that = this;
                 _.extend(this.pageEvents, Backbone.Events);
@@ -29,7 +30,9 @@ define(
                 this.render();
                 this._loadSvgs();
                 this._loadBody();
+                this._glitchBackground($('header .inner'), true);
             },
+
             render: function () {
                 var nextPage = Backbone.history.getFragment(),
                 that = this;
@@ -45,59 +48,47 @@ define(
             },
 
             /**
-             * Glitches header background
-             * @return Void
-             */
-            _glitchBackground: function() {
-                var imagePath = '/public/img/palms.jpg';
-                var imgContainerEl = document.getElementById( 'img-container' );
-                var canvasContainerEl = document.getElementById( 'canvas-container' );
-                
-                var params = {
-                    amount: Math.floor(Math.random() * 20) + 1,
-                    iterations: Math.floor(Math.random() * 30) + 1,
-                    quality: 50,
-                    seed: Math.floor(Math.random() * 10) + 1
-                };
-                loadImage( imagePath, function ( img ) {
-                    glitch( params ).
-                        fromImage( img ).
-                        toDataURL().
-                        then( function( dataURL ) {
-                            $('header').css({
-                                'background-image': 'url(' + dataURL + ')'
-                            });
-                        } );
-                    glitch( params ).
-                        fromImage( img ).
-                        toImageData().
-                        then( function( imageData ) {
-                            var canvasEl = document.createElement( 'canvas' );
-                            canvasEl.width = imageData.width;
-                            canvasEl.height = imageData.height;
-                            canvasEl.style.width = imageData.width + 'px';
-                            var ctx = canvasEl.getContext( '2d' );
-                            canvasContainerEl.appendChild( canvasEl );
-                            ctx.putImageData( imageData, 0, 0 );
-                        } );
-                } );
-                function loadImage ( src, callback ) {
-                    var imageEl = new Image();
-                    imageEl.onload = function () {
-                        callback( imageEl );
-                    };
-                    imageEl.src = src;
-                }
-            },
-
-            /**
              * Load a new page
              * @param object event Event object
              * @return Void
              */
             _changeView: function (event) {
                 event.preventDefault();
+                var that = this;
+
+                // Glitch background momentarily
+                $('header .inner').css({
+                    'background-image': 'url(' + window.glitchPreload + ')'
+                });
+                TweenLite.delayedCall(0.1, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(/public/img/palms.jpg)'
+                    });
+                } );
+                TweenLite.delayedCall(0.15, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(' + window.glitchPreload + ')'
+                    });
+                });
+                TweenLite.delayedCall(0.4, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(/public/img/palms.jpg)'
+                    });
+                } );
+                TweenLite.delayedCall(0.45, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(' + window.glitchPreload + ')'
+                    });
+                });
+                TweenLite.delayedCall(0.5, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(/public/img/palms.jpg)'
+                    });
+                    that._glitchBackground($('header .inner'), true);
+                } );
+
                 this._cycleLogo();
+                var that = this;
                 var newView = $(event.target).attr('href');
                 Backbone.history.navigate(newView.substr(1), true);
             },
@@ -165,34 +156,6 @@ define(
                         });
                         that._toggleContent('down');
                     }, 500);
-                });
-            },
-
-            /**
-             * Runs Peabay logo loading animation.
-             * @return Void
-             */
-            _cycleLogo: function () {
-                TweenMax.staggerFromTo($('.logo'), 
-                    1, 
-                    { scale: 1 }, 
-                    { scale: 0.9, ease: Back.easeOut }, 
-                    0.5);
-                var tl = new TimelineMax({ repeat: 300 });
-                tl.timeScale(15).
-                to($('.logo path'), 0, { css:{ className: 'zebra' } }, 0).
-                to($('.logo path'), 0, { css:{ className: 'blackwhite' } }, 1).
-                to($('.logo path'), 0, { css:{ className: 'whirl' } }, 2).
-                to($('.logo path'), 0, { css:{ className: 'mosaic' } }, 3).
-                to($('.logo path'), 0, { css:{ className: 'swan' } }, 4).
-                to($('.logo path'), 0, { css:{ className: 'teal' } }, 5);
-                this.pageEvents.on('pagePopulated', function(msg) {
-                    tl.stop();
-                    $('.logo path').attr('class', '');
-                    TweenMax.staggerFromTo($('.logo'), 1, 
-                    { scale: 0.9 }, 
-                    { scale: 1, ease: Back.easeOut }, 
-                    0.5);
                 });
             },
 
@@ -268,7 +231,7 @@ define(
             _loadBody: function () {
                 var that = this;
 
-                that._glitchBackground();
+                that._glitchBackground($('header'), false);
 
                 // Glitch background
                 TweenLite.delayedCall(0.5, function(){
@@ -278,10 +241,10 @@ define(
                 } ); 
                 TweenLite.delayedCall(1.3, function(){
                     window.glitchTimer = setInterval(function(){
-                        that._glitchBackground();
+                        that._glitchBackground($('header'), false);
                     }, 480);
                 } ); 
-                TweenLite.delayedCall(5000, function(){ clearInterval(window.glitchTimer) } ); 
+                TweenLite.delayedCall(5, function(){ clearInterval(window.glitchTimer) } ); 
 
                 // Cycle logo
                 TweenLite.delayedCall(2.8, function() { that._cycleLogo(); } ); 
@@ -356,7 +319,88 @@ define(
                         });
                     }
                 });
-            }
+            },
+
+            /**
+             * Runs Peabay logo loading animation.
+             * @return Void
+             */
+            _cycleLogo: function () {
+                TweenMax.staggerFromTo($('.logo'), 
+                    1, 
+                    { scale: 1 }, 
+                    { scale: 0.9, ease: Back.easeOut }, 
+                    0.5);
+                var tl = new TimelineMax({ repeat: 300 });
+                tl.timeScale(15).
+                to($('.logo path'), 0, { css:{ className: 'zebra' } }, 0).
+                to($('.logo path'), 0, { css:{ className: 'blackwhite' } }, 1).
+                to($('.logo path'), 0, { css:{ className: 'whirl' } }, 2).
+                to($('.logo path'), 0, { css:{ className: 'mosaic' } }, 3).
+                to($('.logo path'), 0, { css:{ className: 'swan' } }, 4).
+                to($('.logo path'), 0, { css:{ className: 'teal' } }, 5);
+                this.pageEvents.on('pagePopulated', function(msg) {
+                    tl.stop();
+                    $('.logo path').attr('class', '');
+                    TweenMax.staggerFromTo($('.logo'), 1, 
+                    { scale: 0.9 }, 
+                    { scale: 1, ease: Back.easeOut }, 
+                    0.5);
+                });
+            },
+
+            /**
+             * Glitches header background
+             * @param object el jQuery object of element to glitch background of
+             * @param boolean preload Output data string to window.glitchPreload if true
+             * @return Void
+             */
+            _glitchBackground: function( el, preload ) {
+                var imagePath = el.css('background-image');
+                imagePath = imagePath.replace('url("','').replace('")','');
+                var imgContainerEl = document.getElementById( 'img-container' );
+                var canvasContainerEl = document.getElementById( 'canvas-container' );
+                
+                var params = {
+                    amount: Math.floor(Math.random() * 10) + 1,
+                    iterations: Math.floor(Math.random() * 30) + 1,
+                    quality: 70,
+                    seed: Math.floor(Math.random() * 10) + 1
+                };
+                loadImage( imagePath, function ( img ) {
+                    glitch( params ).
+                        fromImage( img ).
+                        toDataURL().
+                        then( function( dataURL ) {
+                            if(preload === false){
+                                el.css({
+                                    'background-image': 'url(' + dataURL + ')'
+                                });
+                            } else {
+                                window.glitchPreload = dataURL;
+                            }
+                        } );
+                    glitch( params ).
+                        fromImage( img ).
+                        toImageData().
+                        then( function( imageData ) {
+                            var canvasEl = document.createElement( 'canvas' );
+                            canvasEl.width = imageData.width;
+                            canvasEl.height = imageData.height;
+                            canvasEl.style.width = imageData.width + 'px';
+                            var ctx = canvasEl.getContext( '2d' );
+                            canvasContainerEl.appendChild( canvasEl );
+                            ctx.putImageData( imageData, 0, 0 );
+                        } );
+                } );
+                function loadImage ( src, callback ) {
+                    var imageEl = new Image();
+                    imageEl.onload = function () {
+                        callback( imageEl );
+                    };
+                    imageEl.src = src;
+                }
+            },
         });
         return MainView;
     }
