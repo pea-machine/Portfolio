@@ -246,8 +246,10 @@ define(
                 TweenLite.delayedCall(5, function(){ clearInterval(window.glitchTimer) } ); 
 
                 // Cycle logo
-                TweenLite.delayedCall(2.8, function() { that._cycleLogo(); } ); 
-                TweenLite.delayedCall(4.3, function() { that.pageEvents.trigger('pagePopulated', true); } ); 
+                if (bowser.webkit || bowser.blink) {
+                    TweenLite.delayedCall(2.8, function() { that._cycleLogo(); } ); 
+                    TweenLite.delayedCall(4.3, function() { that.pageEvents.trigger('pagePopulated', true); } ); 
+                }
 
                 // Pull down overlay
                 var fromPath, toPath;
