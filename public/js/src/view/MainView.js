@@ -88,7 +88,6 @@ define(
                 } );
 
                 this._cycleLogo();
-                var that = this;
                 var newView = $(event.target).attr('href');
                 Backbone.history.navigate(newView.substr(1), true);
             },
@@ -400,8 +399,8 @@ define(
                     };
                     imageEl.src = src;
                 }
-            },
-        });
+            }
+        } );
         return MainView;
     }
 );
