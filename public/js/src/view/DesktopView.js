@@ -10,9 +10,10 @@ define(
         'tweenmax',
         'modernizr',
         'bowser',
-        'glitch'
+        'glitch',
+        'src/Helpers'
     ],
-    function(Backbone, $, _, Main, tweenlite, tweenmax, modernizr, bowser, glitch) {
+    function(Backbone, $, _, Main, tweenlite, tweenmax, modernizr, bowser, glitch, Helpers) {
         var DesktopView = Backbone.View.extend({
             el: 'body',
             pageEvents: {},
@@ -28,7 +29,7 @@ define(
                     this.render(Backbone.history.getFragment());
                 }, this);
                 this.render();
-                this._loadSvgs();
+                this.loadSvgs();
                 this._loadBody();
                 this._glitchBackground($('header .inner'), true);
             },
@@ -293,33 +294,6 @@ define(
                         }
                     }); 
                 }
-            },
-
-            /**
-             * Fetches SVG if supported, otherwise PNG/ JPG image.
-             * Replaces elements with class .svgImg which require attributes 
-             * data-url, data-fallback-url and data-classes.
-             * @return Void
-             */
-            _loadSvgs: function () {
-                $.each($('.svgImg'), function( index, el ) {
-                    if ($('html.firefox').length > 0 || 
-                        $('html.internet-explorer').length > 0) {
-                        $(el).replaceWith(
-                            $('<img src="' + $(el).attr('data-fallback-url') + '">').
-                            addClass($(el).attr('data-classes')));
-                    } else {
-                        $.ajax({
-                          method: 'GET',
-                          url: $(el).attr('data-url'),
-                          dataType: 'html',
-                          cache: true
-                        }).done(function( data ) {
-                            $(el).replaceWith($(data).
-                                addClass($(el).attr('data-classes')));
-                        });
-                    }
-                });
             },
 
             /**
