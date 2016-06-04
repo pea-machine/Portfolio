@@ -1,0 +1,73 @@
+nav {
+    a {
+        background-image: url('/public/img/palms.jpg');
+        background-attachment: fixed;
+        background-position: -136px 0;
+        -webkit-background-clip: text;
+        background-size: 20%;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+header {
+    filter: hue-rotate(180deg);
+    .inner {
+        filter: hue-rotate(180deg);
+        clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
+    }
+    .logo {
+        path {
+            filter: url(#filter);
+            &.zebra {
+                fill: url(#pattern-zebra);
+            }
+            &.blackwhite {
+                fill: url(#pattern-80s-blackwhite);
+            }
+            &.mosaic {
+                fill: url(#pattern-80s-mosaic);
+            }
+            &.swan {
+                fill: url(#pattern-80s-swan);
+            }
+            &.teal {
+                fill: url(#pattern-80s-teal);
+            }
+            &.whirl {
+                fill: url(#pattern-80s-whirl);
+            }
+        }
+    }
+}
+
+.content {
+    clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
+    .inner {
+        .video-wrapper,
+        .block-text,
+        .block-image,
+        .block-background-image {
+            transition: transform 1s, opacity 1s;
+            transform-origin: 50% 0;
+            opacity: 1;
+            &.pre-lay {
+                transform: perspective(1000) rotateX(20deg) translate(0, 100px);
+                opacity: 0;
+            }
+        }
+    }
+}
+
+html.firefox,
+html.internet-explorer {
+    .content {
+        display: none;
+    }
+    nav {
+        a {
+            background-image: none;
+        }
+    }
+}
+
+@import 'main';
