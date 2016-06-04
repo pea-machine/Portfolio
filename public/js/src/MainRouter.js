@@ -4,14 +4,20 @@ define(
     [
         'backbone',
         'src/model/Main',
-        'src/view/MainView',
-        'src/collection/MainCollection'
+        'src/view/DesktopView',
+        'src/view/MobileView',
+        'src/collection/MainCollection',
+        'bowser'
     ],
-    function (Backbone, Main, MainView, MainCollection) {
+    function (Backbone, Main, DesktopView, MobileView, MainCollection, bowser) {
         var MainRouter = Backbone.Router.extend({
             initialize: function () {
                 Backbone.history.start({ pushState: true });
-                new MainView();
+                if(bowser.mobile || bowser.tablet) {
+                    new MobileView();
+                } else {
+                    new DesktopView();
+                }
             },
             routes: {
                 '': 'home',

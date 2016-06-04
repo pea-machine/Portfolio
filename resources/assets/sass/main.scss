@@ -43,12 +43,6 @@ nav {
         text-decoration: none;
         text-transform: uppercase;
         color: #2A5D2A;
-        background-image: url('/public/img/palms.jpg');
-        background-attachment: fixed;
-        background-position: -136px 0;
-        -webkit-background-clip: text;
-        background-size: 20%;
-        -webkit-text-fill-color: transparent;
     }
     .twitter-icon {
         float: left;
@@ -75,17 +69,14 @@ header {
     z-index: 0;
     height: 100%;
     margin: 70px 0 0 0;
-    filter: hue-rotate(180deg);
     background-image: url('/public/img/palms.jpg');
     background-size: cover;
     .inner {
         position: absolute;
         width: 100%;
         height: 100%;
-        filter: hue-rotate(180deg);
         background-image: url('/public/img/palms.jpg');
         background-size: cover;
-        clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
     }
     .logo {
         position: absolute;
@@ -94,27 +85,7 @@ header {
         width: 30%;
         margin: 0 0 0 -13%;
         path {
-            filter: url(#filter);
-
             fill: #FFFFFF;
-            &.zebra {
-                fill: url(#pattern-zebra);
-            }
-            &.blackwhite {
-                fill: url(#pattern-80s-blackwhite);
-            }
-            &.mosaic {
-                fill: url(#pattern-80s-mosaic);
-            }
-            &.swan {
-                fill: url(#pattern-80s-swan);
-            }
-            &.teal {
-                fill: url(#pattern-80s-teal);
-            }
-            &.whirl {
-                fill: url(#pattern-80s-whirl);
-            }
         }
     }
 }
@@ -128,7 +99,6 @@ header {
     width: 100%;
     height: 100%;
     background-color: #352842;
-    clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
     img {
         max-width: 100%;
     }
@@ -217,35 +187,11 @@ header {
         p:last-child {
             margin: 0;
         }
-        .video-wrapper,
-        .block-text,
-        .block-image,
-        .block-background-image {
-            transition: transform 1s, opacity 1s;
-            transform-origin: 50% 0;
-            opacity: 1;
-            &.pre-lay {
-                transform: perspective(1000) rotateX(20deg) translate(0, 100px);
-                opacity: 0;
-            }
-        }
         .page {
             &-about {
                 max-width: 1000px;
                 margin: 0 auto;
             }
-        }
-    }
-}
-
-html.firefox,
-html.internet-explorer {
-    .content {
-        display: none;
-    }
-    nav {
-        a {
-            background-image: none;
         }
     }
 }

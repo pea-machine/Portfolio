@@ -2,10 +2,17 @@
 <html class="no-js <?php echo str_slug(strtolower(BrowserDetect::detect()['browserFamily']), '-'); ?>">
     <head>
         <title>Peter Bailey / London Web Developer</title>
-        <link href="{{ URL::asset('public/css/main.css') }}" rel="stylesheet">
+
+        <?php if (BrowserDetect::detect()['isMobile']) { ?>
+            <link href="{{ URL::asset('public/css/mobile.css') }}" rel="stylesheet">
+        <?php } else { ?>
+            <link href="{{ URL::asset('public/css/desktop.css') }}" rel="stylesheet">
+        <?php } ?>
+
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+        
         <meta name="HandheldFriendly" content="True">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable = 0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
         <link rel="icon" type="image/png" href="/public/img/palmemoji.png">
         <meta property="og:url" content="http://peterbailey.eu"/>
         <meta property="og:title" content="Peter Bailey / Web Developer"/>

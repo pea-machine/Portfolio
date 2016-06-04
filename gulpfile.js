@@ -15,6 +15,9 @@ var autoprefixer = require('gulp-autoprefixer');
 
 elixir(function(mix) {
     mix.sass([
-        'main.scss'
-    ],'public/css/main.css');
+        'mobile.scss'
+    ],'public/css/mobile.css');
+    mix.sass([
+        'desktop.scss'
+    ],'public/css/desktop.css');
 });
