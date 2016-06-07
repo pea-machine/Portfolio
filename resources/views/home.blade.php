@@ -3,7 +3,7 @@
     <head>
         <title>Peter Bailey / London Web Developer</title>
 
-        <?php if (BrowserDetect::detect()['isMobile']) { ?>
+        <?php if (BrowserDetect::detect()['isMobile'] || BrowserDetect::detect()['isTablet']) { ?>
             <link href="{{ URL::asset('public/css/mobile.css') }}" rel="stylesheet">
         <?php } else { ?>
             <link href="{{ URL::asset('public/css/desktop.css') }}" rel="stylesheet">
