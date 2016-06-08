@@ -481,7 +481,7 @@ header {
     width: 30%;
     margin: 0 0 0 -13%; }
     header .logo path {
-      fill: #FFFFFF; }
+      /* fill: #FFFFFF; */ }
 
 .content {
   position: absolute;
