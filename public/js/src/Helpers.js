@@ -3,7 +3,7 @@ define(
         'backbone',
         'jquery',
         'underscore'
-        ],function(require, Background, $, _){
+        ],function(require, Backbone, $, _){
     _.extend(Backbone.View.prototype,{}, {
 
         /**
