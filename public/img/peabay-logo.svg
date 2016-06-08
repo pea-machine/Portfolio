@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="504.382" height="259.934" viewBox="0 0 456 235" class="logo">
   <defs>
-    <pattern id="background" x="0" y="0" width="600" height="400" patternUnits="userSpaceOnUse">
+    <pattern id="background" x="300" y="0" width="600" height="400" patternUnits="userSpaceOnUse">
       <image xlink:href="/public/img/peabay-logo-background.jpg" x="0" y="0" width="600" height="2100"></image>
     </pattern>
 
