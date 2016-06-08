@@ -1,4 +1,7 @@
-define(function(require){
+define(
+    [
+        'backbone'
+    ], function(require, Backbone){
     _.extend(Backbone.View.prototype,{}, {
 
         /**
