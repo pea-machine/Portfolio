@@ -4,7 +4,7 @@
     "prod": "gulp --production",
     "dev": "gulp watch"
   },
-  "devDependencies": {=
+  "devDependencies": {
     "bootstrap-sass": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
