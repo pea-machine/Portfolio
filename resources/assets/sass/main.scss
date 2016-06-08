@@ -84,9 +84,6 @@ header {
         left: 50%;
         width: 30%;
         margin: 0 0 0 -13%;
-        path {
-            /* fill: #FFFFFF; */
-        }
     }
 }
 
@@ -329,6 +326,11 @@ header {
 /* Large tablets (iPad in landscape) */
 @media all and (min-width: 1024px) and (max-width: 1199px) {
     /* Large */
+
+    header .logo {
+        width: 40%;
+        margin: 0 0 0 -17%;
+    }
 }
 
 /* Laptops and desktops */
