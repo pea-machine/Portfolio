@@ -1,27 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="504.382" height="259.934" viewBox="0 0 456 235" class="logo">
   <defs>
-    <pattern id="pattern-zebra" x="0" y="0" width="600" height="400" patternUnits="userSpaceOnUse">
-      <image xlink:href="/public/img/zebra-pinkyellow.jpg" x="0" y="0" width="600" height="300"></image>
-    </pattern>
-
-    <pattern id="pattern-80s-blackwhite" x="0" y="0" width="600" height="400" patternUnits="userSpaceOnUse">
-      <image xlink:href="/public/img/80s-blackwhite.jpg" x="0" y="0" width="600" height="300"></image>
-    </pattern>
-
-    <pattern id="pattern-80s-mosaic" x="0" y="0" width="600" height="400" patternUnits="userSpaceOnUse">
-      <image xlink:href="/public/img/80s-mosaic.jpg" x="0" y="0" width="600" height="300"></image>
-    </pattern>
-
-    <pattern id="pattern-80s-whirl" x="0" y="0" width="600" height="400" patternUnits="userSpaceOnUse">
-      <image xlink:href="/public/img/80s-whirl.jpg" x="0" y="0" width="600" height="300"></image>
-    </pattern>
-
-    <pattern id="pattern-80s-swan" x="0" y="0" width="600" height="400" patternUnits="userSpaceOnUse">
-      <image xlink:href="/public/img/80s-swan.jpg" x="0" y="0" width="600" height="300"></image>
-    </pattern>
-
-    <pattern id="pattern-80s-teal" x="0" y="0" width="600" height="400" patternUnits="userSpaceOnUse">
-      <image xlink:href="/public/img/80s-teal.jpg" x="0" y="0" width="600" height="300"></image>
+    <pattern id="background" x="0" y="0" width="600" height="400" patternUnits="userSpaceOnUse">
+      <image xlink:href="/public/img/peabay-logo-background.jpg" x="0" y="0" width="600" height="300"></image>
     </pattern>
 
     <filter id="filter" x="567" y="483" width="456" height="235" filterUnits="userSpaceOnUse">

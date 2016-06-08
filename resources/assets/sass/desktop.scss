@@ -18,23 +18,8 @@ header {
     .logo {
         path {
             filter: url(#filter);
-            &.zebra {
-                fill: url(#pattern-zebra);
-            }
-            &.blackwhite {
-                fill: url(#pattern-80s-blackwhite);
-            }
-            &.mosaic {
-                fill: url(#pattern-80s-mosaic);
-            }
-            &.swan {
-                fill: url(#pattern-80s-swan);
-            }
-            &.teal {
-                fill: url(#pattern-80s-teal);
-            }
-            &.whirl {
-                fill: url(#pattern-80s-whirl);
+            &.background {
+                fill: url(#background);
             }
         }
     }
