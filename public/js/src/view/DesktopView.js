@@ -308,12 +308,12 @@ define(
                     0.5);
                 var tl = new TimelineMax({ repeat: 300 });
                 tl.timeScale(15).
-                to($('.logo path'), 0, { attr:{ y: 0 } }, 0).
-                to($('.logo path'), 0, { attr:{ y: '-=300' } }, 0).
-                to($('.logo path'), 0, { attr:{ y: '-=300' } }, 0).
-                to($('.logo path'), 0, { attr:{ y: '-=300' } }, 0).
-                to($('.logo path'), 0, { attr:{ y: '-=300' } }, 0).
-                to($('.logo path'), 0, { attr:{ y: '-=300' } }, 0);
+                to($('.logo #background'), 0, { attr:{ y: 0 } }, 0).
+                to($('.logo #background'), 0, { attr:{ y: -300 } }, 0).
+                to($('.logo #background'), 0, { attr:{ y: -900 } }, 0).
+                to($('.logo #background'), 0, { attr:{ y: -1200 } }, 0).
+                to($('.logo #background'), 0, { attr:{ y: -1500 } }, 0).
+                to($('.logo #background'), 0, { attr:{ y: -1800 } }, 0);
                 this.pageEvents.on('pagePopulated', function(msg) {
                     tl.stop();
                     $('.logo path').attr('class', '');

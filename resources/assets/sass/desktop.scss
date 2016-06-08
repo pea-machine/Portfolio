@@ -18,9 +18,7 @@ header {
     .logo {
         path {
             filter: url(#filter);
-            &.background {
-                fill: url(#background);
-            }
+            fill: url(#background);
         }
     }
 }
