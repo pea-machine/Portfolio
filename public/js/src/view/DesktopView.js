@@ -313,7 +313,7 @@ define(
                 to($('.logo #background image'), 0, { attr:{ y: '-900' } }, 2).
                 to($('.logo #background image'), 0, { attr:{ y: '-1200' } }, 3).
                 to($('.logo #background image'), 0, { attr:{ y: '-1500' } }, 4).
-                to($('.logo #background image'), 0, { attr:{ y: '-1800' } }, 6);
+                to($('.logo #background image'), 0, { attr:{ y: '-1800' } }, 5);
                 /*this.pageEvents.on('pagePopulated', function(msg) {
                     tl.stop();
                     $('.logo #background image').attr('y', '0');
