@@ -307,7 +307,7 @@ define(
                     { scale: 0.9, ease: Back.easeOut }, 
                     0.5);
                 var tl = new TimelineMax({ repeat: 300, ease: Back.easeOut });
-                tl.timeScale(15).
+                tl.timeScale(16).
                 to($('.logo #background image'), 0, { attr:{ y: '-300' } }, 0).
                 to($('.logo #background image'), 0, { attr:{ y: '-600' } }, 1).
                 to($('.logo #background image'), 0, { attr:{ y: '-900' } }, 2).
