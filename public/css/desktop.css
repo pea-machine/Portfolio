@@ -16,9 +16,8 @@ header {
     clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0); }
   header .logo path {
     -webkit-filter: url(#filter);
-    filter: url(#filter); }
-    header .logo path.background {
-      fill: url(#background); }
+    filter: url(#filter);
+    fill: url(#background); }
 
 .content {
   -webkit-clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
