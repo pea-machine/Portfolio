@@ -1,7 +1,9 @@
 define(
     [
-        'backbone'
-    ], function(require, Backbone){
+        'backbone',
+        'jquery',
+        'underscore'
+        ],function(require, Background, $, _){
     _.extend(Backbone.View.prototype,{}, {
 
         /**
