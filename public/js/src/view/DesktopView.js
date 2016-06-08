@@ -307,13 +307,12 @@ define(
                     { scale: 0.9, ease: Back.easeOut }, 
                     0.5);
                 var tl = new TimelineMax({ repeat: 300 });
-                tl.timeScale(15).
+                tl.timeScale(30).
                 to($('.logo #background image'), 0, { attr:{ y: -300 } }, 0).
                 to($('.logo #background image'), 0, { attr:{ y: -600 } }, 0).
                 to($('.logo #background image'), 0, { attr:{ y: -900 } }, 0).
                 to($('.logo #background image'), 0, { attr:{ y: -1200 } }, 0).
-                to($('.logo #background image'), 0, { attr:{ y: -1500 } }, 0).
-                to($('.logo #background image'), 0, { attr:{ y: -1800 } }, 0);
+                to($('.logo #background image'), 0, { attr:{ y: -1500 } }, 0);
                 /*this.pageEvents.on('pagePopulated', function(msg) {
                     tl.stop();
                     $('.logo #background image').attr('y', '0');
