@@ -313,14 +313,14 @@ define(
                 to($('.logo #background image'), 0, { attr:{ y: -900 } }, 0).
                 to($('.logo #background image'), 0, { attr:{ y: -1200 } }, 0).
                 to($('.logo #background image'), 0, { attr:{ y: -1500 } }, 0);
-                /*this.pageEvents.on('pagePopulated', function(msg) {
+                this.pageEvents.on('pagePopulated', function(msg) {
                     tl.stop();
                     $('.logo #background image').attr('y', '0');
                     TweenMax.staggerFromTo($('.logo'), 1, 
                     { scale: 0.9 }, 
                     { scale: 1, ease: Back.easeOut }, 
                     0.5);
-                });*/
+                });
             },
 
             /**
