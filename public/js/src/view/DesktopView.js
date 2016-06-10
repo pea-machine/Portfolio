@@ -55,16 +55,25 @@ define(
                 $('header .inner').css({
                     'background-image': 'url(' + window.glitchPreload + ')'
                 });
-                TweenLite.delayedCall(time + 0.2, function(){
+                TweenLite.delayedCall(time + 0.1, function(){
                     $('header .inner').css({
                         'background-image': 'url(/public/img/palms.jpg)'
                     });
                 } );
-                TweenLite.delayedCall(time += 0.2, function(){
+                TweenLite.delayedCall(time + 0.1, function(){
                     $('header .inner').css({
                         'background-image': 'url(/public/img/palms.jpg)'
                     });
-                    that._glitchBackground($('header .inner'), true);
+                } );
+                TweenLite.delayedCall(time + 0.1, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(' + window.glitchPreload + ')'
+                    });
+                } );
+                TweenLite.delayedCall(time += 0.1, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(/public/img/palms.jpg)'
+                    });
                 } );
             },
 
