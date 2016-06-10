@@ -18,6 +18,7 @@ define(
             el: 'body',
             pageEvents: {},
             events: {
+                'mouseenter a.page': '_animateGlitchBackground',
                 'click a.page': '_changeView',
                 'click .close': '_closeView'
             },
@@ -48,16 +49,7 @@ define(
                 }, 500);
             },
 
-            /**
-             * Load a new page
-             * @param object event Event object
-             * @return Void
-             */
-            _changeView: function (event) {
-                event.preventDefault();
-                var that = this;
-
-                // Glitch background momentarily
+            _animateGlitchBackground: function() {
                 $('header .inner').css({
                     'background-image': 'url(' + window.glitchPreload + ')'
                 });
@@ -87,6 +79,16 @@ define(
                     });
                     that._glitchBackground($('header .inner'), true);
                 } );
+            },
+
+            /**
+             * Load a new page
+             * @param object event Event object
+             * @return Void
+             */
+            _changeView: function (event) {
+                event.preventDefault();
+                var that = this;
 
                 this._cycleLogo();
                 var newView = $(event.target).attr('href');
