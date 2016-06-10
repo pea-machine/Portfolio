@@ -50,31 +50,42 @@ define(
             },
 
             _animateGlitchBackground: function() {
-                var that = this;
+                var that = this,
+                time = 0;
                 $('header .inner').css({
                     'background-image': 'url(' + window.glitchPreload + ')'
                 });
-                TweenLite.delayedCall(0.1, function(){
+                TweenLite.delayedCall(time + 0.1, function(){
                     $('header .inner').css({
                         'background-image': 'url(/public/img/palms.jpg)'
                     });
                 } );
-                TweenLite.delayedCall(0.15, function(){
+                TweenLite.delayedCall(time + 0.05, function(){
                     $('header .inner').css({
                         'background-image': 'url(' + window.glitchPreload + ')'
                     });
                 });
-                TweenLite.delayedCall(0.3, function(){
+                TweenLite.delayedCall(time + 0.1, function(){
                     $('header .inner').css({
                         'background-image': 'url(/public/img/palms.jpg)'
                     });
                 } );
-                TweenLite.delayedCall(0.35, function(){
+                TweenLite.delayedCall(time + 0.05, function(){
                     $('header .inner').css({
                         'background-image': 'url(' + window.glitchPreload + ')'
                     });
                 });
-                TweenLite.delayedCall(0.45, function(){
+                TweenLite.delayedCall(time + 0.1, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(/public/img/palms.jpg)'
+                    });
+                } );
+                TweenLite.delayedCall(time + 0.05, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(' + window.glitchPreload + ')'
+                    });
+                });
+                TweenLite.delayedCall(time += 0.2, function(){
                     $('header .inner').css({
                         'background-image': 'url(/public/img/palms.jpg)'
                     });
