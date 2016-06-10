@@ -18,7 +18,7 @@ define(
             el: 'body',
             pageEvents: {},
             events: {
-                'mouseenter a.page': '_animateGlitchBackground',
+                'mouseenter nav a': '_animateGlitchBackground',
                 'click a.page': '_changeView',
                 'click .close': '_closeView'
             },
