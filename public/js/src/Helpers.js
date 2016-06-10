@@ -15,6 +15,7 @@ define(
         loadSvgs: function () {
             $.each($('.svgImg'), function( index, el ) {
                 if ($('html.firefox').length > 0 || 
+                    $('html.hisorange-generic-browser').length > 0 || 
                     $('html.internet-explorer').length > 0) {
                     $(el).replaceWith(
                         $('<img src="' + $(el).attr('data-fallback-url') + '">').
