@@ -3,12 +3,10 @@
     <head>
         <title>Peter Bailey / London Web Developer</title>
 
-        <script>alert('<?php echo BrowserDetect::browserFamily(); ?>');</script>
-
         <?php if (BrowserDetect::detect()['isMobile'] ||
             BrowserDetect::detect()['isTablet'] ||
             BrowserDetect::browserFamily() == 'Internet Explorer' ||
-            BrowserDetect::browserFamily() == 'Edge' ||
+            BrowserDetect::browserFamily() == 'HiSoRange Generic Browser' ||
             BrowserDetect::browserFamily() == 'Firefox') { ?>
             <link href="{{ URL::asset('public/css/mobile.css') }}" rel="stylesheet">
         <?php } else { ?>
