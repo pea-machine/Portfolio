@@ -52,12 +52,9 @@ define(
             _animateGlitchBackground: function() {
                 var that = this,
                 time = 0;
-                $('header .inner').css({
-                    'background-image': 'url(' + window.glitchPreload + ')'
-                });
-                TweenLite.delayedCall(time += 0.1, function(){
+                TweenLite.delayedCall(time, function(){
                     $('header .inner').css({
-                        'background-image': 'url(/public/img/palms.jpg)'
+                        'background-image': 'url(' + window.glitchPreload + ')'
                     });
                 } );
                 TweenLite.delayedCall(time += 0.1, function(){
@@ -73,6 +70,11 @@ define(
                 TweenLite.delayedCall(time += 0.1, function(){
                     $('header .inner').css({
                         'background-image': 'url(/public/img/palms.jpg)'
+                    });
+                } );
+                TweenLite.delayedCall(time += 0.1, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(' + window.glitchPreload + ')'
                     });
                     that._glitchBackground($('header .inner'), true);
                 } );
