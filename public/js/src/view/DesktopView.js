@@ -64,17 +64,17 @@ define(
                         'background-image': 'url(' + window.glitchPreload + ')'
                     });
                 });
-                TweenLite.delayedCall(0.4, function(){
+                TweenLite.delayedCall(0.3, function(){
                     $('header .inner').css({
                         'background-image': 'url(/public/img/palms.jpg)'
                     });
                 } );
-                TweenLite.delayedCall(0.45, function(){
+                TweenLite.delayedCall(0.35, function(){
                     $('header .inner').css({
                         'background-image': 'url(' + window.glitchPreload + ')'
                     });
                 });
-                TweenLite.delayedCall(0.5, function(){
+                TweenLite.delayedCall(0.45, function(){
                     $('header .inner').css({
                         'background-image': 'url(/public/img/palms.jpg)'
                     });
