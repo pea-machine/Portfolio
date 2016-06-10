@@ -4,12 +4,12 @@ define(
     [
         'backbone',
         'src/model/Main',
-        'src/view/DesktopView',
-        'src/view/MobileView',
+        'src/view/FullView',
+        'src/view/BasicView',
         'src/collection/MainCollection',
         'bowser'
     ],
-    function (Backbone, Main, DesktopView, MobileView, MainCollection, bowser) {
+    function (Backbone, Main, FullView, BasicView, MainCollection, bowser) {
         var MainRouter = Backbone.Router.extend({
             initialize: function () {
                 Backbone.history.start({ pushState: true });
@@ -18,9 +18,9 @@ define(
                     bowser.msedge ||
                     bowser.msie ||
                     bowser.gecko) {
-                    new MobileView();
+                    new BasicView();
                 } else {
-                    new DesktopView();
+                    new FullView();
                 }
             },
             routes: {

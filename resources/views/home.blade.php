@@ -8,9 +8,9 @@
             BrowserDetect::browserFamily() == 'Internet Explorer' ||
             BrowserDetect::browserFamily() == 'HiSoRange Generic Browser' ||
             BrowserDetect::browserFamily() == 'Firefox') { ?>
-            <link href="{{ URL::asset('public/css/mobile.css') }}" rel="stylesheet">
+            <link href="{{ URL::asset('public/css/basic.css') }}" rel="stylesheet">
         <?php } else { ?>
-            <link href="{{ URL::asset('public/css/desktop.css') }}" rel="stylesheet">
+            <link href="{{ URL::asset('public/css/full.css') }}" rel="stylesheet">
         <?php } ?>
 
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
