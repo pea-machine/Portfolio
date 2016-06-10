@@ -50,6 +50,7 @@ define(
             },
 
             _animateGlitchBackground: function() {
+                var that = this;
                 $('header .inner').css({
                     'background-image': 'url(' + window.glitchPreload + ')'
                 });
@@ -89,7 +90,6 @@ define(
             _changeView: function (event) {
                 event.preventDefault();
                 var that = this;
-
                 this._cycleLogo();
                 var newView = $(event.target).attr('href');
                 Backbone.history.navigate(newView.substr(1), true);
