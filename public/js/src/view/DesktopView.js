@@ -81,6 +81,16 @@ define(
                     $('header .inner').css({
                         'background-image': 'url(/public/img/palms.jpg)'
                     });
+                } );
+                TweenLite.delayedCall(time += 0.03, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(' + window.glitchPreload + ')'
+                    });
+                } );
+                TweenLite.delayedCall(time += 0.03, function(){
+                    $('header .inner').css({
+                        'background-image': 'url(/public/img/palms.jpg)'
+                    });
                     that._glitchBackground($('header .inner'), true);
                 } );
             },
