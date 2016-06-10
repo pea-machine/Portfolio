@@ -341,7 +341,7 @@ define(
                 var params = {
                     amount: Math.floor(Math.random() * 10) + 1,
                     iterations: Math.floor(Math.random() * 30) + 1,
-                    quality: 70,
+                    quality: 90,
                     seed: Math.floor(Math.random() * 10) + 1
                 };
                 loadImage( imagePath, function ( img ) {
