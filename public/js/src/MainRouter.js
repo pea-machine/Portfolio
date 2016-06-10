@@ -13,7 +13,11 @@ define(
         var MainRouter = Backbone.Router.extend({
             initialize: function () {
                 Backbone.history.start({ pushState: true });
-                if(bowser.mobile || bowser.tablet) {
+                if(bowser.mobile || 
+                    bowser.tablet ||
+                    bowser.msedge ||
+                    bowser.msie ||
+                    bowser.gecko) {
                     new MobileView();
                 } else {
                     new DesktopView();
