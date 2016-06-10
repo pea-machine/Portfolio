@@ -15,12 +15,6 @@ header {
         filter: hue-rotate(180deg);
         clip-path: polygon(0 0, 0 0, 100% -70px, 100% 0);
     }
-    .logo {
-        path {
-            filter: url(#filter);
-            fill: url(#background);
-        }
-    }
 }
 
 .content {
