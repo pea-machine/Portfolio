@@ -10,6 +10,7 @@ require.config({
         'underscore': 'vendor/underscore/underscore',
         'tweenlite': 'vendor/gsap/src/minified/TweenLite.min',
         'tweenmax': 'vendor/gsap/src/minified/TweenMax.min',
+        'CSSPlugin': 'vendor/gsap/src/minified/plugins/CSSPlugin.min',
         'easepack': 'vendor/gsap/src/minified/easing/EasePack.min',
         'modernizr': 'vendor/modernizr/modernizr-custom',
         'bowser': 'vendor/bowser/src/bowser',

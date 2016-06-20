@@ -8,12 +8,13 @@ define(
         'src/model/Main',
         'tweenlite',
         'tweenmax',
+        'CSSPlugin',
         'modernizr',
         'bowser',
         'glitch',
         'src/Helpers'
     ],
-    function(Backbone, $, _, Main, tweenlite, tweenmax, modernizr, bowser, glitch, Helpers) {
+    function(Backbone, $, _, Main, tweenlite, tweenmax, CSSPlugin, modernizr, bowser, glitch, Helpers) {
         var FullView = Backbone.View.extend({
             el: 'body',
             pageEvents: {},
@@ -25,6 +26,7 @@ define(
 
             initialize: function () {
                 var that = this;
+                CSSPlugin.defaultForce3D = true;
                 _.extend(this.pageEvents, Backbone.Events);
                 Backbone.history.on("all", function (MainRouter) {
                     this.render(Backbone.history.getFragment());
