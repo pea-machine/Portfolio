@@ -167,8 +167,7 @@ define(
                             $.each(layingImages, function (index, layingImage) {
                                 var windowScroll = $('.content .inner').scrollTop();
                                 if (windowScroll > 
-                                    (layingImage.top + 
-                                        layingImage.height - 
+                                    (layingImage.top + layingImage.height - 
                                         (windowHeight + 200) ) ) {
                                     layingImage.element.removeClass('pre-lay');
                                 }
@@ -176,14 +175,14 @@ define(
                             $.each(lazyIframes, function (index, lazyIframe) {
                                 var windowScroll = $('.content .inner').scrollTop();
                                 if (windowScroll > 
-                                    (lazyIframe.top - 
-                                        windowHeight) ) {
+                                    (lazyIframe.top - windowHeight) ) {
                                     lazyIframe.element.replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
                             });
                             $.each(lazyVideos, function (index, lazyVideo) {
                                 var windowScroll = $('.content .inner').scrollLeft();
-                                if(((windowScroll + windowWidth) > lazyVideo.left) && (windowScroll < (lazyVideo.left + lazyVideo.width))){
+                                if(((windowScroll + windowWidth) > (lazyVideo.left + 600)) && 
+                                    (windowScroll < ((lazyVideo.left - 600) + lazyVideo.width))){
                                     lazyVideo.element.fadeIn(300);
                                     lazyVideo.element.removeClass('paused').addClass('playing');
                                     lazyVideo.element.get(0).play();
