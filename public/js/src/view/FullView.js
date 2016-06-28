@@ -127,11 +127,16 @@ define(
                 var that = this;
                 $('.content .inner').load('/pages/' + page, function() {
                     that.pageEvents.trigger('pagePopulated', true);
+                    setTimeout(function(){
+                        $('video').fadeIn(200);
+                    }, 2000);
                     setTimeout(function (){
                         // Cache elements in array and loop over those arrays
                         var layingImages = [];
                         var lazyIframes = [];
+                        var lazyVideos = [];
                         var windowHeight = $('.content .inner').height();
+                        var windowWidth = $('.content .inner').width();
                         $.each($('.content .inner .pre-lay'), function( index, el ) {
                             var layingImage = {};
                             layingImage.element = $(el);
@@ -147,6 +152,15 @@ define(
                             lazyIframe.url = $(el).attr('data-url');
                             lazyIframe.classes = $(el).attr('data-classes');
                             lazyIframes.push(lazyIframe);
+                        });
+                        $.each($('.content .inner .slider-container .item'), function( index, el ) {
+                            var video = {},
+                            videoElement = $(this).find('.videoLazyLoad');
+                            video.element = videoElement;
+                            video.left = $(el).offset().left;
+                            video.width = $(el).outerWidth();
+                            lazyVideos.push(video);
+                            console.log(video);
                         });
                         // Use requestAnimationFrame() for better performance
                         var scrollHandler = function (){
@@ -166,6 +180,18 @@ define(
                                         windowHeight) ) {
                                     lazyIframe.element.replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
+                            });
+                            $.each(lazyVideos, function (index, lazyVideo) {
+                                var windowScroll = $('.content .inner').scrollLeft();
+                                if(((windowScroll + windowWidth) > lazyVideo.left) && (windowScroll < (lazyVideo.left + lazyVideo.width))){
+                                    lazyVideo.element.fadeIn(300);
+                                    lazyVideo.element.removeClass('paused').addClass('playing');
+                                    lazyVideo.element.get(0).play();
+                                } else {
+                                    lazyVideo.element.removeClass('playing').addClass('paused');
+                                    lazyVideo.element.get(0).pause();
+                                }
+
                             });
                         };
                         $('.content .inner').on('scroll', function () {

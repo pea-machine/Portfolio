@@ -92,11 +92,12 @@ header {
 }
 
 .content {
-    position: absolute;
+    position: fixed;
     z-index: 2;
     top: 0;
     left: 0;
     overflow: hidden;
+    overflow-x: scroll;
     width: 100%;
     height: 100%;
     background-color: #352842;
@@ -120,9 +121,8 @@ header {
     }
     .inner {
         overflow: auto;
-        overflow-x: hidden;
         height: 100%;
-        padding: 40px 0 0 0;
+        /* padding: 40px 0 0 0; */
         color: #857794;
         .block-text {
             position: relative; /* For virtival alignment */
@@ -193,6 +193,74 @@ header {
                 max-width: 1000px;
                 margin: 0 auto;
             }
+        }
+    }
+    .slider-container {
+        width: calc(300% - 300px);
+        overflow: hidden;
+        height: 100%;
+        white-space: nowrap;
+        .item {
+            height: 100vh;
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+        }
+        .item:nth-child(1) {
+            background-color: #222;
+            width: 100vw;
+        }
+        .item:nth-child(2),
+        .item:nth-child(3) {
+            background-color: #111;    
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 300px 100%);
+            margin: 0 0 0 -300px;
+            width: calc(100vw + 300px);
+        }
+        .item video,
+        .item img {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            display: none;
+            &.videoLazyLoad {
+                display: none
+            }
+        }
+
+        .item .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            white-space: normal;
+            -webkit-clip-path: polygon(0 0, calc(100% - 300px) 0, 100% 100%, 0 100%);
+            background: -webkit-linear-gradient(left, rgba(53, 40, 66,0.9) 0%,rgba(53, 40, 66,0.7) 40%,rgba(53, 40, 66,0.1) 100%)
+        }
+        .caption {
+            width: 500px;
+            color: #FFFFFF;
+            position: absolute;
+            top: 50px;
+            left: 320px;
+        }
+        .item:nth-child(1) .caption {
+            left: 50px;
+        }
+        .caption h2 {
+            font-size: 30px;
+            margin: 0 0 20px 0;
+            font-weight: 300;
+            letter-spacing: 0.03em;
+        }
+        .caption p {
+            font-size: 16px;
+            font-weight: 100;
+            letter-spacing: 0.03em;
+            line-height: 1.5em;
         }
     }
 }
