@@ -8,12 +8,13 @@ define(
         'src/model/Main',
         'tweenlite',
         'tweenmax',
+        'CSSPlugin',
         'modernizr',
         'bowser',
         'glitch',
         'src/Helpers'
     ],
-    function(Backbone, $, _, Main, tweenlite, tweenmax, modernizr, bowser, glitch, Helpers) {
+    function(Backbone, $, _, Main, tweenlite, tweenmax, CSSPlugin, modernizr, bowser, glitch, Helpers) {
         var FullView = Backbone.View.extend({
             el: 'body',
             pageEvents: {},
@@ -25,6 +26,7 @@ define(
 
             initialize: function () {
                 var that = this;
+                CSSPlugin.defaultForce3D = true;
                 _.extend(this.pageEvents, Backbone.Events);
                 Backbone.history.on("all", function (MainRouter) {
                     this.render(Backbone.history.getFragment());
@@ -125,18 +127,17 @@ define(
                 var that = this;
                 $('.content .inner').load('/pages/' + page, function() {
                     that.pageEvents.trigger('pagePopulated', true);
-<<<<<<< Updated upstream
-=======
                     setTimeout(function(){
                         $('video').fadeIn(200);
                         $('video').first().get(0).play();
                     }, 2000);
->>>>>>> Stashed changes
                     setTimeout(function (){
                         // Cache elements in array and loop over those arrays
                         var layingImages = [];
                         var lazyIframes = [];
+                        var lazyVideos = [];
                         var windowHeight = $('.content .inner').height();
+                        var windowWidth = $('.content .inner').width();
                         $.each($('.content .inner .pre-lay'), function( index, el ) {
                             var layingImage = {};
                             layingImage.element = $(el);
@@ -153,8 +154,6 @@ define(
                             lazyIframe.classes = $(el).attr('data-classes');
                             lazyIframes.push(lazyIframe);
                         });
-<<<<<<< Updated upstream
-=======
                         $.each($('.content .inner .slider-container .item'), function( index, el ) {
                             var video = {},
                             videoElement = $(this).find('.videoLazyLoad');
@@ -163,14 +162,12 @@ define(
                             video.width = $(el).outerWidth();
                             lazyVideos.push(video);
                         });
->>>>>>> Stashed changes
                         // Use requestAnimationFrame() for better performance
                         var scrollHandler = function (){
                             $.each(layingImages, function (index, layingImage) {
                                 var windowScroll = $('.content .inner').scrollTop();
                                 if (windowScroll > 
-                                    (layingImage.top + 
-                                        layingImage.height - 
+                                    (layingImage.top + layingImage.height - 
                                         (windowHeight + 200) ) ) {
                                     layingImage.element.removeClass('pre-lay');
                                 }
@@ -178,10 +175,22 @@ define(
                             $.each(lazyIframes, function (index, lazyIframe) {
                                 var windowScroll = $('.content .inner').scrollTop();
                                 if (windowScroll > 
-                                    (lazyIframe.top - 
-                                        windowHeight) ) {
+                                    (lazyIframe.top - windowHeight) ) {
                                     lazyIframe.element.replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
+                            });
+                            $.each(lazyVideos, function (index, lazyVideo) {
+                                var windowScroll = $('.content .inner').scrollLeft();
+                                if(((windowScroll + windowWidth) > (lazyVideo.left + 600)) && 
+                                    (windowScroll < ((lazyVideo.left - 600) + lazyVideo.width))){
+                                    lazyVideo.element.fadeIn(300);
+                                    lazyVideo.element.removeClass('paused').addClass('playing');
+                                    lazyVideo.element.get(0).play();
+                                } else {
+                                    lazyVideo.element.removeClass('playing').addClass('paused');
+                                    lazyVideo.element.get(0).pause();
+                                }
+
                             });
                         };
                         $('.content .inner').on('scroll', function () {
