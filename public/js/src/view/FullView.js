@@ -127,9 +127,19 @@ define(
                 var that = this;
                 $('.content .inner').load('/pages/' + page, function() {
                     that.pageEvents.trigger('pagePopulated', true);
+<<<<<<< HEAD
                     setTimeout(function(){
                         $('video').fadeIn(200);
                     }, 2000);
+=======
+<<<<<<< Updated upstream
+=======
+                    setTimeout(function(){
+                        $('video').fadeIn(200);
+                        $('video').first().get(0).play();
+                    }, 2000);
+>>>>>>> Stashed changes
+>>>>>>> 0fbec6c3f04169d836cd956f8412312fc355425f
                     setTimeout(function (){
                         // Cache elements in array and loop over those arrays
                         var layingImages = [];
@@ -153,6 +163,11 @@ define(
                             lazyIframe.classes = $(el).attr('data-classes');
                             lazyIframes.push(lazyIframe);
                         });
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> 0fbec6c3f04169d836cd956f8412312fc355425f
                         $.each($('.content .inner .slider-container .item'), function( index, el ) {
                             var video = {},
                             videoElement = $(this).find('.videoLazyLoad');
@@ -160,8 +175,13 @@ define(
                             video.left = $(el).offset().left;
                             video.width = $(el).outerWidth();
                             lazyVideos.push(video);
+<<<<<<< HEAD
                             console.log(video);
                         });
+=======
+                        });
+>>>>>>> Stashed changes
+>>>>>>> 0fbec6c3f04169d836cd956f8412312fc355425f
                         // Use requestAnimationFrame() for better performance
                         var scrollHandler = function (){
                             $.each(layingImages, function (index, layingImage) {
