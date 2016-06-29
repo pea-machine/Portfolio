@@ -125,6 +125,13 @@ define(
                 var that = this;
                 $('.content .inner').load('/pages/' + page, function() {
                     that.pageEvents.trigger('pagePopulated', true);
+<<<<<<< Updated upstream
+=======
+                    setTimeout(function(){
+                        $('video').fadeIn(200);
+                        $('video').first().get(0).play();
+                    }, 2000);
+>>>>>>> Stashed changes
                     setTimeout(function (){
                         // Cache elements in array and loop over those arrays
                         var layingImages = [];
@@ -146,6 +153,17 @@ define(
                             lazyIframe.classes = $(el).attr('data-classes');
                             lazyIframes.push(lazyIframe);
                         });
+<<<<<<< Updated upstream
+=======
+                        $.each($('.content .inner .slider-container .item'), function( index, el ) {
+                            var video = {},
+                            videoElement = $(this).find('.videoLazyLoad');
+                            video.element = videoElement;
+                            video.left = $(el).offset().left;
+                            video.width = $(el).outerWidth();
+                            lazyVideos.push(video);
+                        });
+>>>>>>> Stashed changes
                         // Use requestAnimationFrame() for better performance
                         var scrollHandler = function (){
                             $.each(layingImages, function (index, layingImage) {
