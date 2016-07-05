@@ -10,7 +10,7 @@
         </div>
         
         <video loop="true" width="100%" height="auto" class="videoLazyLoad">
-            <source src="/public/img/video/daretodonate_10s_compressed.mp4" type="video/mp4">
+            <source src="/public/img/video/daretodonate4_10s.mp4" type="video/mp4">
         </video>
 
     </div><div class="item">
@@ -38,7 +38,7 @@
         </div>
         
         <video loop="true" width="100%" height="auto" class="videoLazyLoad">
-            <source src="/public/img/video/adorer_10s_compressed.mp4" type="video/mp4">
+            <source src="/public/img/video/Adorer_10s_compressed.mp4" type="video/mp4">
         </video>
 
     </div>
