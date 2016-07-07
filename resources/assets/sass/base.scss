@@ -27,6 +27,15 @@ body {
     display: none
 }
 
+.button {
+    &.inline {
+        background-color: RGBA(255,255,255,0.5);
+        border-radius: 100%;
+        padding: 2px 5px;
+        display: inline-block;
+    }
+}
+
 nav {
     position: absolute;
     z-index: 1;

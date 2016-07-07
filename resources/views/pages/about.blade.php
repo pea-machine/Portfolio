@@ -13,18 +13,10 @@
 				<p>
 					Founded the online magazine <a href="http://techmog.com" target="_blank">Techmog.com</a> in 2011 and now manage a team of bloggers to cover London's product design community.
 				</p>
+				<h2>Signature Wizard</h2>
 				<p>
-					Created Signature Wizard, a Chrome Extension that inserts dynamic HTML into Gmail emails.
+					Chrome extension to insert dynamic HTML signatures into Gmail emails via urls. <a href="" class="button inline">View</a> <a href="" class="button inline">View Source</a>
 				</p>
-				<img src="/public/img/adorer-signature-wizard.jpg">
-				<!-- <div class="grid gut10">
-					<div class="col perc50">
-						<img src="/public/img/signature-wizard-square.png">
-					</div>
-					<div class="col perc50">
-						<img src="/public/img/adorer-square.png">
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</div>
