@@ -15,7 +15,7 @@
 				</p>
 				<h2>Signature Wizard</h2>
 				<p>
-					Chrome extension to insert dynamic HTML signatures into Gmail emails via urls. <a href="" class="button inline">View</a> <a href="" class="button inline">View Source</a>
+					Chrome extension to insert dynamic HTML signatures into Gmail emails via urls. <a href="" class="button inline">View</a><a href="" class="button inline">Source</a>
 				</p>
 			</div>
 		</div>
