@@ -16,14 +16,15 @@
 				<p>
 					Created Signature Wizard, a Chrome Extension that inserts dynamic HTML into Gmail emails.
 				</p>
-				<div class="grid gut10">
+				<img src="/public/img/adorer-signature-wizard.jpg">
+				<!-- <div class="grid gut10">
 					<div class="col perc50">
 						<img src="/public/img/signature-wizard-square.png">
 					</div>
 					<div class="col perc50">
 						<img src="/public/img/adorer-square.png">
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
