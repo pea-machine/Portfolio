@@ -116,6 +116,9 @@ define(
              */
             _closeView: function () {
                 Backbone.history.navigate('', true);
+                setTimeout(function(){
+                    $('.content .inner').html('');
+                }, 1000);
             },
 
             /**
@@ -183,12 +186,22 @@ define(
                                 var windowScroll = $('.content .inner').scrollLeft();
                                 if(((windowScroll + windowWidth) > (lazyVideo.left + 600)) && 
                                     (windowScroll < ((lazyVideo.left - 600) + lazyVideo.width))){
-                                    lazyVideo.element.fadeIn(300);
-                                    lazyVideo.element.removeClass('paused').addClass('playing');
-                                    lazyVideo.element.get(0).play();
+                                    if(lazyVideo.element.hasClass('paused')) {
+                                        lazyVideo.element.fadeIn(300);
+                                        lazyVideo.element.removeClass('paused').addClass('playing');
+                                        lazyVideo.element.get(0).play();
+                                        lazyVideo.element.get(0).addEventListener('ended', function(){ 
+                                            this.currentTime = 1;
+                                            this.pause();
+                                        }, false);
+                                        console.log('Playing');
+                                    }
                                 } else {
-                                    lazyVideo.element.removeClass('playing').addClass('paused');
-                                    lazyVideo.element.get(0).pause();
+                                    if(lazyVideo.element.hasClass('playing')) {
+                                        lazyVideo.element.removeClass('playing').addClass('paused');
+                                        lazyVideo.element.get(0).pause();
+                                        console.log('Pausing');
+                                    }
                                 }
 
                             });

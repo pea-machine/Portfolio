@@ -27,22 +27,6 @@ body {
     display: none
 }
 
-.button {
-    &.inline {
-        background-color: #857794;
-        padding: 2px 10px;
-        display: inline-block;
-        text-decoration: none;
-        color: #352842 !important;
-        font-size: 11px;
-        font-weight: 900;
-        text-transform: uppercase;
-        bottom: 5px;
-        position: relative;
-        -webkit-clip-path: polygon(3px 0, 100% 0, calc(100% - 3px) 100%, 0 100%);
-    }
-}
-
 nav {
     position: absolute;
     z-index: 1;
@@ -212,7 +196,7 @@ header {
         }
     }
     .slider-container {
-        width: calc(300% - 300px);
+        width: calc(300% - 600px);
         overflow: hidden;
         height: 100%;
         white-space: nowrap;
@@ -232,6 +216,9 @@ header {
             -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 300px 100%);
             margin: 0 0 0 -300px;
             width: calc(100vw + 300px);
+        }
+        .item:nth-child(2) {
+            width: 100vw;
         }
         .item video,
         .item img {

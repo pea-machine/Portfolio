@@ -9,7 +9,7 @@
             </div>
         </div>
         
-        <video loop="true" width="100%" height="auto" class="videoLazyLoad">
+        <video width="100%" height="auto" class="videoLazyLoad playing">
             <source src="/public/img/video/daretodonate4_10s.mp4" type="video/mp4">
         </video>
 
@@ -22,7 +22,7 @@
             </div>
         </div>
         
-        <video loop="true" width="100%" height="auto" class="videoLazyLoad">
+        <video width="100%" height="auto" class="videoLazyLoad paused">
             <source src="/public/img/video/techmog_10s_compressed.mp4" type="video/mp4">
         </video>
      
@@ -37,7 +37,7 @@
             </div>
         </div>
         
-        <video loop="true" width="100%" height="auto" class="videoLazyLoad">
+        <video width="100%" height="auto" class="videoLazyLoad paused">
             <source src="/public/img/video/Adorer_10s_compressed.mp4" type="video/mp4">
         </video>
 
