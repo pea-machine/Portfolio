@@ -9,19 +9,23 @@ define(
         'tweenlite',
         'tweenmax',
         'CSSPlugin',
+        'ScrollToPlugin',
         'modernizr',
         'bowser',
         'glitch',
         'src/Helpers'
     ],
-    function(Backbone, $, _, Main, tweenlite, tweenmax, CSSPlugin, modernizr, bowser, glitch, Helpers) {
+    function(Backbone, $, _, Main, tweenlite, tweenmax, CSSPlugin, ScrollToPlugin, modernizr, bowser, glitch, Helpers) {
         var FullView = Backbone.View.extend({
             el: 'body',
             pageEvents: {},
+            sliderContainerCurrent: 1,
             events: {
                 'mouseenter nav a': '_animateGlitchBackground',
                 'click a.page': '_changeView',
-                'click .close': '_closeView'
+                'click .close': '_closeView',
+                'click .right-area': '_sliderContainerScroll',
+                'click .left-area': '_sliderContainerScroll'
             },
 
             initialize: function () {
@@ -133,6 +137,10 @@ define(
                     setTimeout(function(){
                         $('video').fadeIn(200);
                         $('video').first().get(0).play();
+                        $('video').first().get(0).addEventListener('ended', function(){ 
+                            this.currentTime = 1;
+                            this.pause();
+                        }, false);
                     }, 2000);
                     setTimeout(function (){
                         // Cache elements in array and loop over those arrays
@@ -377,6 +385,24 @@ define(
                     { scale: 1, ease: Back.easeOut }, 
                     0.5);
                 });
+            },
+
+            /**
+             * Scrolls Slider left or right
+             * @return Void
+             */
+            _sliderContainerScroll: function (event) {
+                if($(event.target).hasClass('right-area')) {
+                    var nextPos = this.sliderContainerCurrent + 1;
+                    var nextPos = $('.item:nth-child(' + nextPos + ')').position().left - 300;
+                    TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + nextPos + 'px'}, ease:Power2.easeOut});
+                    this.sliderContainerCurrent++;
+                } else {
+                    var prevPos = this.sliderContainerCurrent - 1;
+                    var prevPos = $('.item:nth-child(' + prevPos + ')').position().left - 300;
+                    TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + prevPos + 'px'}, ease:Power2.easeOut});
+                    this.sliderContainerCurrent--;
+                }
             },
 
             /**

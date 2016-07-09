@@ -480,7 +480,7 @@ header {
     max-width: 100%; }
   .content .close {
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     top: 20px;
     right: 20px;
     width: 40px;
@@ -555,6 +555,24 @@ header {
     .content .inner .page-about {
       max-width: 1000px;
       margin: 0 auto; }
+  .content .left-area {
+    position: fixed;
+    width: 50vw;
+    height: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: url(/public/img/arrow-left.png), auto;
+    cursor: -webkit-image-set(url(/public/img/arrow-left.png) 2x), auto; }
+  .content .right-area {
+    position: fixed;
+    width: 50vw;
+    height: 100vw;
+    top: 0;
+    left: 50%;
+    z-index: 2;
+    cursor: url(/public/img/arrow-right.png), auto;
+    cursor: -webkit-image-set(url(/public/img/arrow-right.png) 2x), auto; }
   .content .slider-container {
     width: -webkit-calc(300% - 600px);
     width: calc(300% - 600px);

@@ -1,3 +1,5 @@
+<div class="left-area"></div>
+<div class="right-area"></div>
 <div class="slider-container">
     <div class="item">
         <div class="overlay">
