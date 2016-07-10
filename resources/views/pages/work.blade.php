@@ -12,7 +12,8 @@
         </div>
         
         <video width="100%" height="auto" class="videoLazyLoad playing">
-            <source src="/public/img/video/daretodonate4_10s.mp4" type="video/mp4">
+            <source src="/public/img/video/daretodonate_10s_compressed.mp4" type="video/mp4">
+            <source src="/public/img/video/daretodonate_10s_compressed.webm" type="video/webm">
         </video>
 
     </div><div class="item">
@@ -26,6 +27,7 @@
         
         <video width="100%" height="auto" class="videoLazyLoad paused">
             <source src="/public/img/video/techmog_10s_compressed.mp4" type="video/mp4">
+            <source src="/public/img/video/techmog_10s_compressed.webm" type="video/webm">
         </video>
      
 
@@ -41,6 +43,7 @@
         
         <video width="100%" height="auto" class="videoLazyLoad paused">
             <source src="/public/img/video/Adorer_10s_compressed.mp4" type="video/mp4">
+            <source src="/public/img/video/Adorer_10s_compressed.webm" type="video/webm">
         </video>
 
     </div>
