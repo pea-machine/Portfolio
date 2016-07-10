@@ -172,6 +172,8 @@ define(
                             video.left = $(el).offset().left;
                             video.width = $(el).outerWidth();
                             lazyVideos.push(video);
+                            // Show video controls for smaller screens
+                            video.element.prop('controls', $(window).width() <= 1023);
                         });
                         // Use requestAnimationFrame() for better performance
                         var scrollHandler = function (){
