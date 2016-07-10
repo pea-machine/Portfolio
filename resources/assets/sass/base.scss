@@ -24,7 +24,7 @@ body {
 
 #img-container,
 #canvas-container {
-    display: none
+    display: none;
 }
 
 nav {
@@ -86,6 +86,7 @@ header {
         margin: 0 0 0 -13%;
         path {
             filter: url(#filter);
+
             fill: url(#background);
         }
     }
@@ -197,93 +198,95 @@ header {
     }
     .left-area {
         position: fixed;
-        width: 50vw;
-        height: 100vw;
+        z-index: 2;
         top: 0;
         left: 0;
-        z-index: 2;
+        width: 50vw;
+        height: 100vw;
         cursor: url(/public/img/arrow-left.png), auto;
         cursor: -webkit-image-set(url(/public/img/arrow-left.png) 2x), auto;
     }
     .right-area {
         position: fixed;
-        width: 50vw;
-        height: 100vw;
+        z-index: 2;
         top: 0;
         left: 50%;
-        z-index: 2;
+        width: 50vw;
+        height: 100vw;
         cursor: url(/public/img/arrow-right.png), auto;
         cursor: -webkit-image-set(url(/public/img/arrow-right.png) 2x), auto;
     }
     .slider-container {
-        width: calc(300% - 600px);
         overflow: hidden;
+        width: calc(300% - 600px);
         height: 100%;
         white-space: nowrap;
         .item {
-            height: 100vh;
+            position: relative;
             display: inline-block;
             overflow: hidden;
-            position: relative;
+            height: 100vh;
         }
         .item:nth-child(1) {
-            background-color: #222;
             width: 100vw;
+            background-color: #222222;
         }
         .item:nth-child(2),
         .item:nth-child(3) {
-            background-color: #111;    
-            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 300px 100%);
-            margin: 0 0 0 -300px;
             width: calc(100vw + 300px);
+            margin: 0 0 0 -300px;
+            background-color: #111111;
+
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 300px 100%);
         }
         .item:nth-child(2) {
             width: 100vw;
         }
         .item video,
         .item img {
-            width: 100%;
-            height: 100%;
             position: fixed;
             top: 0;
             left: 0;
-            object-fit: cover;
             display: none;
-            &.videoLazyLoad {
-                display: none
-            }
-        }
-
-        .item .overlay {
-            position: absolute;
             width: 100%;
             height: 100%;
+
+            object-fit: cover;
+            &.videoLazyLoad {
+                display: none;
+            }
+        }
+        .item .overlay {
+            position: absolute;
             z-index: 1;
+            width: 100%;
+            height: 100%;
             white-space: normal;
+            background: -webkit-linear-gradient(left, rgba(53, 40, 66,.9) 0%,rgba(53, 40, 66,.7) 40%,rgba(53, 40, 66,.1) 100%);
+
             -webkit-clip-path: polygon(0 0, calc(100% - 300px) 0, 100% 100%, 0 100%);
-            background: -webkit-linear-gradient(left, rgba(53, 40, 66,0.9) 0%,rgba(53, 40, 66,0.7) 40%,rgba(53, 40, 66,0.1) 100%)
         }
         .caption {
-            width: 500px;
-            color: #FFFFFF;
             position: absolute;
             top: 50px;
             left: 320px;
+            width: 500px;
+            color: #FFFFFF;
         }
         .item:nth-child(1) .caption {
             left: 50px;
         }
         .caption h2 {
             font-size: 30px;
-            margin: 0 0 20px 0;
             font-weight: 300;
-            letter-spacing: 0.03em;
+            margin: 0 0 20px 0;
+            letter-spacing: .03em;
         }
         .caption p {
             font-size: 16px;
             font-weight: 100;
-            letter-spacing: 0.03em;
             line-height: 1.5em;
+            letter-spacing: .03em;
         }
     }
 }
@@ -431,4 +434,74 @@ header {
 /* Laptops and desktops */
 @media all and (min-width: 1200px) {
     /* Larger */
+}
+
+/* Phones, tablets and small screens */
+@media all and (min-width: 0) and (max-width: 1023px) {
+    /**
+     * Stack Slider
+     */
+
+    .content {
+        .inner {
+            .left-area,
+            .right-area {
+                display: none;
+            }
+            .slider-container {
+                overflow: auto;
+                width: auto;
+                height: auto;
+                white-space: normal;
+                .item {
+                    position: static;
+                    display: block;
+                    overflow: auto;
+                    height: auto;
+                }
+                .item:nth-child(1) {
+                    width: auto;
+                    background-color: transparent;
+                }
+                .item:nth-child(2),
+                .item:nth-child(3) {
+                    width: auto;
+                    margin: 0;
+                    background-color: transparent;
+
+                    -webkit-clip-path: none;
+                }
+                .item:nth-child(2) {
+                    width: auto;
+                }
+                .item video,
+                .item img {
+                    position: static;
+                    width: 100%;
+                    height: auto;
+                }
+                .item .overlay {
+                    position: static;
+                    width: auto;
+                    height: auto;
+
+                    -webkit-clip-path: none;
+                    background: transparent;
+                }
+                .caption {
+                    position: static;
+                    top: 0;
+                    left: 0;
+                    width: auto;
+                    padding: 20px;
+                }
+                .item:nth-child(1) .caption {
+                    left: 0;
+                }
+                .caption p {
+                    margin: 0 0 1em 0;
+                }
+            }
+        }
+    }
 }
