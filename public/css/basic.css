@@ -529,10 +529,10 @@ header {
       background-image: url(/public/img/map.png);
       background-size: cover; }
       .content .inner .contact .container {
+        text-align: center;
         position: relative;
         top: 50%;
-        transform: translateY(-50%);
-        text-align: center; }
+        transform: translateY(-50%); }
         .content .inner .contact .container .next-available {
           margin: -100px 0 0 0;
           text-align: center; }
@@ -560,10 +560,10 @@ header {
         .content .inner .contact .container .email {
           font-size: 28px;
           font-weight: 100;
+          display: inline-block;
           margin: 20px auto 0 auto;
           text-decoration: none;
-          color: #FFFFFF;
-          display: inline-block; }
+          color: #FFFFFF; }
     .content .inner .brand-logos {
       text-align: center; }
       .content .inner .brand-logos svg {
