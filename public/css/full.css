@@ -519,10 +519,7 @@ header {
         font-weight: 300;
         margin: 0 0 20px 0; }
       .content .inner .block-text p {
-        font-size: 16px;
-        font-weight: 100;
-        line-height: 1.5em;
-        letter-spacing: .03em; }
+        font-size: 20px; }
       .content .inner .block-text .valign {
         padding: 0 40px 0 0;
         position: absolute;
@@ -697,6 +694,11 @@ header {
     text-align: left; }
   .content .inner .block-text {
     padding: 0 20px; }
+    .content .inner .block-text p {
+      font-size: 16px;
+      font-weight: 100;
+      line-height: 1.5em;
+      letter-spacing: .03em; }
   .content .inner .block-background-image {
     min-height: 300px; }
   .content .inner .page-about {
@@ -720,6 +722,11 @@ header {
     text-align: left; }
   .content .inner .block-text {
     padding: 0 20px; }
+    .content .inner .block-text p {
+      font-size: 16px;
+      font-weight: 100;
+      line-height: 1.5em;
+      letter-spacing: .03em; }
   .content .inner .block-background-image {
     min-height: 300px; }
   .content .inner .page-about {
@@ -743,6 +750,11 @@ header {
     text-align: left; }
   .content .inner .block-text {
     padding: 0 20px; }
+    .content .inner .block-text p {
+      font-size: 16px;
+      font-weight: 100;
+      line-height: 1.5em;
+      letter-spacing: .03em; }
   .content .inner .block-background-image {
     min-height: 300px; }
   .content .inner .page-about {
