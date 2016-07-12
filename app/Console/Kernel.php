@@ -33,7 +33,13 @@ class Kernel extends ConsoleKernel
          * @return void
          */
         $schedule->call(function () {
-            $page = file_get_contents('https://app.yunojuno.com/p/peabay');
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, 'https://app.yunojuno.com/p/peabay');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)');
+            $page = curl_exec($ch);
+            curl_close($ch);
+
             preg_match('/\<strong\>Next\&nbsp\;Available\:(.*?)\<\/strong\>/', $page, $matches);
             $next_available = str_replace('&nbsp;', ' ', $matches[1]);
             $settings = DB::table('settings')->get();
