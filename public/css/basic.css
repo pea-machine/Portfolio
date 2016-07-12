@@ -527,41 +527,42 @@ header {
       width: 100%;
       height: 100%;
       background-image: url(/public/img/map.png);
-      background-size: cover;
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%); }
-      .content .inner .contact .next-available {
-        margin: -100px 0 0 0;
-        text-align: center; }
-        .content .inner .contact .next-available .date {
-          font-size: 22px;
+      background-size: cover; }
+      .content .inner .contact .container {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%); }
+        .content .inner .contact .container .next-available {
+          margin: -100px 0 0 0;
+          text-align: center; }
+          .content .inner .contact .container .next-available .date {
+            font-size: 22px;
+            font-weight: 100;
+            display: inline-block;
+            min-width: 300px;
+            padding: 4px 40px 12px 40px;
+            text-align: center;
+            letter-spacing: 0;
+            color: #C8ABE2;
+            background-color: #785B92;
+            box-shadow: 0 3px 1px RGBA(0, 0, 0, 0.3); }
+          .content .inner .contact .container .next-available .arrow {
+            width: 20px;
+            height: 20px;
+            margin: 0 auto;
+            background-color: #785B92;
+            -webkit-clip-path: polygon(0 0, 20px 0, 10px 11px); }
+          .content .inner .contact .container .next-available .label {
+            font-size: 15px;
+            opacity: .6;
+            color: #C8ABE2; }
+        .content .inner .contact .container .email {
+          font-size: 28px;
           font-weight: 100;
-          display: inline-block;
-          min-width: 300px;
-          padding: 4px 40px 12px 40px;
+          margin: 20px 0 0 0;
           text-align: center;
-          letter-spacing: 0;
-          color: #C8ABE2;
-          background-color: #785B92;
-          box-shadow: 0 3px 1px RGBA(0, 0, 0, 0.3); }
-        .content .inner .contact .next-available .arrow {
-          width: 20px;
-          height: 20px;
-          margin: 0 auto;
-          background-color: #785B92;
-          -webkit-clip-path: polygon(0 0, 20px 0, 10px 11px); }
-        .content .inner .contact .next-available .label {
-          font-size: 15px;
-          opacity: .6;
-          color: #C8ABE2; }
-      .content .inner .contact .email {
-        font-size: 28px;
-        font-weight: 100;
-        margin: 20px 0 0 0;
-        text-align: center;
-        text-decoration: none;
-        color: #FFFFFF; }
+          text-decoration: none;
+          color: #FFFFFF; }
     .content .inner .brand-logos {
       text-align: center; }
       .content .inner .brand-logos svg {
