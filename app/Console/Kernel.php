@@ -42,12 +42,12 @@ class Kernel extends ConsoleKernel
 
             $page = preg_replace('/\s+/', '', $page);
             preg_match('/\<strong\>Next\&nbsp\;Available\:(.*?)\<\/strong\>/', $page, $matches);
-            $next_available = count($matches) > 0 ? $matches[1] : 'Unavailable';
-            $next_available = str_replace('&nbsp;', ' ', $next_available);
-            $next_available = strtotime($next_available);
+            $nextAvailable = count($matches) > 0 ? $matches[1] : 'Unavailable';
+            $nextAvailable = str_replace('&nbsp;', ' ', $nextAvailable);
+            $nextAvailable = strtotime($nextAvailable);
 
             \App\Models\Settings::firstOrCreate(['name' => 'next_available']);
-            \App\Models\Settings::where('name', 'next_available')->update(['value' => $next_available]);
+            \App\Models\Settings::where('name', 'next_available')->update(['value' => $nextAvailable]);
         })->hourly();
     }
 }

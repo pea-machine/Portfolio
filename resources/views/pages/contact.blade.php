@@ -6,8 +6,8 @@
 				<a href="mailto:hi@peabay.xyz">hi@peabay.xyz</a></p>
 				<h3>Next Available</h3>
 				<?php
-					$next_available = App\Models\Settings::where('name', 'next_available')->first();
-					echo $next_available->value;
+					$nextAvailable = App\Models\Settings::where('name', 'next_available')->first();
+					echo date('D jS F', $nextAvailable->value);
                 ?>
 			</div>
 		</div>
