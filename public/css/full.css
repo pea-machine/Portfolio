@@ -549,7 +549,8 @@ header {
       background-image: url(/public/img/map.png);
       background-size: cover; }
       .content .inner .contact .next-available {
-        margin: 100px 0 0 0; }
+        margin: 100px 0 0 0;
+        text-align: center; }
         .content .inner .contact .next-available .date {
           background-color: #785b92;
           display: inline-block;
@@ -575,7 +576,8 @@ header {
         font-size: 28px;
         text-align: center;
         color: #FFFFFF;
-        font-weight: 100; }
+        font-weight: 100;
+        margin: 20px 0 0 0; }
     .content .inner .brand-logos {
       text-align: center; }
       .content .inner .brand-logos svg {
