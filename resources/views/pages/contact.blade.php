@@ -12,6 +12,6 @@
 	        <div class="arrow"></div>
 	        <div class="label">Next Available</div>
 		</div>
-		<div class="email">hi@peabay.xyz</div>
+		<a class="email" href="mailto:hi@peabay.xyz">hi@peabay.xyz</a>
 	</div
 </div>
