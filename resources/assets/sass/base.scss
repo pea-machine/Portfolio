@@ -448,12 +448,13 @@ header {
             }
             .block-text {
                 padding: 0 20px;
-                p {
-                    font-size: 16px;
-                    font-weight: 100;
-                    line-height: 1.5em;
-                    letter-spacing: .03em;
-                }
+p {
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 1.5em;
+    letter-spacing: .03em;
+}
+
             }
             .block-background-image {
                 min-height: 300px;
@@ -557,6 +558,7 @@ header {
                     left: 0;
                     width: auto;
                     padding: 20px;
+                    color: #857794;
                 }
                 .item:nth-child(1) .caption {
                     left: 0;

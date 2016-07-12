@@ -809,7 +809,8 @@ header {
       top: 0;
       left: 0;
       width: auto;
-      padding: 20px; }
+      padding: 20px;
+      color: #857794; }
     .content .inner .slider-container .item:nth-child(1) .caption {
       left: 0; }
     .content .inner .slider-container .caption p {
