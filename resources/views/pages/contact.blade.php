@@ -1,4 +1,4 @@
-<div class="contact">
+<div class="page-contact">
 	<div class="container">
 		<div class="next-available">
 			<div class="date">

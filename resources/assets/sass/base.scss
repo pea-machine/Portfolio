@@ -162,55 +162,6 @@ header {
             width: 100%;
             height: 100%;
         }
-        .contact {
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            background-image: url(/public/img/map.png);
-            background-size: cover;
-            .container {
-                text-align: center;
-
-                @include valign(relative);
-                .next-available {
-                    margin: -100px 0 0 0;
-                    text-align: center;
-                    .date {
-                        font-size: 22px;
-                        font-weight: 100;
-                        display: inline-block;
-                        min-width: 300px;
-                        padding: 4px 40px 12px 40px;
-                        text-align: center;
-                        letter-spacing: 0;
-                        color: #C8ABE2;
-                        background-color: #785B92;
-                        box-shadow: 0 3px 1px RGBA(0,0,0,.3);
-                    }
-                    .arrow {
-                        width: 20px;
-                        height: 20px;
-                        margin: 0 auto;
-                        background-color: #785B92;
-
-                        -webkit-clip-path: polygon(0 0, 20px 0, 10px 11px);
-                    }
-                    .label {
-                        font-size: 15px;
-                        opacity: .6;
-                        color: #C8ABE2;
-                    }
-                }
-                .email {
-                    font-size: 28px;
-                    font-weight: 100;
-                    display: inline-block;
-                    margin: 20px auto 0 auto;
-                    text-decoration: none;
-                    color: #FFFFFF;
-                }
-            }
-        }
         .brand-logos {
             text-align: center;
             svg {
@@ -235,7 +186,56 @@ header {
         .page {
             &-about {
                 max-width: 1000px;
-                margin: 0 auto;
+                margin: 100px auto 0 auto;
+            }
+            &.-contact {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                background-image: url(/public/img/map.png);
+                background-size: cover;
+                .container {
+                    text-align: center;
+
+                    @include valign(relative);
+                    .next-available {
+                        margin: -100px 0 0 0;
+                        text-align: center;
+                        .date {
+                            font-size: 22px;
+                            font-weight: 100;
+                            display: inline-block;
+                            min-width: 300px;
+                            padding: 4px 40px 12px 40px;
+                            text-align: center;
+                            letter-spacing: 0;
+                            color: #C8ABE2;
+                            background-color: #785B92;
+                            box-shadow: 0 3px 1px RGBA(0,0,0,.3);
+                        }
+                        .arrow {
+                            width: 20px;
+                            height: 20px;
+                            margin: 0 auto;
+                            background-color: #785B92;
+
+                            -webkit-clip-path: polygon(0 0, 20px 0, 10px 11px);
+                        }
+                        .label {
+                            font-size: 15px;
+                            opacity: .6;
+                            color: #C8ABE2;
+                        }
+                    }
+                    .email {
+                        font-size: 28px;
+                        font-weight: 100;
+                        display: inline-block;
+                        margin: 20px auto 0 auto;
+                        text-decoration: none;
+                        color: #FFFFFF;
+                    }
+                }
             }
         }
     }
