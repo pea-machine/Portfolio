@@ -169,23 +169,37 @@ header {
             background-image: url(/public/img/map.png);
             background-size: cover;
             .next-available {
-                padding: 25px 0;
-                text-align: center;
-                color: #c8abe2;
-                font-size: 30px;
+                    margin: 100px 0 0 0;
+                .date {
+                    background-color: #785b92;
+                    display: inline-block;
+                    padding: 7px 40px 12px 40px;
+                    text-align: center;
+                    color: #c8abe2;
+                    font-size: 22px;
+                    min-width: 300px;
+                    font-weight: 100;
+                    box-shadow: 0 3px 1px RGBA(0,0,0,0.3);
+                    letter-spacing: 0em;
+                }
                 .arrow {
                     background-color: #785b92;
-                    -webkit-clip-path: polygon(0 0, 20px 0, 10px 20px);
+                    -webkit-clip-path: polygon(0 0, 20px 0, 10px 11px);
                     margin: 0 auto;
-                    display: inline-block
+                    width: 20px;
+                    height: 20px;
                 }
                 .label {
                     color: #c8abe2;
-                    margin: 10px 0 0 0
+                    font-size: 15px;
+                    opacity: 0.6;
                 }
             }
             .email {
-                font-size: 30px;
+                font-size: 28px;
+                text-align: center;
+                color: #FFFFFF;
+                font-weight: 100;
             }
         }
         .brand-logos {
