@@ -39,6 +39,6 @@ class Kernel extends ConsoleKernel
             $settings
                 ->where('name', 'next_available')
                 ->update(['value' => $next_available]);
-        })->hourly();
+        })->everyFiveMinutes();
     }
 }
