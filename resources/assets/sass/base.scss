@@ -169,7 +169,8 @@ header {
             background-image: url(/public/img/map.png);
             background-size: cover;
             .next-available {
-                    margin: 100px 0 0 0;
+                margin: 100px 0 0 0;
+                text-align: center;
                 .date {
                     background-color: #785b92;
                     display: inline-block;
@@ -200,6 +201,7 @@ header {
                 text-align: center;
                 color: #FFFFFF;
                 font-weight: 100;
+                margin: 20px 0 0 0;
             }
         }
         .brand-logos {
