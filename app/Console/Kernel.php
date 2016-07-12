@@ -48,6 +48,6 @@ class Kernel extends ConsoleKernel
 
             \App\Models\Settings::firstOrCreate(['name' => 'next_available']);
             \App\Models\Settings::where('name', 'next_available')->update(['value' => $next_available]);
-        })->everyMinute();
+        })->hourly();
     }
 }
