@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Models\Settings;
+use DB;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -48,6 +49,6 @@ class Kernel extends ConsoleKernel
             $settings
                 ->where('name', 'next_available')
                 ->update(['value' => $next_available]);
-        })->everyFiveMinutes();
+        })->everyMinute();
     }
 }
