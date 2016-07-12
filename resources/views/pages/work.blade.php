@@ -1,4 +1,4 @@
-cd ../<div class="left-area"></div>
+<div class="left-area"></div>
 <div class="right-area"></div>
 <div class="slider-container">
     <div class="item">
@@ -11,9 +11,9 @@ cd ../<div class="left-area"></div>
             </div>
         </div>
         
-        <video width="100%" height="auto" class="videoLazyLoad playing">
-            <source src="/public/img/video/daretodonate_10s_compressed.webm" type="video/webm">
+        <video width="100%" height="300px" class="videoLazyLoad playing">
             <source src="/public/img/video/daretodonate_10s_compressed.mp4" type="video/mp4">
+            <source src="/public/img/video/daretodonate_10s_compressed.webm" type="video/webm">
         </video>
 
     </div><div class="item">
