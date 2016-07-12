@@ -32,7 +32,7 @@
         <nav>
             <a href="/#about" class="page">About</a>
             <a href="/#work" class="page">Work</a>
-            <a href="mailto:hello@peterbailey.eu">Contact</a>
+            <a href="/#contact" class="page">Contact</a>
             <a href="http://twitter.com/peabay" class="twitter-icon" target="_blank">
                 <div class="svgImg" data-url="public/img/twitter-icon.svg" data-fallback-url="public/img/twitter-icon.png"></div>
             </a>
