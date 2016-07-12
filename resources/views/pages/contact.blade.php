@@ -5,7 +5,7 @@
 				<?php
 					$nextAvailable = App\Models\Settings::where('name', 'next_available')->first();
 		            echo date('l j', $nextAvailable->value);
-		            echo date('\<sup\>S\<\/sup\>', $nextAvailable->value);
+		            echo '<sup>' . date('S', $nextAvailable->value) . '</sup>';
 		            echo date(' F', $nextAvailable->value);
 		        ?>
 	        </div>
