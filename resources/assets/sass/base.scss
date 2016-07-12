@@ -170,6 +170,7 @@ header {
             background-size: cover;
             .container {
                 @include valign(relative);
+                text-align: center;
                 .next-available {
                     margin: -100px 0 0 0;
                     text-align: center;
@@ -202,10 +203,10 @@ header {
                 .email {
                     font-size: 28px;
                     font-weight: 100;
-                    margin: 20px 0 0 0;
-                    text-align: center;
+                    margin: 20px auto 0 auto;
                     text-decoration: none;
                     color: #FFFFFF;
+                    display: inline-block;
                 }
             }
         }
