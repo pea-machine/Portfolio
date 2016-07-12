@@ -168,6 +168,25 @@ header {
             height: 100%;
             background-image: url(/public/img/map.png);
             background-size: cover;
+            .next-available {
+                padding: 25px 0;
+                text-align: center;
+                color: #c8abe2;
+                font-size: 30px;
+                .arrow {
+                    background-color: #785b92;
+                    -webkit-clip-path: polygon(0 0, 20px 0, 10px 20px);
+                    margin: 0 auto;
+                    display: inline-block
+                }
+                .label {
+                    color: #c8abe2;
+                    margin: 10px 0 0 0
+                }
+            }
+            .email {
+                font-size: 30px;
+            }
         }
         .brand-logos {
             text-align: center;
