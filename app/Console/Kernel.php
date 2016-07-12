@@ -29,6 +29,8 @@ class Kernel extends ConsoleKernel
         /**
          * Get next-available time from YunoJuno
          * and store it in the Settings table
+         *
+         * @return void
          */
         $schedule->call(function () {
             $page = file_get_contents('https://app.yunojuno.com/p/peabay');
@@ -39,6 +41,7 @@ class Kernel extends ConsoleKernel
             $settings
                 ->where('name', 'next_available')
                 ->update(['value' => $next_available]);
+            Log::info('Next-available scheduled task ran successfully');
         })->everyFiveMinutes();
     }
 }
