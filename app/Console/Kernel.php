@@ -41,7 +41,8 @@ class Kernel extends ConsoleKernel
             curl_close($ch);
 
             preg_match('/\<strong\>Next\&nbsp\;Available\:(.*?)\<\/strong\>/', $page, $matches);
-            $next_available = str_replace('&nbsp;', ' ', $matches[1]);
+            $next_available = count($matches > 0) ? $matches[1] : 'Unavailable';
+            $next_available = str_replace('&nbsp;', ' ', $next_available);
             $settings = DB::table('settings')->get();
             $settings->firstOrCreate(['name' => 'next_available']);
             $settings
