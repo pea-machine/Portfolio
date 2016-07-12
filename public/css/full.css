@@ -22,17 +22,13 @@ header {
   .content .inner .block-text,
   .content .inner .block-image,
   .content .inner .block-background-image {
-    -webkit-transition: -webkit-transform 1s, opacity 1s;
     transition: transform 1s, opacity 1s;
-    -webkit-transform-origin: 50% 0;
-    -ms-transform-origin: 50% 0;
     transform-origin: 50% 0;
     opacity: 1; }
     .content .inner .video-wrapper.pre-lay,
     .content .inner .block-text.pre-lay,
     .content .inner .block-image.pre-lay,
     .content .inner .block-background-image.pre-lay {
-      -webkit-transform: perspective(1000) rotateX(20deg) translate(0, 100px);
       transform: perspective(1000) rotateX(20deg) translate(0, 100px);
       opacity: 0; }
 
@@ -51,7 +47,6 @@ html.internet-explorer nav a {
 */
 /* Column Defaults */
 .col {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 /* List of custom column sizes in percentages */
@@ -59,12 +54,10 @@ html.internet-explorer nav a {
 /* Delimiter for class names (- or _) */
 .grid {
   /* The Grid */
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /* Column Sizes */
   /* Gutter */
@@ -413,7 +406,6 @@ html.internet-explorer nav a {
     width: 100%; } }
 
 * {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 html,
@@ -427,7 +419,6 @@ body {
 body {
   overflow: hidden;
   width: 100%;
-  height: -webkit-calc(100% - 70px);
   height: calc(100% - 70px);
   margin: 0;
   padding: 0; }
@@ -525,6 +516,7 @@ header {
       padding: 40px; }
       .content .inner .block-text h2 {
         font-size: 30px;
+        font-weight: 300;
         margin: 0 0 20px 0; }
       .content .inner .block-text p {
         font-size: 20px; }
@@ -532,8 +524,6 @@ header {
         padding: 0 40px 0 0;
         position: absolute;
         top: 50%;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
         transform: translateY(-50%); }
     .content .inner .block-image {
       max-width: 100%;
@@ -553,14 +543,11 @@ header {
       width: 100%;
       height: 100%; }
     .content .inner .contact {
-      font-size: 30px;
-      max-width: 1000px;
-      margin: 0 auto;
-      position: relative;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%); }
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background-image: url(/public/img/map.png);
+      background-size: cover; }
     .content .inner .brand-logos {
       text-align: center; }
       .content .inner .brand-logos svg {
@@ -599,7 +586,6 @@ header {
     cursor: -webkit-image-set(url(/public/img/arrow-right.png) 2x), auto; }
   .content .slider-container {
     overflow: hidden;
-    width: -webkit-calc(300% - 600px);
     width: calc(300% - 600px);
     height: 100%;
     white-space: nowrap; }
@@ -613,7 +599,6 @@ header {
       background-color: #222222; }
     .content .slider-container .item:nth-child(2),
     .content .slider-container .item:nth-child(3) {
-      width: -webkit-calc(100vw + 300px);
       width: calc(100vw + 300px);
       margin: 0 0 0 -300px;
       background-color: #111111;
@@ -628,7 +613,6 @@ header {
       display: none;
       width: 100%;
       height: 100%;
-      -o-object-fit: cover;
       object-fit: cover; }
       .content .slider-container .item video.videoLazyLoad,
       .content .slider-container .item img.videoLazyLoad {
@@ -640,7 +624,7 @@ header {
       height: 100%;
       white-space: normal;
       background: -webkit-linear-gradient(left, rgba(53, 40, 66, 0.9) 0%, rgba(53, 40, 66, 0.7) 40%, rgba(53, 40, 66, 0.1) 100%);
-      -webkit-clip-path: polygon(0 0, -webkit-calc(100% - 300px) 0, 100% 100%, 0 100%); }
+      -webkit-clip-path: polygon(0 0, calc(100% - 300px) 0, 100% 100%, 0 100%); }
     .content .slider-container .caption {
       position: absolute;
       top: 50px;
@@ -779,15 +763,15 @@ header {
     .content .inner .slider-container .item video,
     .content .inner .slider-container .item img {
       position: static;
+      display: block;
       width: 100%;
-      height: auto;
-      display: block; }
+      height: auto; }
     .content .inner .slider-container .item .overlay {
       position: static;
       width: auto;
       height: auto;
-      -webkit-clip-path: none;
-      background: transparent; }
+      background: transparent;
+      -webkit-clip-path: none; }
     .content .inner .slider-container .caption {
       position: static;
       top: 0;
