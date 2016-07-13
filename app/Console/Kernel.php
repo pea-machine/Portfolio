@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
          * Get next-available time from YunoJuno
          * and store it in the Settings table
          *
-         * @return void
+                     * @return void
          */
         $schedule->call(function () {
             $ch = curl_init();
@@ -46,8 +46,10 @@ class Kernel extends ConsoleKernel
             $nextAvailable = str_replace('&nbsp;', ' ', $nextAvailable);
             $nextAvailable = strtotime($nextAvailable);
 
-            \App\Models\Settings::firstOrCreate(['name' => 'next_available']);
-            \App\Models\Settings::where('name', 'next_available')->update(['value' => $nextAvailable]);
-        })->hourly();
+            if ($nextAvailable !== false) {
+                \App\Models\Settings::firstOrCreate(['name' => 'next_available']);
+                \App\Models\Settings::where('name', 'next_available')->update(['value' => $nextAvailable]);
+            }
+        })->everyMinute();
     }
 }
