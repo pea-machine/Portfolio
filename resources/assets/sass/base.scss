@@ -570,3 +570,15 @@ p {
         }
     }
 }
+
+/**
+ * Browser Specific Fixes
+ */
+
+.firefox {
+    .next-available {
+        .arrow {
+            display: none
+        }
+    }
+}

@@ -20,7 +20,9 @@ define(
             pageEvents: {},
             events: {
                 'click a.page': '_changeView',
-                'click .close': '_closeView'
+                'click .close': '_closeView',
+                'click .right-area': '_sliderContainerScroll',
+                'click .left-area': '_sliderContainerScroll'
             },
 
             initialize: function () {
@@ -138,6 +140,24 @@ define(
                 this.pageEvents.on('pagePopulated', function(msg) {
                    TweenMax.to($('.logo'), 0.5, {scale:1, ease:Power2.easeOut});
                 });
+            },
+
+            /**
+             * Scrolls Slider left or right
+             * @return Void
+             */
+            _sliderContainerScroll: function (event) {
+                if($(event.target).hasClass('right-area')) {
+                    var nextPos = this.sliderContainerCurrent + 1;
+                    var nextPos = $('.item:nth-child(' + nextPos + ')').position().left - 300;
+                    TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + nextPos + 'px'}, ease:Power2.easeOut});
+                    this.sliderContainerCurrent++;
+                } else {
+                    var prevPos = this.sliderContainerCurrent - 1;
+                    var prevPos = $('.item:nth-child(' + prevPos + ')').position().left - 300;
+                    TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + prevPos + 'px'}, ease:Power2.easeOut});
+                    this.sliderContainerCurrent--;
+                }
             }
         });
         return BasicView;
