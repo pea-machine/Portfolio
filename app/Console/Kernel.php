@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\Inspire::class,
+        '\App\Console\Commands\NextAvailable',
     ];
 
     /**
@@ -25,14 +25,21 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('nextAvailable')->everyMinute();
+    }
 
-        /**
-         * Get next-available time from YunoJuno
-         * and store it in the Settings table
-         *
-                     * @return void
-         */
-        $schedule->call(function () {
+    /**
+     * Get next-available time from YunoJuno
+     * and store it in the Settings table
+     *
+     * @return void
+     */
+    class NextAvailable extends Command
+    {
+        protected $name = 'nextAvailable';
+
+        public function fire()
+        {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, 'https://app.yunojuno.com/p/peabay');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -50,6 +57,6 @@ class Kernel extends ConsoleKernel
                 \App\Models\Settings::firstOrCreate(['name' => 'next_available']);
                 \App\Models\Settings::where('name', 'next_available')->update(['value' => $nextAvailable]);
             }
-        })->everyMinute();
+        }
     }
 }
