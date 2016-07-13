@@ -19,6 +19,9 @@ header {
 
 .content {
   display: none; }
+  .content .inner .left-area,
+  .content .inner .right-area {
+    display: none; }
 
 /**
 * AdaptiveGrid
@@ -815,5 +818,11 @@ header {
       left: 0; }
     .content .inner .slider-container .caption p {
       margin: 0 0 1em 0; } }
+
+/**
+ * Browser Specific Fixes
+ */
+.firefox .next-available .arrow {
+  display: none; }
 
 /*# sourceMappingURL=basic.css.map */
