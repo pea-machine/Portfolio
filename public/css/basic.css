@@ -19,9 +19,6 @@ header {
 
 .content {
   display: none; }
-  .content .inner .left-area,
-  .content .inner .right-area {
-    display: none; }
 
 /**
 * AdaptiveGrid
