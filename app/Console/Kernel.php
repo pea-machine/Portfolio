@@ -3,7 +3,6 @@
 namespace App\Console;
 
 use DB;
-use Log;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,9 +13,7 @@ class Kernel extends ConsoleKernel
      *
      * @var array
      */
-    protected $commands = [
-        \App\Console\Commands\Inspire::class,
-    ];
+    protected $commands = [];
 
     /**
      * Define the application's command schedule.
@@ -34,8 +31,6 @@ class Kernel extends ConsoleKernel
          * @return void
          */
         $schedule->call(function () {
-            Log::info('Running Next-Available Task');
-
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, 'https://app.yunojuno.com/p/peabay');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -53,6 +48,6 @@ class Kernel extends ConsoleKernel
                 \App\Models\Settings::firstOrCreate(['name' => 'next_available']);
                 \App\Models\Settings::where('name', 'next_available')->update(['value' => $nextAvailable]);
             }
-        })->everyMinute();
+        })->hourly();
     }
 }
