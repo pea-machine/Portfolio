@@ -14,7 +14,7 @@
 					I have a passion for making (hardware as well as software) and founded the product design blog Techmog.com in 2011. I'm now joined by a team of writers who help cover London's maker scene. 
 				</p>
 				<p>
-					I'm currently freelancing around London either from client offices or the co-working space Greenhouse N16.
+					I'm currently freelancing in London, either on-site or from the co-working space Greenhouse N16.
 				</p>
 			</div>
 		</div>
