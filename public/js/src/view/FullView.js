@@ -55,6 +55,10 @@ define(
                 }, 500);
             },
 
+            /**
+             * Glitch palm background in a sequence
+             * @return Void
+             */
             _animateGlitchBackground: function() {
                 var that = this,
                 time = 0;
@@ -204,13 +208,11 @@ define(
                                             this.currentTime = 1;
                                             this.pause();
                                         }, false);
-                                        console.log('Playing');
                                     }
                                 } else {
                                     if(lazyVideo.element.hasClass('playing')) {
                                         lazyVideo.element.removeClass('playing').addClass('paused');
                                         lazyVideo.element.get(0).pause();
-                                        console.log('Pausing');
                                     }
                                 }
 
@@ -309,7 +311,7 @@ define(
                         that._glitchBackground($('header'), false);
                     }, 480);
                 } ); 
-                TweenLite.delayedCall(5, function(){ clearInterval(window.glitchTimer) } ); 
+                TweenLite.delayedCall(5, function(){ clearInterval(window.glitchTimer); } ); 
 
                 // Cycle logo
                 if (bowser.webkit || bowser.blink) {
@@ -396,12 +398,12 @@ define(
             _sliderContainerScroll: function (event) {
                 if($(event.target).hasClass('right-area')) {
                     var nextPos = this.sliderContainerCurrent + 1;
-                    var nextPos = $('.item:nth-child(' + nextPos + ')').position().left - 300;
+                    nextPos = $('.item:nth-child(' + nextPos + ')').position().left - 300;
                     TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + nextPos + 'px'}, ease:Power2.easeOut});
                     this.sliderContainerCurrent++;
                 } else {
                     var prevPos = this.sliderContainerCurrent - 1;
-                    var prevPos = $('.item:nth-child(' + prevPos + ')').position().left - 300;
+                    prevPos = $('.item:nth-child(' + prevPos + ')').position().left - 300;
                     TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + prevPos + 'px'}, ease:Power2.easeOut});
                     this.sliderContainerCurrent--;
                 }
