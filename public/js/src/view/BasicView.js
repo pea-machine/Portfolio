@@ -91,6 +91,7 @@ define(
                         // Cache elements in array and loop over those arrays
                         var layingImages = [];
                         var lazyIframes = [];
+                        var lazyVideos = [];
                         var windowHeight = $('.content .inner').height();
                         $.each($('.content .inner .iframeLazyLoad'), function( index, el ) {
                             var lazyIframe = {};
@@ -101,6 +102,16 @@ define(
                             lazyIframe.classes = $(el).attr('data-classes');
                             lazyIframes.push(lazyIframe);
                         });
+                        $.each($('.content .inner .slider-container .item'), function( index, el ) {
+                            var video = {},
+                            videoElement = $(this).find('.videoLazyLoad');
+                            video.element = videoElement;
+                            video.left = $(el).offset().left;
+                            video.width = $(el).outerWidth();
+                            lazyVideos.push(video);
+                            // Show video controls for smaller screens
+                            video.element.prop('controls', $(window).width() <= 1023);
+                        });
                         // Use requestAnimationFrame() for better performance
                         var scrollHandler = function (){
                             $.each(lazyIframes, function (index, lazyIframe) {
@@ -110,6 +121,27 @@ define(
                                         windowHeight) ) {
                                     lazyIframe.element.replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
+                            });
+                            $.each(lazyVideos, function (index, lazyVideo) {
+                                var windowScroll = $('.content .inner').scrollLeft();
+                                if(((windowScroll + windowWidth) > (lazyVideo.left)) && 
+                                    (windowScroll < ((lazyVideo.left) + lazyVideo.width))){
+                                    if(lazyVideo.element.hasClass('paused')) {
+                                        lazyVideo.element.fadeIn(300);
+                                        lazyVideo.element.removeClass('paused').addClass('playing');
+                                        lazyVideo.element.get(0).play();
+                                        lazyVideo.element.get(0).addEventListener('ended', function(){ 
+                                            this.currentTime = 1;
+                                            this.pause();
+                                        }, false);
+                                    }
+                                } else {
+                                    if(lazyVideo.element.hasClass('playing')) {
+                                        lazyVideo.element.removeClass('playing').addClass('paused');
+                                        lazyVideo.element.get(0).pause();
+                                    }
+                                }
+
                             });
                         };
                         $('.content .inner').on('scroll', function () {
@@ -158,12 +190,12 @@ define(
             _sliderContainerScroll: function (event) {
                 if($(event.target).hasClass('right-area')) {
                     var nextPos = this.sliderContainerCurrent + 1;
-                    nextPos = $('.item:nth-child(' + nextPos + ')').position().left - 300;
+                    nextPos = $('.item:nth-child(' + nextPos + ')').position().left;
                     TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + nextPos + 'px'}, ease:Power2.easeOut});
                     this.sliderContainerCurrent++;
                 } else {
                     var prevPos = this.sliderContainerCurrent - 1;
-                    prevPos = $('.item:nth-child(' + prevPos + ')').position().left - 300;
+                    prevPos = $('.item:nth-child(' + prevPos + ')').position().left;
                     TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + prevPos + 'px'}, ease:Power2.easeOut});
                     this.sliderContainerCurrent--;
                 }
