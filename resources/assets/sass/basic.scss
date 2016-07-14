@@ -24,13 +24,13 @@ header {
     display: none;
     .slider-container {
         .item {
+            margin: 0;
             video,
             img {
                 position: static;
             }
             .caption {
                 left: 50px;
-                margin: 0
             }
         }
     }
