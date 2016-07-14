@@ -150,7 +150,6 @@ define(
             _sliderContainerScroll: function (event) {
                 if($(event.target).hasClass('right-area')) {
                     var nextPos = this.sliderContainerCurrent + 1;
-                    console.log(nextPos);
                     nextPos = $('.item:nth-child(' + nextPos + ')').position().left - 300;
                     TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + nextPos + 'px'}, ease:Power2.easeOut});
                     this.sliderContainerCurrent++;

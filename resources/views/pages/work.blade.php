@@ -11,7 +11,7 @@
             </div>
         </div>
         
-        <video width="100%" height="auto" class="videoLazyLoad playing">
+        <video width="100%" height="auto" class="videoLazyLoad playing" poster="/public/img/video/daretodonate_10s_placeholder.jpg">
             <source src="/public/img/video/daretodonate_10s_compressed.webm" type="video/webm">
             <source src="/public/img/video/daretodonate_10s_compressed.mp4" type="video/mp4">
             <img src="/public/img/video/daretodonate_10s_placeholder.jpg">
