@@ -19,13 +19,17 @@ header {
 
 .content {
   display: none; }
-  .content .slider-container .item {
-    margin: 0; }
+  .content .slider-container {
+    width: 300%; }
     .content .slider-container .item video,
     .content .slider-container .item img {
       position: static; }
     .content .slider-container .item .caption {
       left: 50px; }
+    .content .slider-container .item:nth-child(2),
+    .content .slider-container .item:nth-child(3) {
+      width: 100vw;
+      margin: 0; }
 
 /**
 * AdaptiveGrid
@@ -610,7 +614,6 @@ header {
     cursor: -webkit-image-set(url(/public/img/arrow-right.png) 2x), auto; }
   .content .slider-container {
     overflow: hidden;
-    width: calc(300% - 600px);
     height: 100%;
     white-space: nowrap; }
     .content .slider-container .item {
@@ -623,8 +626,6 @@ header {
       background-color: #222222; }
     .content .slider-container .item:nth-child(2),
     .content .slider-container .item:nth-child(3) {
-      width: calc(100vw + 300px);
-      margin: 0 0 0 -300px;
       background-color: #111111;
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 300px 100%); }
     .content .slider-container .item:nth-child(2) {
