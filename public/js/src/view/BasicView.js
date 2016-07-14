@@ -79,6 +79,14 @@ define(
                 var that = this;
                 $('.content .inner').load('/pages/' + page, function() {
                     that.pageEvents.trigger('pagePopulated', true);
+                    setTimeout(function(){
+                        $('video').fadeIn(200);
+                        $('video').first().get(0).play();
+                        $('video').first().get(0).addEventListener('ended', function(){ 
+                            this.currentTime = 1;
+                            this.pause();
+                        }, false);
+                    }, 2000);
                     setTimeout(function (){
                         // Cache elements in array and loop over those arrays
                         var layingImages = [];
