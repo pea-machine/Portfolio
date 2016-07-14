@@ -660,7 +660,7 @@ header {
       width: 100%;
       height: 100%;
       white-space: normal;
-      background: -webkit-linear-gradient(left, rgba(53, 40, 66, 0.9) 0%, rgba(53, 40, 66, 0.7) 40%, rgba(53, 40, 66, 0.1) 100%);
+      background: linear-gradient(left, rgba(53, 40, 66, 0.9) 0%, rgba(53, 40, 66, 0.7) 40%, rgba(53, 40, 66, 0.1) 100%);
       -webkit-clip-path: polygon(0 0, calc(100% - 300px) 0, 100% 100%, 0 100%); }
     .content .slider-container .caption {
       position: absolute;
@@ -841,5 +841,9 @@ header {
  */
 .firefox .next-available .arrow {
   display: none; }
+
+.firefox .content .slider-container .item video,
+.firefox .content .slider-container .item img {
+  position: static; }
 
 /*# sourceMappingURL=full.css.map */
