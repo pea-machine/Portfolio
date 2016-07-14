@@ -262,7 +262,6 @@ header {
     }
     .slider-container {
         overflow: hidden;
-        width: calc(300% - 600px);
         height: 100%;
         white-space: nowrap;
         .item {
@@ -277,8 +276,6 @@ header {
         }
         .item:nth-child(2),
         .item:nth-child(3) {
-            width: calc(100vw + 300px);
-            margin: 0 0 0 -300px;
             background-color: #111111;
 
             -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 300px 100%);

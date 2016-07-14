@@ -34,6 +34,7 @@ header {
         }
     }
     .slider-container {
+        width: calc(300% - 600px);
         .item { 
             video,
             img {
@@ -44,6 +45,11 @@ header {
             .caption {
                 left: 320px;
             }
+        }
+        .item:nth-child(2),
+        .item:nth-child(3) {
+            width: calc(100vw + 300px);
+            margin: 0 0 0 -300px;
         }
     }
 }
