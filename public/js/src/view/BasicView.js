@@ -93,6 +93,7 @@ define(
                         var lazyIframes = [];
                         var lazyVideos = [];
                         var windowHeight = $('.content .inner').height();
+                        var windowWidth = $('.content .inner').width();
                         $.each($('.content .inner .iframeLazyLoad'), function( index, el ) {
                             var lazyIframe = {};
                             lazyIframe.element = $(el);
@@ -124,8 +125,8 @@ define(
                             });
                             $.each(lazyVideos, function (index, lazyVideo) {
                                 var windowScroll = $('.content .inner').scrollLeft();
-                                if(((windowScroll + windowWidth) > (lazyVideo.left)) && 
-                                    (windowScroll < ((lazyVideo.left) + lazyVideo.width))){
+                                if(((windowScroll + windowWidth) > (lazyVideo.left + 600)) && 
+                                    (windowScroll < ((lazyVideo.left - 600) + lazyVideo.width))){
                                     if(lazyVideo.element.hasClass('paused')) {
                                         lazyVideo.element.fadeIn(300);
                                         lazyVideo.element.removeClass('paused').addClass('playing');
