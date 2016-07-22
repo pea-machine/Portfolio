@@ -268,7 +268,7 @@ define(
                 $('.content').attr('data-toggle', toggle);
                 toPath.ease = Expo.easeInOut;
                 toPath.onUpdate = setPoints;
-                TweenMax.to(fromPath, 3, toPath);
+                TweenMax.to(fromPath, 2, toPath);
                 function setPoints () {
                     var tweens = fromPath[0] + '%' +
                         fromPath[1] + '%,' +
