@@ -266,7 +266,7 @@ define(
                     break;
                 }
                 $('.content').attr('data-toggle', toggle);
-                toPath.ease = Expo.easeOut;
+                toPath.ease = Expo.easeInOut;
                 toPath.onUpdate = setPoints;
                 TweenMax.to(fromPath, 3, toPath);
                 function setPoints () {
