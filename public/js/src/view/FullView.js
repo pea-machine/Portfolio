@@ -126,7 +126,7 @@ define(
                 Backbone.history.navigate('', true);
                 setTimeout(function(){
                     $('.content .inner').html('');
-                }, 1000);
+                }, 2000);
             },
 
             /**
