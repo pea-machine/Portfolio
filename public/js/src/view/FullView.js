@@ -403,7 +403,6 @@ define(
                     if(lazyVideo.hasClass('playing')) {
                         lazyVideo.removeClass('playing').addClass('paused');
                         lazyVideo.get(0).pause();
-                        console.log('Pausing');
                     }
                 });
 
