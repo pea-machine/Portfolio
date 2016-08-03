@@ -192,7 +192,10 @@ define(
                                     lazyIframe.element.replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
                             });
-                            $.each(lazyVideos, function (index, lazyVideo) {
+                            /*
+                            Doing video play/ pause a better way, but keep this code
+                            */
+                            /*$.each(lazyVideos, function (index, lazyVideo) {
                                 var windowScroll = $('.content .inner').scrollLeft();
                                 if(((windowScroll + windowWidth) > (lazyVideo.left + 600)) && 
                                     (windowScroll < ((lazyVideo.left - 600) + lazyVideo.width))){
@@ -214,7 +217,7 @@ define(
                                     }
                                 }
 
-                            });
+                            });*/
                         };
                         $('.content .inner').on('scroll', function () {
                             requestAnimationFrame(scrollHandler);
@@ -394,6 +397,16 @@ define(
              * @return Void
              */
             _sliderContainerScroll: function (event) {
+
+                $.each($('.content .inner .slider-container .item .videoLazyLoad'), function (index, lazyVideo) {
+                    lazyVideo = $(lazyVideo);
+                    if(lazyVideo.hasClass('playing')) {
+                        lazyVideo.removeClass('playing').addClass('paused');
+                        lazyVideo.get(0).pause();
+                        console.log('Pausing');
+                    }
+                });
+
                 if($(event.target).hasClass('right-area')) {
                     var nextPos = this.sliderContainerCurrent + 1;
                     var nextPos = $('.item:nth-child(' + nextPos + ')').position().left - 300;
@@ -405,6 +418,22 @@ define(
                     TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + prevPos + 'px'}, ease:Power2.easeOut});
                     this.sliderContainerCurrent--;
                 }
+
+                var index = this.sliderContainerCurrent - 1;
+
+                setTimeout(function(){
+
+                    var elItem = $('.content .inner .slider-container .item:eq(' + index + ')');
+                    var lazyVideo = elItem.find('.videoLazyLoad');
+                    lazyVideo.removeClass('paused').addClass('playing');
+                    lazyVideo.get(0).play();
+                    lazyVideo.get(0).addEventListener('ended', function(){ 
+                        this.currentTime = 1;
+                        this.pause();
+                    }, false);
+
+                }, 2500);
+
             },
 
             /**
