@@ -433,7 +433,7 @@ define(
                         this.pause();
                     }, false);
 
-                }, 2500);
+                }, 2100);
 
             },
 
