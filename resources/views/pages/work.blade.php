@@ -58,5 +58,20 @@
             <img src="/public/img/video/adorer_10s_placeholder.jpg">
         </video>
 
+    </div><div class="item">
+        <div class="overlay">
+            <div class="left-area"></div>
+            <div class="right-area"></div>
+            <div class="caption">
+                <h2>Signture Wizard</h2>
+                <p>Signature Wizard is a Chrome extension that provides a way to download HTML signatures from remote servers and insert them into Gmail emails.</p>
+                <div class="button-container bottom">
+                    <a href="https://chrome.google.com/webstore/detail/signature-wizard-gmail-si/ankhepfjfiifkmhjpgpoognambadnemi" target="_blank" class="button primary cycle-background">View</a>
+                </div>
+            </div>
+        </div>
+        
+        <img src="/public/img/video/signature_wizard_placeholder.jpg">
+
     </div>
  </div>

@@ -270,19 +270,6 @@ header {
             overflow: hidden;
             height: 100vh;
         }
-        .item:nth-child(1) {
-            width: 100vw;
-            background-color: #222222;
-        }
-        .item:nth-child(2),
-        .item:nth-child(3) {
-            background-color: #111111;
-
-            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 300px 100%);
-        }
-        .item:nth-child(2) {
-            width: 100vw;
-        }
         .item video,
         .item img {
             display: none;
@@ -293,6 +280,9 @@ header {
             &.videoLazyLoad {
                 display: none;
             }
+        }
+        .item img {
+            display: block;
         }
         .item .overlay {
             position: absolute;

@@ -138,6 +138,9 @@ define(
                 var that = this;
                 $('.content .inner').load('/pages/' + page, function() {
                     that.pageEvents.trigger('pagePopulated', true);
+                    $('.slider-container').css({
+                        'width': ($('.content .inner').width() * $('.slider-container .item').length) - 600
+                    });
                     setTimeout(function(){
                         $('video').fadeIn(200);
                         $('video').first().get(0).play();
@@ -169,16 +172,6 @@ define(
                             lazyIframe.classes = $(el).attr('data-classes');
                             lazyIframes.push(lazyIframe);
                         });
-                        $.each($('.content .inner .slider-container .item'), function( index, el ) {
-                            var video = {},
-                            videoElement = $(this).find('.videoLazyLoad');
-                            video.element = videoElement;
-                            video.left = $(el).offset().left;
-                            video.width = $(el).outerWidth();
-                            lazyVideos.push(video);
-                            // Show video controls for smaller screens
-                            video.element.prop('controls', $(window).width() <= 1023);
-                        });
                         // Use requestAnimationFrame() for better performance
                         var scrollHandler = function (){
                             $.each(layingImages, function (index, layingImage) {
@@ -196,30 +189,6 @@ define(
                                     lazyIframe.element.replaceWith($('<iframe src="' + lazyIframe.url + '" class="' + lazyIframe.classes + '" frameborder="0"></iframe>'));
                                 }
                             });
-                            /*
-                            Doing video play/ pause a better way, but keep this code
-                            */
-                            /*$.each(lazyVideos, function (index, lazyVideo) {
-                                var windowScroll = $('.content .inner').scrollLeft();
-                                if(((windowScroll + windowWidth) > (lazyVideo.left + 600)) && 
-                                    (windowScroll < ((lazyVideo.left - 600) + lazyVideo.width))){
-                                    if(lazyVideo.element.hasClass('paused')) {
-                                        lazyVideo.element.fadeIn(300);
-                                        lazyVideo.element.removeClass('paused').addClass('playing');
-                                        lazyVideo.element.get(0).play();
-                                        lazyVideo.element.get(0).addEventListener('ended', function(){ 
-                                            this.currentTime = 1;
-                                            this.pause();
-                                        }, false);
-                                    }
-                                } else {
-                                    if(lazyVideo.element.hasClass('playing')) {
-                                        lazyVideo.element.removeClass('playing').addClass('paused');
-                                        lazyVideo.element.get(0).pause();
-                                    }
-                                }
-
-                            });*/
                         };
                         $('.content .inner').on('scroll', function () {
                             requestAnimationFrame(scrollHandler);
@@ -412,11 +381,13 @@ define(
                     var nextPos = this.sliderContainerCurrent + 1;
                     nextPos = $('.item:nth-child(' + nextPos + ')').position().left - 300;
                     TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + nextPos + 'px'}, ease:Power2.easeOut});
+                    TweenLite.to('.item .caption', 3, {'left': '-=70px', ease:Power2.easeOut});
                     this.sliderContainerCurrent++;
                 } else {
                     var prevPos = this.sliderContainerCurrent - 1;
                     prevPos = $('.item:nth-child(' + prevPos + ')').position().left - 300;
                     TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + prevPos + 'px'}, ease:Power2.easeOut});
+                    TweenLite.to('.item .caption', 3, {'left': '+=70px', ease:Power2.easeOut});
                     this.sliderContainerCurrent--;
                 }
 
