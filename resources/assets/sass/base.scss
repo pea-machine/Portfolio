@@ -413,6 +413,13 @@ header {
                     }
                 }
             }
+            .slider-container {
+                .item {
+                    width: 100vw;
+                    -webkit-clip-path: none;
+                    margin: 0
+                }
+            }
         }
     }
 }

@@ -138,9 +138,13 @@ define(
                 var that = this;
                 $('.content .inner').load('/pages/' + page, function() {
                     that.pageEvents.trigger('pagePopulated', true);
-                    $('.slider-container').css({
-                        'width': ($('.content .inner').width() * $('.slider-container .item').length) - 600
-                    });
+
+                    if($('.content .inner').width() > 1024) {
+                        $('.slider-container').css({
+                            'width': ($('.content .inner').width() * $('.slider-container .item').length) - 600
+                        });
+                    }
+                    
                     setTimeout(function(){
                         $('video').fadeIn(200);
                         $('video').first().get(0).play();
