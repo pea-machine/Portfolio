@@ -350,14 +350,15 @@ header {
         text-decoration: none;
         &.primary {
             padding: 5px 20px;
-            color: #857794;
-            background-color: #4B3F58;
+            color: #ffffff;
+            border: 1px solid #FFFFFF;
         }
         &.cycle-background {
             background-image: url('/public/img/button-background.png');
             background-position: 0 0;
         }
         &.cycle-background:hover {
+            border: none;
             font-weight: bold;
             animation-name: cycle-background;
             animation-duration: .5s;
