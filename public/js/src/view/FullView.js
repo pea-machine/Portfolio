@@ -369,6 +369,8 @@ define(
              */
             _sliderContainerScroll: function (event) {
 
+                var that
+
                 $.each($('.content .inner .slider-container .item .videoLazyLoad'), function (index, lazyVideo) {
                     lazyVideo = $(lazyVideo);
                     if(lazyVideo.hasClass('playing')) {
@@ -381,13 +383,32 @@ define(
                     var nextPos = this.sliderContainerCurrent + 1;
                     nextPos = $('.item:nth-child(' + nextPos + ')').position().left - 300;
                     TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + nextPos + 'px'}, ease:Power2.easeOut});
-                    TweenLite.to('.item .caption', 3, {'left': '-=70px', ease:Power2.easeOut});
+
+                    $.each($('.item'), function(i,v) {
+                        var caption = $(v).find('.caption');
+                        var min = 50;
+                        if(i > 0) {
+                            min = 320;
+                        }
+                        if(caption.position().left > min) {
+                            TweenLite.to(caption, 4, {'left': '-=70px', ease:Power2.easeOut});
+                        }
+                    });
+
                     this.sliderContainerCurrent++;
                 } else {
                     var prevPos = this.sliderContainerCurrent - 1;
                     prevPos = $('.item:nth-child(' + prevPos + ')').position().left - 300;
                     TweenLite.to('.content .inner', 2, {scrollTo:{x:'+=' + prevPos + 'px'}, ease:Power2.easeOut});
-                    TweenLite.to('.item .caption', 3, {'left': '+=70px', ease:Power2.easeOut});
+
+                    $.each($('.item'), function(i,v) {
+                        var caption = $(v).find('.caption');
+                        var max = 400;
+                        if(caption.position().left < max) {
+                            TweenLite.to(caption, 4, {'left': '+=70px', ease:Power2.easeOut});
+                        }
+                    });
+
                     this.sliderContainerCurrent--;
                 }
 

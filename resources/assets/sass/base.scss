@@ -341,6 +341,7 @@ header {
 
 .button-container {
     position: relative;
+    min-height: 32px;
     .button {
         position: absolute;
         z-index: 3;

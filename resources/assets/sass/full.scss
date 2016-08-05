@@ -34,8 +34,8 @@ header {
         }
     }
     .slider-container {
-        /* width: calc(400% - 600px); */
-        .item { 
+        /* width: calc(400% - 600px); Now sized dynamically with JS */
+        .item {
             width: 100vw;;
             video,
             img {
@@ -46,8 +46,6 @@ header {
             .caption {
                 left: 320px;
             }
-        }
-        .item {
             &:nth-child(n+2) {
                 .caption {
                     left: 390px;
@@ -63,15 +61,16 @@ header {
                     left: 530px;
                 }
             }
+            &:not(:first-child) {
+                width: calc(100vw);
+                margin: 0 0 0 -300px;
+
+                -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 300px 100%);
+            }
+            &:last-child {
+                width: calc(100vw + 300px);
+            }
         }
-        .item:not(:first-child) {
-            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 300px 100%);
-            width: calc(100vw);
-            margin: 0 0 0 -300px;
-        }
-        .item:last-child {
-             width: calc(100vw + 300px);
-        } 
     }
 }
 
@@ -83,6 +82,22 @@ html.internet-explorer {
     nav {
         a {
             background-image: none;
+        }
+    }
+}
+
+
+/* 
+Disable fixed positioning of background video/ images 
+for now as Chrome's v52 update breaks it 👎
+*/
+.content {
+    .slider-container {
+        .item {
+            video,
+            img {
+                position: static;
+            }
         }
     }
 }
