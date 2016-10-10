@@ -5,11 +5,19 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
-    "bootstrap-sass": "^3.0.0",
+    "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-clean-css": "^2.0.7",
-    "laravel-elixir": "^5.0.0",
-    "load-grunt-tasks": "^3.5.0"
+    "jquery": "^3.1.0",
+    "laravel-elixir": "^6.0.0-9",
+    "laravel-elixir-vue-2": "^0.2.0",
+    "laravel-elixir-webpack-official": "^1.0.2",
+    "lodash": "^4.16.2",
+    "vue": "^2.0.1",
+    "vue-resource": "^1.0.3",
+    "vue-router": "^2.0.0"
+  },
+  "dependencies": {
+    "gsap": "^1.19.0",
+    "whatwg-fetch": "^1.0.0"
   }
 }

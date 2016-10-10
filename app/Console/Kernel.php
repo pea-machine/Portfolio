@@ -2,7 +2,6 @@
 
 namespace App\Console;
 
-use DB;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +12,9 @@ class Kernel extends ConsoleKernel
      *
      * @var array
      */
-    protected $commands = [];
+    protected $commands = [
+        //
+    ];
 
     /**
      * Define the application's command schedule.
@@ -23,31 +24,17 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        // $schedule->command('inspire')
+        //          ->hourly();
+    }
 
-        /**
-         * Get next-available time from YunoJuno
-         * and store it in the Settings table
-         *
-         * @return void
-         */
-        $schedule->call(function () {
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'https://app.yunojuno.com/p/peabay');
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)');
-            $page = curl_exec($ch);
-            curl_close($ch);
-
-            $page = preg_replace('/\s+/', '', $page);
-            preg_match('/\<strong\>Next\&nbsp\;Available\:(.*?)\<\/strong\>/', $page, $matches);
-            $nextAvailable = count($matches) > 0 ? $matches[1] : 'Unavailable';
-            $nextAvailable = str_replace('&nbsp;', ' ', $nextAvailable);
-            $nextAvailable = strtotime($nextAvailable);
-
-            if ($nextAvailable !== false) {
-                \App\Models\Settings::firstOrCreate(['name' => 'next_available']);
-                \App\Models\Settings::where('name', 'next_available')->update(['value' => $nextAvailable]);
-            }
-        })->hourly();
+    /**
+     * Register the Closure based commands for the application.
+     *
+     * @return void
+     */
+    protected function commands()
+    {
+        require base_path('routes/console.php');
     }
 }

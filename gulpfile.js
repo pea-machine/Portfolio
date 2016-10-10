@@ -1,6 +1,6 @@
-var elixir = require('laravel-elixir');
-var gulp = require('gulp');
-var autoprefixer = require('gulp-autoprefixer');
+const elixir = require('laravel-elixir');
+
+require('laravel-elixir-vue-2');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,11 +13,7 @@ var autoprefixer = require('gulp-autoprefixer');
  |
  */
 
-elixir(function(mix) {
-    mix.sass([
-        'basic.scss'
-    ],'public/css/basic.css');
-    mix.sass([
-        'full.scss'
-    ],'public/css/full.css');
+elixir(mix => {
+    mix.sass('app.scss')
+       .webpack('app.js');
 });
