@@ -1,5 +1,7 @@
 <template>
     <div>
+        <loader></loader>
+        Work
     </div>
 </template>
 
@@ -8,9 +10,10 @@
 </style>
 
 <script>
+    import Loader from './Loader.vue'
     export default {
-        mounted() {
-            
+        components: {
+            'loader': Loader
         }
     }
 </script>
