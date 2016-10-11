@@ -14,11 +14,11 @@
         left: 0;
         overflow: hidden;
         .logo {
-            position: absolute;
+            position: fixed;
             top: 200px;
             left: 50%;
-            width: 30%;
-            margin: 0 0 0 -13%;
+            width: 415px;
+            margin: 0 0 0 -207px;
             path {
                 filter: url(#filter);
 
@@ -39,6 +39,13 @@
                 animationEnded: false
             }
         },
+        beforeMount() {
+            window.addEventListener("load", () => {
+                setTimeout(() => {
+                    this.pageLoading = false;
+                }, 1000);
+            });
+        },
         beforeCreate() {
             fetch('/public/img/peabay-logo.svg')
                 .then((response) => {
@@ -49,17 +56,16 @@
                 })
                 .then(() => {
                     this.startAnimation();
-                    // Page loaded listener
-                    window.addEventListener("load", () => {
-                        setTimeout(() => {
-                            this.pageLoading = false;
-                        }, 2000);
-                    });
-                    // Hide loader after 15 seconds as fallback
+                    // Hide loader after 10 seconds as fallback
                     setTimeout(() => {
                         this.pageLoading = false;
                     }, 10000);
                 });
+        },
+        mounted() {
+            if(document.readyState === 'complete') {
+                this.pageLoading = false;
+            }
         },
         methods: {
             startAnimation() {
@@ -75,12 +81,12 @@
 
             },
             endAnimation(logoAnimationX, logoAnimationY) {
-                logoAnimationX.pause();
-                logoAnimationY.pause();
+                //logoAnimationX.pause();
+                //logoAnimationY.pause();
                 const tl = new TimelineMax({ ease: Back.easeIn });
                 tl.add('parallel', 0).
-                fromTo('.logo', 1.5, { top: 200 }, { top: 0, ease: Power3.easeInOut }, 'parallel').
-                fromTo('.page-loader', 1.5, { height: '100%' }, { height: 0, ease: Power4.easeInOut, onComplete: () => { this.animationEnded = true; } }, 'parallel');
+                //fromTo('.logo', 1.5, { left: 200 }, { top: 0, ease: Power3.easeInOut }, 'parallel').
+                fromTo('.page-loader', 1.5, { width: '100%' }, { width: 0, ease: Power4.easeInOut, onComplete: () => { this.animationEnded = true; } }, 'parallel');
             }
         }
     }
