@@ -331,7 +331,7 @@
             handleScroll (scrollY) {
                 this.close();
                 setTimeout(() => {
-                    if(scrollY > 900) {
+                    if(scrollY > 300) {
                         this.minimize();
                     } else {
                         this.maximize();

@@ -9,7 +9,7 @@
         <title>Laravel</title>
     </head>
     <body>
-        <div id="app"><router-view></router-view></div>
+        <div id="app"><transition name="fade"><router-view></router-view></transition></div>
         <script src="/public/js/app.js"></script>
     </body>
 </html>
