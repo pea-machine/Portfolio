@@ -1,4 +1,11 @@
 html, body {
+  color: #FFFFFF;
+  font-family: helvetica; }
+
+a {
+  color: #FFFFFF; }
+
+html, body {
   margin: 0; }
 
 body {

@@ -13,6 +13,7 @@
         top: 0;
         left: 0;
         overflow: hidden;
+        z-index: 999;
         .logo {
             position: fixed;
             top: 200px;
