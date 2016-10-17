@@ -19,6 +19,9 @@ blockquote {
 
 p {
     font-size: 17px;
+    &:first-of-type {
+        margin-top: 0
+    }
 }
 
 a {

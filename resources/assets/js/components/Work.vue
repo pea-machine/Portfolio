@@ -1,7 +1,6 @@
 <template>
     <div>
-        <img v-on:load="handleLoad" class="handleLoad" style="position: absolute; top: 200px; width:200px" src="http://www.cosmetic-insurance.com/wp-content/uploads/2015/05/00015260.jpg">
-        <div class="container">
+        <div class="work-container">
             <div class="header">
                 <blockquote>Work lovingly created for Sky, ASOS, Vue Cinemas, Diageo, Macmillan and EE. Here are some favorites.</blockquote>
             </div>
@@ -87,7 +86,7 @@
                             <video v-on:canplaythrough="handleLoad" class="handleLoad" width="100%" height="auto" autoplay="autoplay" loop="loop" poster="/public/video/adorer_10s_placeholder.jpg">
                                 <source src="/public/video/Adorer_10s_compressed.webm" type="video/webm">
                                 <source src="/public/video/Adorer_10s_compressed.mp4" type="video/mp4">
-                                <img src="/public/video/Adorer_10s_compressed.jpg">
+                                <img src="/public/video/adorer_10s_placeholder.jpg">
                             </video>
                         </div>
                         <div class="col perc40 smallest-to-100 smaller-to-100 small-to-100 medium-to-100">
@@ -99,7 +98,7 @@
                             </div>
                         </div>
                         <div class="col perc50 smallest-to-100 smaller-to-100 smallest-hide smaller-hide small-hide medium-hide">
-                            <video v-on:canplaythrough="handleLoad" width="100%" height="auto" autoplay="autoplay" loop="loop" poster="/public/video/adorer_10s_placeholder.jpg">
+                            <video v-on:canplaythrough="handleLoad" class="handleLoad" width="100%" height="auto" autoplay="autoplay" loop="loop" poster="/public/video/adorer_10s_placeholder.jpg">
                                 <source src="/public/video/Adorer_10s_compressed.webm" type="video/webm">
                                 <source src="/public/video/Adorer_10s_compressed.mp4" type="video/mp4">
                                 <img src="/public/video/adorer_10s_placeholder.jpg">
@@ -210,7 +209,7 @@
     $tablet-landscape-width: 1199px;
     $desktop-width: 1200px;
 
-    .container {
+    .work-container {
         position: fixed;
         height: 100vh;
     }
@@ -289,13 +288,20 @@
             }
         },
         mounted () {
-            this.handleLoadTotal = document.getElementsByClassName('handleLoad').length;
+            this.handleLoadTotal = this.$el.getElementsByClassName('handleLoad').length | 0;
             this.fauxBodyHeight = document.querySelector('.work').offsetHeight + document.querySelector('.header').offsetHeight;
             document.querySelector('#app').style.height = this.fauxBodyHeight + 'px';
             store.subscribe((updateScrollPositionY, state) => {
                 this.handleScroll(state.scrollY);
             });
-            window.addEventListener('resize', this.handleResize)
+            window.addEventListener('resize', this.handleResize);
+            setTimeout(() => {
+                store.commit('updatePageLoadingStatus', false);
+            }, 5000);
+        },
+        beforeRouteEnter (to, from, next) {
+            store.commit('updatePageLoadingStatus', true);
+            next();
         },
         beforeRouteLeave (to, from, next) {
             document.querySelector('#app').style.height = null;
@@ -319,12 +325,11 @@
                 document.querySelector('#app').style.height = this.fauxBodyHeight + 'px';
             },
             handleLoad (event) {
+                this.handleLoadDone++;
                 if(this.handleLoadDone == this.handleLoadTotal) {
-                    console.log('Page loaded. Updating store')
                     store.commit('updatePageLoadingStatus', false);
                 }
-                this.handleLoadDone++;
-            },
+            }
         }
     }
 </script>

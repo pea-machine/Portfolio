@@ -52,6 +52,14 @@
 </template>
 
 <style lang="sass" scoped>
+
+    $mobile-small-portrait-width: 480px;
+    $mobile-small-landscape-width: 600px;
+    $mobile-large-width: 767px;
+    $tablet-portrait-width: 1023px;
+    $tablet-landscape-width: 1199px;
+    $desktop-width: 1200px;
+
     .top-bar {
         background-color: #150d17;
         width: 100%;
@@ -67,7 +75,10 @@
         width: 60px;
         height: 50px;
         cursor: pointer;
-        z-index: 3
+        z-index: 3;
+        @media all and (min-width: 0) and (max-width: $mobile-small-landscape-width) { 
+            right: 0
+        }
     }
     .burger {
         cursor: pointer;
@@ -75,7 +86,7 @@
             position: fixed;
             height: 2px;
             top: 45px; 
-            left: -680px;
+            right: -680px;
             z-index: 2;
             &:nth-of-type(2) { top: 52px; }
             &:nth-of-type(3) { top: 59px; }
@@ -97,6 +108,9 @@
             width: 30px;
             height: 2px;
             z-index: 2;
+            @media all and (min-width: 0) and (max-width: $mobile-small-landscape-width) { 
+                right: -30px;
+            }
             .leading1,
             .leading2,
             .block,
@@ -110,18 +124,22 @@
         position: fixed;
         top: 29px;
         right: 105px;
+        @media all and (min-width: 0) and (max-width: $mobile-small-landscape-width) { 
+            right: 65px;
+        }
         z-index: 1;
         a {
             display: inline-block;
             padding: 17px;
-            // color: #c5dcc5;
-            // text-shadow: 0 0 1px RGBA(255,255,255,0.2), -2px 0px 1px #1027ee, 2px 0 1px #ef1c1a;
             color: transparent;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 12px;
             opacity: 0;
             position: relative;
+            @media all and (min-width: 0) and (max-width: $mobile-small-landscape-width) { 
+                padding: 13px 0 0 6px;
+            }
         }
     }
 </style>
@@ -136,50 +154,49 @@
                 burgerOpenTl: null,
                 topBarScrollTl: null,
                 status: 'closed',
-                minimized: false
+                minimized: false,
+                pageLoading: true
             }
-        },
-        beforeMount () {
-            window.addEventListener('load', () => {
-                this.refractBurger();
-            });
         },
         mounted () {
-            if(document.readyState === 'complete') {
-                this.refractBurger();
-            }
+
+            store.subscribe((updatePageLoadingStatus, state) => {
+                if(state.pageLoading != this.pageLoading) {
+                    if(state.pageLoading == false) {
+                        this.refractBurger();
+                    }
+                    this.pageLoading = state.pageLoading;
+                }
+            });
+
             store.subscribe((updateScrollPositionY, state) => {
                 this.handleScroll(state.scrollY);
             });
         },
         methods: {
             refractBurger() {
-                const tl = new TimelineMax({ delay: 2.5 });
+                const tl = new TimelineMax({ delay: 1 });
                 const windowWidth = window.innerWidth + 600;
                 const moveX = "+=" + windowWidth;
                 const easing = Expo.easeOut;
                 const overlap = "-=1.97";
 
-                tl.timeScale(0.9).
-                fromTo('.burger .refract', 2, {left: -680, width: 600}, { left: -680, width: 600, ease: easing }, 0).
-                to('.burger .leading1', 2, { width: 30, left: moveX, ease: easing }, 0).
-                to('.burger .leading2', 2, { width: 30, left: moveX, ease: easing }, overlap).
-                to('.burger .block', 2, { width: 30, left: moveX, ease: easing }, overlap).
-                to('.burger .trailing1', 2, { width: 30, left: moveX, ease: easing }, overlap).
-                to('.burger .trailing2', 2, { width: 30, left: moveX, ease: easing, onComplete: () => {
-                    const lines = document.querySelectorAll('.burger .line');
-                    const burgerRefract = document.querySelectorAll('.burger .refract');
-                
-                    [].forEach.call(lines, function(line) {
-                        line.style.left = null;
-                    });
+                let topBarHeight = 107;
+                let refractRight = 50;
+                if(window.innerWidth < 600) {
+                    topBarHeight = 50;
+                    refractRight = 20;
+                    this.minimize();
+                }
 
-                    [].forEach.call(burgerRefract, function(refract) {
-                        refract.style.left = 'auto';
-                        refract.style.right = '50px';
-                        refract.style.width = '30px';
-                    });
-                } }, overlap);
+                tl.timeScale(0.9).
+                to('.top-bar', 1, { height: topBarHeight }, 0).
+                fromTo('.burger .refract', 2, {width: 600, right: window.innerWidth + 680 }, { right: refractRight, width: 600, ease: easing }, 0).
+                fromTo('.burger .leading1', 2, { width: 600, right: window.innerWidth + 680 }, { width: 30, right: 0, ease: easing }, 0).
+                fromTo('.burger .leading2', 2, { width: 600, right: window.innerWidth + 680 }, { width: 30, right: 0, ease: easing }, overlap).
+                fromTo('.burger .block', 2, { width: 600, right: window.innerWidth + 680 }, { width: 30, right: 0, ease: easing }, overlap).
+                fromTo('.burger .trailing1', 2, { width: 600, right: window.innerWidth + 680 }, { width: 30, right: 0, ease: easing }, overlap).
+                fromTo('.burger .trailing2', 2, { width: 600, right: window.innerWidth + 680 }, { width: 30, right: 0, ease: easing }, overlap);
             },
             open () {
                 if(this.burgerOpenTl !== null && this.burgerOpenTl.isActive() == true) {
@@ -297,7 +314,9 @@
                     if(scrollY > 300) {
                         this.minimize();
                     } else {
-                        this.maximize();
+                        if(window.innerWidth > 600) {
+                            this.maximize();
+                        }
                     }
                 }, 1000);
             }
