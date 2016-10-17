@@ -1,6 +1,24 @@
 html, body {
     color: rgb(222, 213, 226);
     font-family: helvetica;
+    line-height: 1.3em;
+    letter-spacing: 0.03em;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display';
+    letter-spacing: 0.05em;
+    text-shadow: rgba(255, 255, 255, 0.3) 0px 0px 5px;
+    color: rgb(255, 255, 255);
+}
+
+blockquote {
+    font-family: 'Playfair Display';
+}
+
+p {
+    font-size: 17px;
 }
 
 a {

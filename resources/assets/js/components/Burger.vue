@@ -59,43 +59,6 @@
         position: fixed;
         z-index: 1
     }
-    .refract {
-        position: absolute;
-        .leading1,
-        .leading2,
-        .block,
-        .trailing1,
-        .trailing2 {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-        }
-        .leading1 {
-            background-color: #1027ee;
-            box-shadow: 2px 0 1px #1027ee;
-            z-index: 2;
-        }
-        .leading2 {
-            background-color: #2aecef;
-            box-shadow: 1px 0 2px #2aecef;
-            z-index: 3;
-        }
-        .block {
-            background-color: #FFFFFF;
-            box-shadow: 0 0 1px #FFFFFF;
-            z-index: 4
-        }
-        .trailing1 {
-            background-color: #f2f235;
-            box-shadow: -1px 0 1px #f2f235;
-            z-index: 3;
-        }
-        .trailing2 {
-            background-color: #ef1c1a;
-            box-shadow: -2px 0 1px #ef1c1a;
-            z-index: 2;
-        }
-    }
     .openClickZone,
     .closeClickZone {
         position: fixed;

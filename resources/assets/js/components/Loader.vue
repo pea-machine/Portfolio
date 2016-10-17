@@ -1,5 +1,5 @@
 <template>
-    <div class="page-loader" v-if="!animationEnded">
+    <div class="page-loader" v-show="!animationEnded">
         <div ref="logo" v-html="logoSvg"></div>
     </div>
 </template>
@@ -7,9 +7,9 @@
 <style lang="sass">
     .page-loader {
         background-color: #1d131f;
-        position: fixed;
-        width: 100%;
-        height: 100%;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
         top: 0;
         left: 0;
         overflow: hidden;
@@ -32,22 +32,17 @@
 <script>
     import { TweenMax } from 'gsap';
     import 'whatwg-fetch';
+    import store from '../vuex/store.js';
     export default {
         data() {
             return {
                 logoSvg: '',
                 pageLoading: true,
-                animationEnded: false
+                animationEnded: false,
+                logoStartTl: null
             }
         },
         beforeMount() {
-            window.addEventListener("load", () => {
-                setTimeout(() => {
-                    this.pageLoading = false;
-                }, 1000);
-            });
-        },
-        beforeCreate() {
             fetch('/public/img/peabay-logo.svg')
                 .then((response) => {
                     return response.text();
@@ -56,37 +51,42 @@
                     this.logoSvg = body;
                 })
                 .then(() => {
-                    this.startAnimation();
-                    // Hide loader after 10 seconds as fallback
-                    setTimeout(() => {
-                        this.pageLoading = false;
-                    }, 10000);
+                    store.subscribe((updatePageLoadingStatus, state) => {
+                        console.log(state.pageLoading);
+                        //if(this.pageLoading != state.pageLoading) {
+                            if(state.pageLoading == false) {
+                                console.log('Page not loading');
+                                this.pageLoading = false;
+                                this.endAnimation();
+                            } else {
+                                console.log('Page is loading');
+                                this.pageLoading = true;
+                                this.startAnimation();
+                            }
+                        //}
+                    });
                 });
         },
         mounted() {
-            if(document.readyState === 'complete') {
-                this.pageLoading = false;
-            }
+            console.log('loader mounted')
         },
         methods: {
             startAnimation() {
-                let logoAnimationX = TweenMax.fromTo('.logo #background', 50, { attr:{ x: 0 } }, { attr:{ x: -10000 }, ease: Power0.easeNone });
-                let logoAnimationY = TweenMax.fromTo('.logo #background', 60, { attr:{ y: -80 } }, { attr:{ y: -300 }, ease: Power0.easeNone });
+                
+                console.log('animation called');
 
-                let pageLoadingChecker = setInterval(() => {
-                    if(!this.pageLoading) {
-                        clearInterval(pageLoadingChecker);
-                        this.endAnimation(logoAnimationX, logoAnimationY);
-                    }
-                }, 1000);
+                if(!this.$refs.logo.querySelector('pattern')) { return; }
+
+                this.logoStartTl = new TimelineMax();
+                this.logoStartTl.
+                fromTo('.page-loader', 0, { width: 0 }, { width: '100%', ease: Power4.easeInOut, onComplete: () => { this.animationEnded = false; } }).
+                fromTo(this.$refs.logo.querySelector('pattern'), 50, { attr:{ x: 0, y: -80 } }, { attr:{ x: -10000, y: -300 }, ease: Power0.easeNone });
 
             },
-            endAnimation(logoAnimationX, logoAnimationY) {
-                //logoAnimationX.pause();
-                //logoAnimationY.pause();
-                const tl = new TimelineMax({ ease: Back.easeIn });
+            endAnimation() {
+                console.log('end animation called');
+                const tl = new TimelineMax({ ease: Back.easeIn, delay: 5000 });
                 tl.add('parallel', 0).
-                //fromTo('.logo', 1.5, { left: 200 }, { top: 0, ease: Power3.easeInOut }, 'parallel').
                 fromTo('.page-loader', 1.5, { width: '100%' }, { width: 0, ease: Power4.easeInOut, onComplete: () => { this.animationEnded = true; } }, 'parallel');
             }
         }
