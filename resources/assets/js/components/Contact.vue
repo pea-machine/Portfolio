@@ -6,12 +6,13 @@
             </div>
             <div class="col perc50 smallest-to-100 smaller-to-100 small-to-100">
                 <div class="block-text">
+                    <h1>Contact</h1>
+                    
                     <p>
                         Greenhouse<br>
                         49 Green Lanes,<br>
                         London,<br>
                         N16 9BU<br><br>
-                        Available for remote work
                     </p>
                     <p>
                         <a href="mailto:hi@peabay.xyz" target="_blank">hi@peabay.xyz</a>

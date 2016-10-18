@@ -230,6 +230,10 @@
             color: rgb(222, 213, 226);
             letter-spacing: 0.03em;
             line-height: 1.3em;
+            @media all and (min-width: 0) and (max-width: $tablet-portrait-width) { 
+                max-width: 68%;
+                font-size: 29px
+            }
         }
     }
 
@@ -314,7 +318,7 @@
             handleScroll (scrollY) {
                 if (!this.ticking) {
                     window.requestAnimationFrame(() => {
-                        new TweenMax('.container', 1, { y: scrollY * -1 });
+                        new TweenMax('.work-container', 1, { y: scrollY * -1 });
                         this.ticking = false;
                     });
                 }
