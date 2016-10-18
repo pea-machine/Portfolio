@@ -15,25 +15,29 @@
     $tablet-landscape-width: 1199px;
     $desktop-width: 1200px;
 
-    .header {
-        height: 100vh;
-        position: relative;
-        width: 100%;
-        blockquote {
-            position: absolute;
-            top: 40%;
-            transform: translateY(-50%);
-            text-align: right;
-            font-size: 30px;
-            font-weight: 100;
-            max-width: 50%;
-            right: 0;
-            color: rgb(222, 213, 226);
-            letter-spacing: 0.03em;
-            line-height: 1.3em;
-            @media all and (min-width: 0) and (max-width: $tablet-portrait-width) { 
-                max-width: 68%;
-                font-size: 29px
+    .home-container {
+        height: 100.1vh;
+        overflow: hidden;
+        .header {
+            height: 100vh;
+            position: relative;
+            width: 100%;
+            blockquote {
+                position: absolute;
+                top: 40%;
+                transform: translateY(-50%);
+                text-align: right;
+                font-size: 30px;
+                font-weight: 100;
+                max-width: 50%;
+                right: 0;
+                color: rgb(222, 213, 226);
+                letter-spacing: 0.03em;
+                line-height: 1.3em;
+                @media all and (min-width: 0) and (max-width: $tablet-portrait-width) { 
+                    max-width: 68%;
+                    font-size: 29px
+                }
             }
         }
     }

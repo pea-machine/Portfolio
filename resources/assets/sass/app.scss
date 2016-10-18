@@ -2,8 +2,12 @@
 @import 'fonts.scss';
 @import 'adaptivegrid.scss';
 
-#app {
-    min-height: 200vh; /* Chrome position overflow overflow hidden fix */
+// Chrome position overflow overflow hidden fix
+body {
+    /* overflow: hidden;
+    #app {
+        min-height: 200vh;
+    } */
 }
 
 html, body {

@@ -21,6 +21,7 @@
         top: 0;
         left: 0;
         overflow: hidden;
+        overflow-x: hidden;
         z-index: 999;
         .logo {
             position: fixed;
@@ -78,14 +79,15 @@
                     });
                 });
         },
-        mounted() {
+        mounted () {
             if(store.state.pageLoading) {
                 this.startAnimation();
             }
         },
         methods: {
-            startAnimation() {
+            startAnimation () {
                 if(!this.$refs.logo.querySelector('pattern')) { return; }
+                this.fixedLogoFix('start');
                 
                 this.$refs.logo.style.display = 'block';
 
@@ -98,7 +100,7 @@
                     fromTo(this.$refs.logo.querySelector('pattern'), 50, { attr:{ x: 0 } }, { attr:{ x: -10000 }, ease: Power0.easeNone });
                 }
             },
-            endAnimation() {
+            endAnimation () {
                 setTimeout(() => {
                     this.startTl.pause();
                     this.$refs.logo.style.display = 'none';
@@ -106,7 +108,24 @@
 
                 this.endTl = new TimelineMax({ ease: Back.easeIn });
                 this.endTl.
-                fromTo('.page-loader', 1.5, { width: '100%' }, { width: 0, ease: Power4.easeInOut, onComplete: () => { this.animationEnded = true; } });
+                fromTo('.page-loader', 1.5, { width: '100%' }, { width: 0, ease: Power4.easeInOut, onComplete: () => {
+                    this.animationEnded = true;
+                    this.fixedLogoFix('end');
+                } });
+            },
+            fixedLogoFix (pos) {
+                /*switch(pos) {
+                    case 'start':
+                        document.getElementById('app').style.minHeight = '200vh';
+                        document.body.style.height = '100vh';
+                        document.body.style.overflowY = 'hidden';
+                    break;
+                    case 'end':
+                        document.getElementById('app').style.minHeight = null;
+                        document.body.style.height = null;
+                        document.body.style.overflow = null;
+                    break;
+                }*/
             }
         }
     }

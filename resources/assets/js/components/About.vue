@@ -8,6 +8,9 @@
                 <div class="block-text">
                     <h1>About</h1>
                     <p>
+                        I'm a freelance full-stack web developer with a base at the co-working space Greenhouse. While I have over 10 years worth of experience in development the changing sands of coding technologies mean knowledge can quickly expire. For this reason I'm as future-focused as possible, using the latest innovations.
+                    </p>
+                    <p>
                         Full-stack nomad working with a range of technologies while floating around Laravel, Wordpress and Backbone. I have experience building for brands such as Sky, ASOS, Vue Cinemas, Diageo, EE, Macmillan and thrive on projects with high polish.
                     </p>
                     <p>

@@ -859,9 +859,11 @@ a {
   .grid .col.larger-to-100 {
     width: 100%; } }
 
-#app {
-  min-height: 200vh;
-  /* Chrome position overflow overflow hidden fix */ }
+body {
+  /* overflow: hidden;
+    #app {
+        min-height: 200vh;
+    } */ }
 
 html, body {
   margin: 0;
