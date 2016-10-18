@@ -2,18 +2,8 @@
 @import 'fonts.scss';
 @import 'adaptivegrid.scss';
 
-// Chrome position overflow overflow hidden fix
-body {
-    /* overflow: hidden;
-    #app {
-        min-height: 200vh;
-    } */
-}
-
 html, body {
     margin: 0;
-    /* height: 100vh;
-    overflow: hidden; */
 }
 
 body {

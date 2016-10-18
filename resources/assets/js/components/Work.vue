@@ -212,6 +212,10 @@
     .work-container {
         position: fixed;
         height: 100vh;
+        @media all and (min-width: 0) and (max-width: $mobile-small-landscape-width) { 
+            position: static;
+            transform: matrix(1, 0, 0, 1, 0, 0);
+        }
     }
 
     .header {
@@ -318,7 +322,9 @@
             handleScroll (scrollY) {
                 if (!this.ticking) {
                     window.requestAnimationFrame(() => {
-                        new TweenMax('.work-container', 1, { y: scrollY * -1 });
+                        if(window.innerWidth > 600) {
+                            new TweenMax('.work-container', 1, { y: scrollY * -1 });
+                        }
                         this.ticking = false;
                     });
                 }
