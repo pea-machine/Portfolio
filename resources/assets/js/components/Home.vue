@@ -1,7 +1,7 @@
 <template>
     <div class="home-container">
         <div class="header">
-            <blockquote>I'm Peter Bailey, a full-stack web developer based in London. I specialize in Wordpress, Laravel and Vue.</blockquote>
+            <blockquote>I'm Peter Bailey, a full-stack web developer based in London. I specialize in JavaScript and PHP, Wordpress and Laravel.</blockquote>
         </div>
     </div>
 </template>
@@ -16,7 +16,7 @@
     $desktop-width: 1200px;
 
     .home-container {
-        height: 100.1vh;
+        height: 101vh;
         overflow: hidden;
         .header {
             height: 100vh;

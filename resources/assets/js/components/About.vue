@@ -8,16 +8,10 @@
                 <div class="block-text">
                     <h1>About</h1>
                     <p>
-                        I'm a freelance full-stack web developer with a base at the co-working space Greenhouse. While I have over 10 years worth of experience in development the changing sands of coding technologies mean knowledge can quickly expire. For this reason I'm as future-focused as possible, using the latest innovations.
+                        I'm a freelance full-stack web developer with a base at the co-working space Greenhouse. While I have over 10 years worth of experience in development the changing sands of programming innovation means knowledge can quickly expire. For this reason I'm as future-focused as possible, using the latest innovations, particularly in JavaScript.
                     </p>
                     <p>
-                        Full-stack nomad working with a range of technologies while floating around Laravel, Wordpress and Backbone. I have experience building for brands such as Sky, ASOS, Vue Cinemas, Diageo, EE, Macmillan and thrive on projects with high polish.
-                    </p>
-                    <p>
-                        I have a passion for making (hardware as well as software) and founded the product design blog Techmog.com in 2011. I'm now joined by a team of writers who help cover London's maker scene. 
-                    </p>
-                    <p>
-                        I'm currently freelancing in London, either on-site or from the co-working space Greenhouse N16.
+                        I have experience building for brands such as Sky, ASOS, Vue Cinemas, Diageo, EE, Macmillan and thrive on projects with high polish.
                     </p>
                 </div>
             </div>
@@ -27,6 +21,7 @@
 
 <style lang="sass" scoped>
     .about-container {
+        height: 101vh;
         padding: 67px 0 0 0
     }
 </style>

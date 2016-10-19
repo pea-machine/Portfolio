@@ -129,13 +129,11 @@
         }
         z-index: 1;
         a {
-            display: inline-block;
+            display: none;
             padding: 17px;
-            color: transparent;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 12px;
-            opacity: 0;
             position: relative;
             @media all and (min-width: 0) and (max-width: $mobile-small-landscape-width) { 
                 padding: 13px 0 0 6px;
@@ -191,7 +189,7 @@
 
                 tl.timeScale(0.9).
                 to('.top-bar', 1, { height: topBarHeight }, 0).
-                fromTo('.burger .refract', 2, {width: 600, right: window.innerWidth + 680 }, { right: refractRight, width: 600, ease: easing }, 0).
+                fromTo('.burger .refract', 2, {width: 600, right: window.innerWidth + 680 }, { right: refractRight, width: 30, ease: easing }, 0).
                 fromTo('.burger .leading1', 2, { width: 600, right: window.innerWidth + 680 }, { width: 30, right: 0, ease: easing }, 0).
                 fromTo('.burger .leading2', 2, { width: 600, right: window.innerWidth + 680 }, { width: 30, right: 0, ease: easing }, overlap).
                 fromTo('.burger .block', 2, { width: 600, right: window.innerWidth + 680 }, { width: 30, right: 0, ease: easing }, overlap).
@@ -261,16 +259,16 @@
                     // Show menu
                     
                     to('.menu a:nth-of-type(1)', 0.2, 
-                        { opacity: 1, left: '-=10', color: '#c5dcc5', textShadow: '0 0 1px RGBA(255,255,255,0.2), -2px 0px 1px #1027ee, 2px 0 1px #ef1c1a' }, '-=0.7').
+                        { autoAlpha: 1, display:'inline-block', left: '-=10', color: '#c5dcc5', textShadow: '0 0 1px RGBA(255,255,255,0.2), -2px 0px 1px #1027ee, 2px 0 1px #ef1c1a' }, '-=0.7').
                     
                     to('.menu a:nth-of-type(2)', 0.2, 
-                        { opacity: 1, left: '-=10', color: '#c5dcc5', textShadow: '0 0 1px RGBA(255,255,255,0.2), -2px 0px 1px #1027ee, 2px 0 1px #ef1c1a' }, '-=0.8').
+                        { autoAlpha: 1, display:'inline-block', left: '-=10', color: '#c5dcc5', textShadow: '0 0 1px RGBA(255,255,255,0.2), -2px 0px 1px #1027ee, 2px 0 1px #ef1c1a' }, '-=0.8').
                     
                     to('.menu a:nth-of-type(3)', 0.2, 
-                        { opacity: 1, left: '-=10', color: '#c5dcc5', textShadow: '0 0 1px RGBA(255,255,255,0.2), -2px 0px 1px #1027ee, 2px 0 1px #ef1c1a' }, '-=0.9').
+                        { autoAlpha: 1, display:'inline-block', left: '-=10', color: '#c5dcc5', textShadow: '0 0 1px RGBA(255,255,255,0.2), -2px 0px 1px #1027ee, 2px 0 1px #ef1c1a' }, '-=0.9').
 
                     to('.menu a:nth-of-type(4)', 0.2, 
-                        { opacity: 1, left: '-=10', color: '#c5dcc5', textShadow: '0 0 1px RGBA(255,255,255,0.2), -2px 0px 1px #1027ee, 2px 0 1px #ef1c1a' }, '-=1');
+                        { autoAlpha: 1, display:'inline-block', left: '-=10', color: '#c5dcc5', textShadow: '0 0 1px RGBA(255,255,255,0.2), -2px 0px 1px #1027ee, 2px 0 1px #ef1c1a' }, '-=1');
 
             },
             close () {

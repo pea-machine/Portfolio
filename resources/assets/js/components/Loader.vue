@@ -121,7 +121,7 @@
                         document.body.style.overflowY = 'hidden';
                     break;
                     case 'end':
-                        document.getElementById('app').style.minHeight = null;
+                        document.getElementById('app').style.minHeight = 0;
                         document.body.style.height = null;
                         document.body.style.overflow = null;
                     break;

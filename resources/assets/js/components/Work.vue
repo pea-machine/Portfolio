@@ -160,7 +160,7 @@
                             <div style="background-image: url('/public/img/asos-banner.jpg')" class="background-image"></div>
                             <div class="caption">
                                 <h3>ASOS</h3>
-                                <p>20+ Facebook apps.</p>
+                                <p>20+ Facebook apps using Graph API.</p>
                                 <ul class="tags">
                                     <li>PHP</li>
                                     <li>JavaScript</li>
@@ -323,6 +323,7 @@
                 if (!this.ticking) {
                     window.requestAnimationFrame(() => {
                         if(window.innerWidth > 600) {
+                            document.querySelector('#app').style.height = this.fauxBodyHeight + 'px';
                             new TweenMax('.work-container', 1, { y: scrollY * -1 });
                         }
                         this.ticking = false;

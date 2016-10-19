@@ -7,7 +7,6 @@
             <div class="col perc50 smallest-to-100 smaller-to-100 small-to-100">
                 <div class="block-text">
                     <h1>Contact</h1>
-                    
                     <p>
                         Greenhouse<br>
                         49 Green Lanes,<br>
@@ -25,7 +24,7 @@
 
 <style lang="sass" scoped>
     .contact-container {
-        height: 100vh;
+        height: 101vh;
         padding: 67px 0 0 0
     }
 </style>
