@@ -108,6 +108,9 @@
                 </div>
                 <div class="item">
                     <div class="grid gut100 smallest-to-20 smaller-to-40 small-to-60 medium-to-40 large-to-40 outergut">
+                        <div class="col perc100">
+                            <h1>Other Projects</h1>
+                        </div>
                         <div class="col perc33 smallest-to-100 smaller-to-100 small-to-100 medium-to-50">
                             <div style="background-image: url('/public/img/screenshots/biglight.jpg')" class="background-image"></div>
                             <div class="caption">
@@ -195,6 +198,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="item">
+                    <div class="grid gut100 smallest-to-20 smaller-to-40 small-to-60 medium-to-40 large-to-40 outergut">
+                        <div class="col perc100">
+                            <h1>Open Source</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -251,6 +261,9 @@
             min-height: 100vh;
             @media all and (min-width: 0) and (max-width: $tablet-portrait-width){ 
                 min-height: auto;
+            }
+            h1 {
+                text-align: center
             }
             video {
                 object-fit: cover;
