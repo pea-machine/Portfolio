@@ -97,7 +97,7 @@
                     this.startTl = new TimelineMax();
                     this.startTl.
                     fromTo('.page-loader', 0, { width: 0 }, { width: '100%', ease: Power4.easeInOut }).
-                    fromTo(this.$refs.logo.querySelector('pattern'), 50, { attr:{ x: 0 } }, { attr:{ x: -10000 }, ease: Power0.easeNone });
+                    fromTo(this.$refs.logo.querySelector('pattern'), 50, { attr:{ x: 0, y: -100 } }, { attr:{ x: -10000, y: -150 }, ease: Power0.easeNone });
                 }
             },
             endAnimation () {
