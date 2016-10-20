@@ -112,7 +112,7 @@
                             <h1>Other Projects</h1>
                         </div>
                         <div class="col perc33 smallest-to-100 smaller-to-100 small-to-100 medium-to-50">
-                            <div style="background-image: url('/public/img/screenshots/biglight.jpg')" class="background-image"></div>
+                            <a href="http://biglight.co.uk" target="_blank" style="background-image: url('/public/img/screenshots/biglight.jpg')" class="background-image"></a>
                             <div class="caption">
                                 <h3>Biglight</h3>
                                 <p>JavaScript animation, UI and CMS improvements.</p>
@@ -184,7 +184,7 @@
                             </div>
                         </div>
                         <div class="col perc33 smallest-to-100 smaller-to-100 small-to-100 medium-to-50">
-                            <div style="background-image: url('/public/img/screenshots/openplanned.jpg')" class="background-image"></div>
+                            <a href="http://openplanned.org" target="_blank" style="background-image: url('/public/img/screenshots/openplanned.jpg')" class="background-image"></a>
                             <div class="caption">
                                 <h3>Open Planned</h3>
                                 <p>Back-end functionality to enable visitor-submitted content.</p>
@@ -202,6 +202,27 @@
                     <div class="grid gut100 smallest-to-20 smaller-to-40 small-to-60 medium-to-40 large-to-40 outergut">
                         <div class="col perc100">
                             <h1>Open Source</h1>
+                        </div>
+                        <div class="col perc33 smallest-to-100 smaller-to-100 small-to-100 medium-to-50">
+                            <a href="https://github.com/pea/Signature_Wizard/" target="_blank" style="background-image: url('/public/img/signature-wizard-banner.jpg')" class="background-image"></a>
+                            <div class="caption">
+                                <h3>Signature Wizard</h3>
+                                <p>Chrome extension. Pulls in signatures from a remote URL and inserts them into Gmail. Enables dynamic signature generation or consistency across a company.</p>
+                                <ul class="tags">
+                                    <li>Chrome Extension</li>
+                                    <li>JavaScript</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col perc33 smallest-to-100 smaller-to-100 small-to-100 medium-to-50">
+                            <a href="https://github.com/pea/AdaptiveGrid" target="_blank" style="background-image: url('/public/img/adaptivegrid-banner.jpg')" class="background-image"></a>
+                            <div class="caption">
+                                <h3>Adaptive Grid</h3>
+                                <p>Customizable and intuitive SCSS grid system capable of being programmed to respond to varying screen sizes.</p>
+                                <ul class="tags">
+                                    <li>SCSS</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -226,6 +247,10 @@
             position: static;
             transform: matrix(1, 0, 0, 1, 0, 0);
         }
+    }
+
+    .grid {
+        justify-content: center;
     }
 
     .header {
@@ -273,6 +298,7 @@
                 font-size: 18px
             }
             .background-image {
+                display: block;
                 padding-bottom: 50%;
                 background-size: cover;
                 background-position: center;
