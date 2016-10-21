@@ -32,6 +32,7 @@
             @media all and (min-width: 0) and (max-width: $tablet-portrait-width) { 
                 width: 300px;
                 margin: 0 0 0 -150px;
+                top: 150px;
             }
             path {
                 filter: url(#filter);
