@@ -1,0 +1,24 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://techmog.com/wp-content/plugins/xml-sitemap-feed/includes/xsl/sitemap.xsl?ver=4.6.3"?>
+<!-- generated-on="2016-10-22T12:37:22+00:00" -->
+<!-- generator="XML & Google News Sitemap Feed plugin for WordPress" -->
+<!-- generator-url="http://status301.net/wordpress-plugins/xml-sitemap-feed/" -->
+<!-- generator-version="4.6.3" -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+		http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+	<url>
+		<loc>http://peabay.xyz/</loc>
+	</url>
+	<url>
+		<loc>http://peabay.xyz/about</loc>
+	</url>
+	<url>
+		<loc>http://peabay.xyz/work</loc>
+	</url>
+	<url>
+		<loc>http://peabay.xyz/contact</loc>
+	</url>
+</urlset>
