@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "gsap": "^1.19.0",
+    "vue-scroll": "^2.0.1",
     "whatwg-fetch": "^1.0.0"
   }
 }
