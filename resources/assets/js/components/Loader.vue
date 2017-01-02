@@ -88,9 +88,10 @@
         methods: {
             startAnimation () {
                 if(!this.$refs.logo.querySelector('pattern')) { return; }
-                this.fixedLogoFix('start');
                 
                 this.$refs.logo.style.display = 'block';
+                this.$refs.logo.querySelector('svg').style.transform = 'scale(1)';
+                this.$refs.logo.querySelector('svg').style.opacity = '1';
 
                 if(this.startTl != null) {
                     this.startTl.play();
@@ -111,22 +112,8 @@
                 this.endTl.
                 fromTo('.page-loader', 1.5, { width: '100%' }, { width: 0, ease: Power4.easeInOut, onComplete: () => {
                     this.animationEnded = true;
-                    this.fixedLogoFix('end');
-                } });
-            },
-            fixedLogoFix (pos) {
-                /*switch(pos) {
-                    case 'start':
-                        document.getElementById('app').style.minHeight = '200vh';
-                        document.body.style.height = '100vh';
-                        document.body.style.overflowY = 'hidden';
-                    break;
-                    case 'end':
-                        document.getElementById('app').style.minHeight = 0;
-                        document.body.style.height = null;
-                        document.body.style.overflow = null;
-                    break;
-                }*/
+                } }, 0).
+                fromTo(this.$refs.logo.querySelector('svg'), .5, { css: { scale: 1, opacity: 1 } }, { css:{ scale: .9, opacity: 0 }, ease: Power0.easeNone }, 0);
             }
         }
     }
