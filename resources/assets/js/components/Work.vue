@@ -313,6 +313,7 @@
                 padding-bottom: 50%;
                 background-size: cover;
                 background-position: center;
+                background-repeat: no-repeat;
             }
             .tags {
                 list-style: none;
