@@ -225,10 +225,10 @@
                             </div>
                         </div>
                         <div class="col perc33 smallest-to-100 smaller-to-100 small-to-100 medium-to-50">
-                            <a href="https://github.com/pea/Gulp-Wordpress-Backup" target="_blank" style="background-image: url('/public/img/adaptivegrid-banner.jpg')" class="background-image"></a>
+                            <a href="https://github.com/pea/Gulp-Wordpress-Backup" target="_blank" style="background-image: url('/public/img/wordpress-gulp-backup-banner.jpg')" class="background-image"></a>
                             <div class="caption">
-                                <h3>Gulp Wordpress Backup</h3>
-                                <p>Backup Wordpress via the command line.</p>
+                                <h3>Wordpress Backup with Gulp</h3>
+                                <p>Automating the backup process using only JavaScript.</p>
                                 <ul class="tags">
                                     <li>Node</li>
                                     <li>Gulp</li>
